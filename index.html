@@ -31,12 +31,6 @@
       scroll-behavior: smooth;
     }
     
-    .hero-image {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
-      background-size: cover;
-      background-position: center;
-    }
-
     .transition-transform {
       transition: transform 0.3s ease;
     }
@@ -79,17 +73,32 @@
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="hero-image min-h-screen flex items-center pt-16">
-    <div class="max-w-4xl mx-auto text-center px-6 py-20">
-      <h2 class="text-5xl md:text-6xl font-bold mb-6 text-light">Premium Mini Bus Service in Coventry</h2>
-      <p class="text-xl md:text-2xl mb-8 text-light opacity-90">Professional transportation for any occasion across the UK</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#booking" class="bg-primary text-light px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg flex items-center justify-center">
-          <i class="fas fa-calendar-check mr-2"></i> Book Your Ride
-        </a>
-        <a href="#services" class="bg-light text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
-          <i class="fas fa-info-circle mr-2"></i> Our Services
-        </a>
+  <section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="./asset/hero.png" alt="Luxury Minibus" class="w-full h-full object-cover opacity-40" />
+     
+    </div>
+    <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center z-10">
+      <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+        <h2 class="text-5xl md:text-6xl font-bold mb-6 text-light">Premium Mini Bus Service in Coventry</h2>
+        <p class="text-xl md:text-2xl mb-8 text-light opacity-90">Professional transportation for any occasion across the UK</p>
+        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <a href="#booking" class="bg-primary text-light px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg flex items-center justify-center">
+            <i class="fas fa-calendar-check mr-2"></i> Book Your Ride
+          </a>
+          <a href="#services" class="bg-light text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
+            <i class="fas fa-info-circle mr-2"></i> Our Services
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 relative">
+        <div class="relative p-3 bg-primary rounded-lg shadow-2xl transform md:translate-y-6 md:translate-x-4">
+          <img src="./asset/3yr.png" alt="Nawab Travel Luxury Minibus" class="w-full h-auto rounded-lg shadow-inner" />
+          <div class="absolute -bottom-4 -right-4 bg-white text-secondary p-3 rounded-lg shadow-lg">
+            <div class="text-lg font-bold">3+ Years</div>
+            <div class="text-sm">of Excellence</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
