@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Now - Nawab Travel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E50914',
+            secondary: '#1A1A1A',
+            light: '#FFFFFF',
+            darkgray: '#333333',
+            lightgray: '#F8F8F8'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      scroll-behavior: smooth;
+    }
+    
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+
+    /* Progress bar styles */
+    .step-active {
+      background-color: #E50914;
+      color: white;
+    }
+    
+    .step-inactive {
+      background-color: #e2e8f0;
+      color: #1A1A1A;
+    }
+    
+    .step-completed {
+      background-color: #10B981;
+      color: white;
+    }
+    
+    .step-line {
+      height: 2px;
+      background-color: #e2e8f0;
+    }
+    
+    .step-line-active {
+      background-color: #E50914;
+    }
+  </style>
+</head>
+<body class="bg-lightgray text-darkgray font-sans">
+
+  <!-- Header with sticky navbar -->
+  <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+        <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+      </div>
+      <nav id="desktop-menu" class="hidden md:block">
+        <a href="index.html#home" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
+        <a href="services.html" class="px-4 hover:text-primary transition-colors duration-300">Services</a>
+        <a href="#" class="px-4 text-primary transition-colors duration-300">Book Now</a>
+        <a href="about.html" class="px-4 hover:text-primary transition-colors duration-300">About Us</a>
+        <a href="contact.html" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-light">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-secondary py-4 px-6 shadow-inner border-t border-darkgray">
+      <ul class="space-y-3">
+        <li><a href="index.html#home" class="block py-2 hover:text-primary transition-colors duration-300">Home</a></li>
+        <li><a href="services.html" class="block py-2 hover:text-primary transition-colors duration-300">Services</a></li>
+        <li><a href="#" class="block py-2 text-primary transition-colors duration-300">Book Now</a></li>
+        <li><a href="about.html" class="block py-2 hover:text-primary transition-colors duration-300">About Us</a></li>
+        <li><a href="contact.html" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="pt-24 pb-16 bg-secondary text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Book Your Journey</h1>
+        <p class="text-lg md:text-xl mb-8 opacity-90">Fast, easy and secure online booking for all your transportation needs</p>
+        <div class="max-w-3xl mx-auto bg-darkgray rounded-lg p-4">
+          <div class="flex justify-between items-center">
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center step-active mb-2">1</div>
+              <span class="text-xs md:text-sm font-medium">Your Details</span>
+            </div>
+            <div class="step-line flex-1 mx-2 step-line-active"></div>
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center step-inactive mb-2">2</div>
+              <span class="text-xs md:text-sm font-medium">Journey Details</span>
+            </div>
+            <div class="step-line flex-1 mx-2"></div>
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center step-inactive mb-2">3</div>
+              <span class="text-xs md:text-sm font-medium">Review & Submit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Booking Form -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div id="booking-form">
+          <!-- Step 1: Your Details -->
+          <div id="step-1" class="p-6 md:p-8">
+            <h2 class="text-2xl font-bold mb-6">Your Details</h2>
+            <form id="personal-details-form" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="first-name" class="block text-sm font-medium mb-2">First Name*</label>
+                  <input type="text" id="first-name" name="first-name" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your first name" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please enter your first name</p>
+                </div>
+                <div>
+                  <label for="last-name" class="block text-sm font-medium mb-2">Last Name*</label>
+                  <input type="text" id="last-name" name="last-name" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your last name" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please enter your last name</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="email" class="block text-sm font-medium mb-2">Email Address*</label>
+                  <input type="email" id="email" name="email" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="your@email.com" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please enter a valid email address</p>
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-medium mb-2">Phone Number*</label>
+                  <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="07123 456789" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please enter a valid UK phone number</p>
+                </div>
+              </div>
+              <div>
+                <label for="address" class="block text-sm font-medium mb-2">Address (Optional)</label>
+                <input type="text" id="address" name="address" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Enter your address" />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                  <label for="city" class="block text-sm font-medium mb-2">City/Town (Optional)</label>
+                  <input type="text" id="city" name="city" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="City/Town" />
+                </div>
+                <div>
+                  <label for="county" class="block text-sm font-medium mb-2">County (Optional)</label>
+                  <input type="text" id="county" name="county" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="County" />
+                </div>
+                <div>
+                  <label for="postcode" class="block text-sm font-medium mb-2">Postcode (Optional)</label>
+                  <input type="text" id="postcode" name="postcode" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Postcode" />
+                </div>
+              </div>
+              <div class="pt-6 flex justify-end">
+                <button type="button" id="next-step-1" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center">
+                  Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 2: Journey Details -->
+          <div id="step-2" class="p-6 md:p-8 hidden">
+            <h2 class="text-2xl font-bold mb-6">Journey Details</h2>
+            <form id="journey-details-form" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="journey-type" class="block text-sm font-medium mb-2">Journey Type*</label>
+                  <select id="journey-type" name="journey-type" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="" disabled selected>Select journey type</option>
+                    <option value="one-way">One Way</option>
+                    <option value="return">Return</option>
+                    <option value="hourly">Hourly Hire</option>
+                    <option value="daily">Daily Hire</option>
+                  </select>
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please select journey type</p>
+                </div>
+                <div>
+                  <label for="passengers" class="block text-sm font-medium mb-2">Number of Passengers*</label>
+                  <select id="passengers" name="passengers" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="" disabled selected>Select number</option>
+                    <option value="1-4">1-4 passengers</option>
+                    <option value="5-8">5-8 passengers</option>
+                    <option value="9-12">9-12 passengers</option>
+                    <option value="13-16">13-16 passengers</option>
+                  </select>
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please select number of passengers</p>
+                </div>
+              </div>
+              <div>
+                <label for="pickup" class="block text-sm font-medium mb-2">Pickup Location*</label>
+                <input type="text" id="pickup" name="pickup" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Full address with postcode" />
+                <p class="error-message text-primary text-xs mt-1 hidden">Please enter pickup location</p>
+              </div>
+              <div>
+                <label for="dropoff" class="block text-sm font-medium mb-2">Dropoff Location*</label>
+                <input type="text" id="dropoff" name="dropoff" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Full address with postcode" />
+                <p class="error-message text-primary text-xs mt-1 hidden">Please enter dropoff location</p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label for="pickup-date" class="block text-sm font-medium mb-2">Pickup Date*</label>
+                  <input type="date" id="pickup-date" name="pickup-date" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please select pickup date</p>
+                </div>
+                <div>
+                  <label for="pickup-time" class="block text-sm font-medium mb-2">Pickup Time*</label>
+                  <input type="time" id="pickup-time" name="pickup-time" required class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+                  <p class="error-message text-primary text-xs mt-1 hidden">Please select pickup time</p>
+                </div>
+              </div>
+              <!-- Return journey fields (conditionally displayed) -->
+              <div id="return-journey" class="hidden">
+                <div class="bg-lightgray p-4 rounded-lg mb-4">
+                  <h3 class="font-semibold mb-4">Return Journey Details</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="return-date" class="block text-sm font-medium mb-2">Return Date*</label>
+                      <input type="date" id="return-date" name="return-date" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+                      <p class="error-message text-primary text-xs mt-1 hidden">Please select return date</p>
+                    </div>
+                    <div>
+                      <label for="return-time" class="block text-sm font-medium mb-2">Return Time*</label>
+                      <input type="time" id="return-time" name="return-time" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+                      <p class="error-message text-primary text-xs mt-1 hidden">Please select return time</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Hourly hire fields (conditionally displayed) -->
+              <div id="hourly-hire" class="hidden">
+                <div class="bg-lightgray p-4 rounded-lg mb-4">
+                  <h3 class="font-semibold mb-4">Hourly Hire Details</h3>
+                  <div>
+                    <label for="hours" class="block text-sm font-medium mb-2">Number of Hours*</label>
+                    <select id="hours" name="hours" class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                      <option value="" disabled selected>Select hours</option>
+                      <option value="1">1 hour</option>
+                      <option value="2">2 hours</option>
+                      <option value="3">3 hours</option>
+                      <option value="4">4 hours</option>
+                      <option value="5">5 hours</option>
+                      <option value="6">6 hours</option>
+                      <option value="7">7 hours</option>
+                      <option value="8">8 hours</option>
+                      <option value="9">9+ hours (We'll contact you)</option>
+                    </select>
+                    <p class="error-message text-primary text-xs mt-1 hidden">Please select number of hours</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="special-requirements" class="block text-sm font-medium mb-2">Special Requirements (Optional)</label>
+                <textarea id="special-requirements" name="special-requirements" class="w-full border border-gray-300 p-3 rounded-lg h-24 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Any special requirements or additional information..."></textarea>
+              </div>
+              <div class="pt-6 flex justify-between">
+                <button type="button" id="prev-step-2" class="border border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center">
+                  <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+                <button type="button" id="next-step-2" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center">
+                  Continue <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 3: Review & Submit -->
+          <div id="step-3" class="p-6 md:p-8 hidden">
+            <h2 class="text-2xl font-bold mb-6">Review Your Booking</h2>
+            <div class="space-y-6">
+              <div class="bg-lightgray p-4 rounded-lg">
+                <h3 class="font-semibold mb-3">Personal Details</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-sm text-gray-600">Full Name</p>
+                    <p id="review-name" class="font-medium">John Smith</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Email Address</p>
+                    <p id="review-email" class="font-medium">john@example.com</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Phone Number</p>
+                    <p id="review-phone" class="font-medium">07123 456789</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-lightgray p-4 rounded-lg">
+                <h3 class="font-semibold mb-3">Journey Details</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-sm text-gray-600">Journey Type</p>
+                    <p id="review-journey-type" class="font-medium">One Way</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Number of Passengers</p>
+                    <p id="review-passengers" class="font-medium">5-8 passengers</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Pickup Location</p>
+                    <p id="review-pickup" class="font-medium">123 Street Name, City, Postcode</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Dropoff Location</p>
+                    <p id="review-dropoff" class="font-medium">456 Street Name, City, Postcode</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-600">Pickup Date & Time</p>
+                    <p id="review-pickup-datetime" class="font-medium">21/05/2025 at 14:30</p>
+                  </div>
+                  <div id="review-return-container" class="hidden">
+                    <p class="text-sm text-gray-600">Return Date & Time</p>
+                    <p id="review-return-datetime" class="font-medium">24/05/2025 at 16:30</p>
+                  </div>
+                  <div id="review-hours-container" class="hidden">
+                    <p class="text-sm text-gray-600">Duration</p>
+                    <p id="review-hours" class="font-medium">4 hours</p>
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <p class="text-sm text-gray-600">Special Requirements</p>
+                  <p id="review-requirements" class="font-medium italic">No special requirements provided.</p>
+                </div>
+              </div>
+              <div class="bg-lightgray p-4 rounded-lg">
+                <h3 class="font-semibold mb-3">Booking Information</h3>
+                <p class="text-sm mb-4">
+                  Once you submit your booking request, our team will review the details and send you a quote within 2 hours via email. 
+                  After you approve the quote, we'll process your payment and confirm your booking.
+                </p>
+                <div class="flex items-start mb-4">
+                  <input type="checkbox" id="terms" name="terms" class="mt-1" required>
+                  <label for="terms" class="ml-2 text-sm">
+                    I agree to the <a href="#" class="text-primary hover:underline">terms and conditions</a> and consent to the processing of my personal data for the purpose of this booking.
+                  </label>
+                </div>
+                <p id="terms-error" class="error-message text-primary text-xs mb-4 hidden">Please agree to the terms and conditions</p>
+              </div>
+              <div class="pt-6 flex justify-between">
+                <button type="button" id="prev-step-3" class="border border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 flex items-center">
+                  <i class="fas fa-arrow-left mr-2"></i> Back
+                </button>
+                <button type="submit" id="submit-booking" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300 flex items-center">
+                  <i class="fas fa-paper-plane mr-2"></i> Submit Booking
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Success Message -->
+          <div id="booking-success" class="p-6 md:p-8 hidden">
+            <div class="text-center py-12">
+              <div class="inline-block bg-green-100 p-6 rounded-full mb-6">
+                <i class="fas fa-check-circle text-green-600 text-6xl"></i>
+              </div>
+              <h2 class="text-3xl font-bold mb-4">Booking Request Submitted!</h2>
+              <p class="text-lg mb-6">Thank you for choosing Nawab Travel. Your booking request has been successfully submitted.</p>
+              <div class="bg-lightgray p-6 rounded-lg max-w-md mx-auto mb-8">
+                <h3 class="font-semibold mb-3">What happens next?</h3>
+                <ul class="text-left space-y-3">
+                  <li class="flex items-start">
+                    <i class="fas fa-envelope text-primary mt-1 mr-2"></i>
+                    <span>You will receive a confirmation email shortly</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-clipboard-check text-primary mt-1 mr-2"></i>
+                    <span>Our team will review your request and send you a quote within 2 hours</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-credit-card text-primary mt-1 mr-2"></i>
+                    <span>Once you approve the quote, we'll process your payment and confirm your booking</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mb-6">
+                <p class="font-medium mb-2">Booking Reference</p>
+                <p class="text-2xl font-bold text-primary" id="booking-reference">NT-25052025-XYZ</p>
+                <p class="text-sm text-gray-500">Please keep this reference for future correspondence</p>
+              </div>
+              <div class="space-x-4">
+                <a href="index.html" class="inline-block border border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                  Back to Home
+                </a>
+                <a href="contact.html" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors duration-300">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Information -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Why Choose Us -->
+        <div class="bg-lightgray p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Why Choose Nawab Travel</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Modern, well-maintained mini buses</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Fully licensed and insured service</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Professional, DBS checked drivers</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>Competitive pricing with no hidden fees</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
+              <span>24/7 customer support</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FAQs -->
+        <div class="bg-lightgray p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Frequently Asked Questions</h3>
+          <div class="space-y-4">
+            <div>
+              <h4 class="font-semibold mb-1">How far in advance should I book?</h4>
+              <p class="text-sm">We recommend booking at least 48 hours in advance to ensure availability, especially during peak times.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">What payment methods do you accept?</h4>
+              <p class="text-sm">We accept all major credit/debit cards, bank transfers, and cash payments for certain bookings.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Can I cancel my booking?</h4>
+              <p class="text-sm">Yes, cancellations made 24+ hours before your journey are fully refundable. Later cancellations may incur a fee.</p>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-1">Do you provide child seats?</h4>
+              <p class="text-sm">Yes, we can provide child seats upon request. Please specify in the special requirements field.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="bg-lightgray p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Need Help?</h3>
+          <p class="mb-4">If you have any questions or need assistance with your booking, our friendly team is here to help.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-phone text-primary mt-1 mr-3"></i>
+              <span>Call us: <a href="tel:+441234567890" class="hover:text-primary transition-colors duration-300">+44 1234 567890</a></span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+              <span>Email: <a href="mailto:bookings@nawabtravel.co.uk" class="hover:text-primary transition-colors duration-300">bookings@nawabtravel.co.uk</a></span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+              <span>Office hours: 8am - 8pm, 7 days a week</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="contact.html" class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors duration-300 inline-flex items-center">
+              <i class="fas fa-paper-plane mr-2"></i> Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="ml-2 font-semibold">5.0</span>
+          </div>
+          <p class="italic mb-4">"Excellent service! The driver was punctual, professional and very helpful. The minibus was clean and comfortable. Will definitely use Nawab Travel again for our future trips."</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+              <i class="fas fa-user text-gray-600"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Sarah Johnson</h4>
+              <p class="text-sm text-gray-600">School Trip, Manchester</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="ml-2 font-semibold">5.0</span>
+          </div>
+          <p class="italic mb-4">"We used Nawab Travel for our company outing and couldn't be happier. The booking process was simple, pricing transparent, and the service on the day was impeccable. Highly recommend!"</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+              <i class="fas fa-user text-gray-600"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">David Thomson</h4>
+              <p class="text-sm text-gray-600">Corporate Event, Liverpool</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="ml-2 font-semibold">4.5</span>
+          </div>
+          <p class="italic mb-4">"We booked Nawab Travel for a wedding shuttle service between our venue and hotel. The service was excellent and made transportation stress-free for our guests. Would book again!"</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-gray-300 rounded-full mr-3 flex items-center justify-center">
+              <i class="fas fa-user text-gray-600"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Priya Patel</h4>
+              <p class="text-sm text-gray-600">Wedding Service, Birmingham</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-light py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <div class="flex items-center mb-6">
+            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+            <h3 class="text-xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h3>
+          </div>
+          <p class="mb-4">Providing reliable and comfortable minibus transportation services across the UK since 2010.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-light hover:text-primary transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-light hover:text-primary transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-light hover:text-primary transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-light hover:text-primary transition-colors duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="hover:text-primary transition-colors duration-300">Home</a></li>
+            <li><a href="services.html" class="hover:text-primary transition-colors duration-300">Services</a></li>
+            <li><a href="#" class="text-primary transition-colors duration-300">Book Now</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Our Services -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html#airport" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+            <li><a href="services.html#corporate" class="hover:text-primary transition-colors duration-300">Corporate Travel</a></li>
+            <li><a href="services.html#events" class="hover:text-primary transition-colors duration-300">Event Transportation</a></li>
+            <li><a href="services.html#school" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+            <li><a href="services.html#tour" class="hover:text-primary transition-colors duration-300">UK Tours</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span>123 Transport Way, Manchester, M1 2XY</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone text-primary mt-1 mr-3"></i>
+              <span>+44 1234 567890</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+              <span>info@nawabtravel.co.uk</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+              <span>8am - 8pm, 7 days a week</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-darkgray mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="mb-4 md:mb-0">&copy; 2025 Nawab Travel. All rights reserved.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" class="hover:text-primary transition-colors duration-300">Privacy Policy</a>
+          <span class="hidden md:inline">|</span>
+          <a href="#" class="hover:text-primary transition-colors duration-300">Terms & Conditions</a>
+          <span class="hidden md:inline">|</span>
+          <a href="#" class="hover:text-primary transition-colors duration-300">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Booking form steps
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const step3 = document.getElementById('step-3');
+    const bookingSuccess = document.getElementById('booking-success');
+    
+    const nextStep1Button = document.getElementById('next-step-1');
+    const nextStep2Button = document.getElementById('next-step-2');
+    const prevStep2Button = document.getElementById('prev-step-2');
+    const prevStep3Button = document.getElementById('prev-step-3');
+    const submitBookingButton = document.getElementById('submit-booking');
+    
+    // Progress bar steps
+    const progressSteps = document.querySelectorAll('.step-active, .step-inactive');
+    const progressLines = document.querySelectorAll('.step-line');
+    
+    // Step 1 validation
+    nextStep1Button.addEventListener('click', () => {
+      const firstName = document.getElementById('first-name');
+      const lastName = document.getElementById('last-name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      let isValid = true;
+      
+      // Reset error messages
+      document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+      
+      // Validate required fields
+      if (!firstName.value.trim()) {
+        firstName.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!lastName.value.trim()) {
+        lastName.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!email.value.trim() || !isValidEmail(email.value)) {
+        email.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!phone.value.trim() || !isValidPhone(phone.value)) {
+        phone.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (isValid) {
+        // Show step 2
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        
+        // Update progress bar
+        progressSteps[0].classList.remove('step-active');
+        progressSteps[0].classList.add('step-completed');
+        progressSteps[1].classList.remove('step-inactive');
+        progressSteps[1].classList.add('step-active');
+        progressLines[1].classList.add('step-line-active');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+    
+    // Step 2 validation
+    nextStep2Button.addEventListener('click', () => {
+      const journeyType = document.getElementById('journey-type');
+      const passengers = document.getElementById('passengers');
+      const pickup = document.getElementById('pickup');
+      const dropoff = document.getElementById('dropoff');
+      const pickupDate = document.getElementById('pickup-date');
+      const pickupTime = document.getElementById('pickup-time');
+      let isValid = true;
+      
+      // Reset error messages
+      document.querySelectorAll('.error-message').forEach(el => el.classList.add('hidden'));
+      
+      // Validate required fields
+      if (journeyType.value === '') {
+        journeyType.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (passengers.value === '') {
+        passengers.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!pickup.value.trim()) {
+        pickup.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!dropoff.value.trim()) {
+        dropoff.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!pickupDate.value) {
+        pickupDate.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (!pickupTime.value) {
+        pickupTime.nextElementSibling.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      // Validate return journey fields if return journey is selected
+      if (journeyType.value === 'return') {
+        const returnDate = document.getElementById('return-date');
+        const returnTime = document.getElementById('return-time');
+        
+        if (!returnDate.value) {
+          returnDate.nextElementSibling.classList.remove('hidden');
+          isValid = false;
+        }
+        
+        if (!returnTime.value) {
+          returnTime.nextElementSibling.classList.remove('hidden');
+          isValid = false;
+        }
+      }
+      
+      // Validate hourly hire fields if hourly hire is selected
+      if (journeyType.value === 'hourly') {
+        const hours = document.getElementById('hours');
+        
+        if (hours.value === '') {
+          hours.nextElementSibling.classList.remove('hidden');
+          isValid = false;
+        }
+      }
+      
+      if (isValid) {
+        // Show step 3
+        step2.classList.add('hidden');
+        step3.classList.remove('hidden');
+        
+        // Update progress bar
+        progressSteps[1].classList.remove('step-active');
+        progressSteps[1].classList.add('step-completed');
+        progressSteps[2].classList.remove('step-inactive');
+        progressSteps[2].classList.add('step-active');
+        progressLines[1].classList.add('step-line-active');
+        
+        // Update review section
+        updateReviewSection();
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+    
+    // Go back to step 1
+    prevStep2Button.addEventListener('click', () => {
+      step2.classList.add('hidden');
+      step1.classList.remove('hidden');
+      
+      // Update progress bar
+      progressSteps[0].classList.remove('step-completed');
+      progressSteps[0].classList.add('step-active');
+      progressSteps[1].classList.remove('step-active');
+      progressSteps[1].classList.add('step-inactive');
+      progressLines[0].classList.remove('step-line-active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Go back to step 2
+    prevStep3Button.addEventListener('click', () => {
+      step3.classList.add('hidden');
+      step2.classList.remove('hidden');
+      
+      // Update progress bar
+      progressSteps[1].classList.remove('step-completed');
+      progressSteps[1].classList.add('step-active');
+      progressSteps[2].classList.remove('step-active');
+      progressSteps[2].classList.add('step-inactive');
+      progressLines[1].classList.remove('step-line-active');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Submit booking
+    submitBookingButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      const termsCheckbox = document.getElementById('terms');
+      const termsError = document.getElementById('terms-error');
+      
+      if (!termsCheckbox.checked) {
+        termsError.classList.remove('hidden');
+        return;
+      }
+      
+      // Hide terms error if checked
+      termsError.classList.add('hidden');
+      
+      // Show success message
+      step3.classList.add('hidden');
+      bookingSuccess.classList.remove('hidden');
+      
+      // Generate random booking reference
+      const today = new Date();
+      const dateStr = `${today.getDate()}${(today.getMonth() + 1).toString().padStart(2, '0')}${today.getFullYear()}`;
+      const randomChars = Math.random().toString(36).substring(2, 5).toUpperCase();
+      document.getElementById('booking-reference').textContent = `NT-${dateStr}-${randomChars}`;
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Reset form for demo purposes (in production, you'd send data to server)
+      // resetForm();
+    });
+    
+    // Journey type change handler
+    const journeyTypeSelect = document.getElementById('journey-type');
+    const returnJourneyFields = document.getElementById('return-journey');
+    const hourlyHireFields = document.getElementById('hourly-hire');
+    
+    journeyTypeSelect.addEventListener('change', () => {
+      // Hide all conditional fields first
+      returnJourneyFields.classList.add('hidden');
+      hourlyHireFields.classList.add('hidden');
+      
+      // Show relevant fields based on selection
+      if (journeyTypeSelect.value === 'return') {
+        returnJourneyFields.classList.remove('hidden');
+      } else if (journeyTypeSelect.value === 'hourly') {
+        hourlyHireFields.classList.remove('hidden');
+      }
+    });
+    
+    // Update review section
+    function updateReviewSection() {
+      // Personal details
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      
+      // Journey details
+      const journeyType = document.getElementById('journey-type');
+      const passengers = document.getElementById('passengers');
+      const pickup = document.getElementById('pickup').value;
+      const dropoff = document.getElementById('dropoff').value;
+      const pickupDate = document.getElementById('pickup-date').value;
+      const pickupTime = document.getElementById('pickup-time').value;
+      const specialRequirements = document.getElementById('special-requirements').value;
+      
+      // Update review fields
+      document.getElementById('review-name').textContent = `${firstName} ${lastName}`;
+      document.getElementById('review-email').textContent = email;
+      document.getElementById('review-phone').textContent = phone;
+      
+      document.getElementById('review-journey-type').textContent = journeyType.options[journeyType.selectedIndex].text;
+      document.getElementById('review-passengers').textContent = passengers.options[passengers.selectedIndex].text;
+      document.getElementById('review-pickup').textContent = pickup;
+      document.getElementById('review-dropoff').textContent = dropoff;
+      
+      // Format date and time
+      const formattedPickupDate = formatDate(pickupDate);
+      document.getElementById('review-pickup-datetime').textContent = `${formattedPickupDate} at ${formatTime(pickupTime)}`;
+      
+      // Handle return journey if applicable
+      if (journeyType.value === 'return') {
+        const returnDate = document.getElementById('return-date').value;
+        const returnTime = document.getElementById('return-time').value;
+        const formattedReturnDate = formatDate(returnDate);
+        
+        document.getElementById('review-return-container').classList.remove('hidden');
+        document.getElementById('review-return-datetime').textContent = `${formattedReturnDate} at ${formatTime(returnTime)}`;
+        document.getElementById('review-hours-container').classList.add('hidden');
+      } else if (journeyType.value === 'hourly') {
+        const hours = document.getElementById('hours');
+        
+        document.getElementById('review-hours-container').classList.remove('hidden');
+        document.getElementById('review-hours').textContent = hours.options[hours.selectedIndex].text;
+        document.getElementById('review-return-container').classList.add('hidden');
+      } else {
+        document.getElementById('review-return-container').classList.add('hidden');
+        document.getElementById('review-hours-container').classList.add('hidden');
+      }
+      
+      // Special requirements
+      if (specialRequirements.trim() !== '') {
+        document.getElementById('review-requirements').textContent = specialRequirements;
+        document.getElementById('review-requirements').classList.remove('italic');
+      } else {
+        document.getElementById('review-requirements').textContent = 'No special requirements provided.';
+        document.getElementById('review-requirements').classList.add('italic');
+      }
+    }
+    
+    // Helper functions
+    function isValidEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+    
+    function isValidPhone(phone) {
+      // Basic UK phone validation (not comprehensive)
+      const phonePattern = /^((\+44)|(0)) ?[0-9]{10,11}$/;
+      return phonePattern.test(phone);
+    }
+    
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+    }
+    
+    function formatTime(timeStr) {
+      const [hours, minutes] = timeStr.split(':');
+      return `${hours}:${minutes}`;
+    }
+    
+    function resetForm() {
+      document.getElementById('personal-details-form').reset();
+      document.getElementById('journey-details-form').reset();
+      
+      // Reset to step 1
+      bookingSuccess.classList.add('hidden');
+      step1.classList.remove('hidden');
+      
+      // Reset progress bar
+      progressSteps[0].classList.add('step-active');
+      progressSteps[0].classList.remove('step-completed');
+      progressSteps[1].classList.add('step-inactive');
+      progressSteps[1].classList.remove('step-active', 'step-completed');
+      progressSteps[2].classList.add('step-inactive');
+      progressSteps[2].classList.remove('step-active', 'step-completed');
+      progressLines[0].classList.remove('step-line-active');
+      progressLines[1].classList.remove('step-line-active');
+      
+      // Hide conditional fields
+      returnJourneyFields.classList.add('hidden');
+      hourlyHireFields.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

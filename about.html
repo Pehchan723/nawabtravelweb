@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Nawab Travel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E50914',
+            secondary: '#1A1A1A',
+            light: '#FFFFFF',
+            darkgray: '#333333',
+            lightgray: '#F8F8F8'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      scroll-behavior: smooth;
+    }
+    
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    .slide-in-left {
+      animation: slideInLeft 0.7s ease-in-out;
+    }
+    
+    @keyframes slideInLeft {
+      0% { transform: translateX(-50px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    .slide-in-right {
+      animation: slideInRight 0.7s ease-in-out;
+    }
+    
+    @keyframes slideInRight {
+      0% { transform: translateX(50px); opacity: 0; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+    
+    .timeline-dot::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #E50914;
+      left: -10px;
+      top: 0;
+    }
+    
+    .timeline-line {
+      position: absolute;
+      width: 2px;
+      background-color: #E50914;
+      top: 20px;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body class="bg-lightgray text-darkgray font-sans">
+
+  <!-- Header with sticky navbar -->
+  <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+        <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+      </div>
+      <nav id="desktop-menu" class="hidden md:block">
+        <a href="index.html#home" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
+        <a href="services.html" class="px-4 hover:text-primary transition-colors duration-300">Services</a>
+        <a href="index.html#booking" class="px-4 hover:text-primary transition-colors duration-300">Book Now</a>
+        <a href="#" class="px-4 text-primary transition-colors duration-300">About Us</a>
+        <a href="index.html#contact" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-light">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-secondary py-4 px-6 shadow-inner border-t border-darkgray">
+      <ul class="space-y-3">
+        <li><a href="index.html#home" class="block py-2 hover:text-primary transition-colors duration-300">Home</a></li>
+        <li><a href="services.html" class="block py-2 hover:text-primary transition-colors duration-300">Services</a></li>
+        <li><a href="index.html#booking" class="block py-2 hover:text-primary transition-colors duration-300">Book Now</a></li>
+        <li><a href="#" class="block py-2 text-primary transition-colors duration-300">About Us</a></li>
+        <li><a href="index.html#contact" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-24 pb-20 bg-secondary overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <img src="/api/placeholder/1200/500" alt="Nawab Travel Team" class="w-full h-full object-cover" />
+    </div>
+    <div class="max-w-6xl mx-auto px-6 z-10 relative">
+      <div class="text-center fade-in">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-light">About <span class="text-primary">Nawab Travel</span></h1>
+        <p class="text-xl md:text-2xl mb-8 text-light opacity-90 max-w-3xl mx-auto">Discover the story behind Coventry's premier mini bus service provider</p>
+        <div class="w-24 h-1 bg-primary mx-auto"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2" data-aos="fade-right">
+          <img src="/api/placeholder/600/400" alt="Our Mission" class="rounded-lg shadow-xl w-full" />
+        </div>
+        <div class="md:w-1/2" data-aos="fade-left">
+          <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Our Purpose</h3>
+          <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
+          <div class="w-24 h-1 bg-primary mb-6"></div>
+          <p class="text-lg mb-6">At Nawab Travel, our mission is to provide exceptional transportation services that exceed our customers' expectations. We are committed to safety, reliability, and comfort in every journey.</p>
+          <p class="text-lg mb-6">We believe that transportation should be stress-free, allowing our clients to focus on the purpose of their trip rather than the logistics of getting there.</p>
+          <div class="flex items-center bg-lightgray p-6 rounded-lg shadow-md hover-scale transition-transform">
+            <i class="fas fa-quote-left text-primary text-4xl mr-6"></i>
+            <p class="italic">"Our goal is to make every journey safe, comfortable, and memorable for our passengers."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Values -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">What We Stand For</h3>
+        <h2 class="text-4xl font-bold mb-4">Our Core Values</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">These principles guide everything we do at Nawab Travel, from customer interactions to business decisions.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 hover-scale transition-transform" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-primary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+            <i class="fas fa-shield-alt text-primary text-2xl"></i>
+          </div>
+          <h4 class="text-2xl font-semibold mb-3">Safety First</h4>
+          <p>We prioritize the safety of our passengers above all else. Our vehicles undergo regular maintenance checks, and our drivers are trained in defensive driving techniques.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 hover-scale transition-transform" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-primary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+            <i class="fas fa-handshake text-primary text-2xl"></i>
+          </div>
+          <h4 class="text-2xl font-semibold mb-3">Reliability</h4>
+          <p>Our customers depend on us to be there when promised. We take pride in our punctuality and dependability, ensuring you never have to worry about transportation.</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 hover-scale transition-transform" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-primary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+            <i class="fas fa-star text-primary text-2xl"></i>
+          </div>
+          <h4 class="text-2xl font-semibold mb-3">Excellence</h4>
+          <p>We strive for excellence in every aspect of our service, from comfortable vehicles to professional drivers and responsive customer support available 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our History -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Our Journey</h3>
+        <h2 class="text-4xl font-bold mb-4">The Nawab Travel Story</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">From humble beginnings to becoming Coventry's premier mini bus service provider.</p>
+      </div>
+      
+      <div class="relative pl-10 mt-16 md:pl-0">
+        <!-- Desktop Timeline -->
+        <div class="hidden md:block">
+          <div class="flex">
+            <div class="w-1/3 px-4" data-aos="fade-right">
+              <div class="bg-lightgray p-6 rounded-lg shadow-md h-full">
+                <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2008</div>
+                <h4 class="text-xl font-semibold mb-3">The Beginning</h4>
+                <p>Nawab Travel started with just two mini buses and a vision to provide exceptional transportation services in Coventry.</p>
+              </div>
+            </div>
+            <div class="w-1/3 px-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="bg-lightgray p-6 rounded-lg shadow-md h-full mt-20">
+                <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2015</div>
+                <h4 class="text-xl font-semibold mb-3">Expansion</h4>
+                <p>Our fleet grew to 10 vehicles, and we expanded our services to include corporate transportation and airport transfers across the UK.</p>
+              </div>
+            </div>
+            <div class="w-1/3 px-4" data-aos="fade-left" data-aos-delay="400">
+              <div class="bg-lightgray p-6 rounded-lg shadow-md h-full">
+                <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2025</div>
+                <h4 class="text-xl font-semibold mb-3">Today</h4>
+                <p>Now with a fleet of 20+ vehicles and a team of professional drivers, Nawab Travel is the trusted transportation partner for individuals and businesses across the region.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Removed the absolute positioned timeline that was causing the issue -->
+        </div>
+        
+        <!-- Mobile Timeline -->
+        <div class="md:hidden relative">
+          <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-primary"></div>
+          
+          <div class="relative pl-8 mb-12 timeline-dot" data-aos="fade-left">
+            <div class="bg-lightgray p-6 rounded-lg shadow-md">
+              <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2008</div>
+              <h4 class="text-xl font-semibold mb-3">The Beginning</h4>
+              <p>Nawab Travel started with just two mini buses and a vision to provide exceptional transportation services in Coventry.</p>
+            </div>
+          </div>
+          
+          <div class="relative pl-8 mb-12 timeline-dot" data-aos="fade-left" data-aos-delay="100">
+            <div class="bg-lightgray p-6 rounded-lg shadow-md">
+              <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2015</div>
+              <h4 class="text-xl font-semibold mb-3">Expansion</h4>
+              <p>Our fleet grew to 10 vehicles, and we expanded our services to include corporate transportation and airport transfers across the UK.</p>
+            </div>
+          </div>
+          
+          <div class="relative pl-8 timeline-dot" data-aos="fade-left" data-aos-delay="200">
+            <div class="bg-lightgray p-6 rounded-lg shadow-md">
+              <div class="bg-primary text-white text-lg font-bold px-4 py-2 rounded-full inline-block mb-4">2025</div>
+              <h4 class="text-xl font-semibold mb-3">Today</h4>
+              <p>Now with a fleet of 20+ vehicles and a team of professional drivers, Nawab Travel is the trusted transportation partner for individuals and businesses across the region.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet Our Team -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">The People Behind Nawab Travel</h3>
+        <h2 class="text-4xl font-bold mb-4">Meet Our Team</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">Our dedicated team works tirelessly to ensure your journey is safe, comfortable, and enjoyable.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-64 bg-secondary">
+            <img src="/api/placeholder/400/300" alt="Team Member" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 text-center">
+            <h4 class="text-2xl font-semibold mb-1">Mohammed Nawab</h4>
+            <p class="text-primary mb-4">Founder & CEO</p>
+            <p class="mb-4">With over 20 years in the transportation industry, Mohammed brings extensive experience and a passion for customer service.</p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-64 bg-secondary">
+            <img src="/api/placeholder/400/300" alt="Team Member" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 text-center">
+            <h4 class="text-2xl font-semibold mb-1">Sarah Johnson</h4>
+            <p class="text-primary mb-4">Operations Manager</p>
+            <p class="mb-4">Sarah ensures that all bookings run smoothly and coordinates our fleet to deliver efficient and reliable service.</p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-64 bg-secondary">
+            <img src="/api/placeholder/400/300" alt="Team Member" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 text-center">
+            <h4 class="text-2xl font-semibold mb-1">David Chen</h4>
+            <p class="text-primary mb-4">Fleet Manager</p>
+            <p class="mb-4">David maintains our vehicles to the highest standards, ensuring safety and comfort for all our passengers.</p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="text-primary hover:text-red-700 transition-colors duration-300">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Fleet -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Travel in Style</h3>
+        <h2 class="text-4xl font-bold mb-4">Our Premium Fleet</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">Modern, well-maintained vehicles equipped with all the amenities for a comfortable journey.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="rounded-lg shadow-lg overflow-hidden hover-scale transition-transform" data-aos="fade-right">
+          <div class="relative">
+            <img src="/api/placeholder/600/400" alt="Standard Minibus" class="w-full" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-white">
+              <h4 class="text-2xl font-semibold mb-2">Standard Minibus</h4>
+              <p>Seating for up to 8 passengers</p>
+            </div>
+          </div>
+          <div class="p-6 bg-lightgray">
+            <h5 class="font-semibold mb-3">Features:</h5>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Air conditioning</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Comfortable seating</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Ample luggage space</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>USB charging ports</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="rounded-lg shadow-lg overflow-hidden hover-scale transition-transform" data-aos="fade-left">
+          <div class="relative">
+            <img src="/api/placeholder/600/400" alt="Executive Minibus" class="w-full" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+            <div class="absolute bottom-0 left-0 p-6 text-white">
+              <h4 class="text-2xl font-semibold mb-2">Executive Minibus</h4>
+              <p>Seating for up to 16 passengers</p>
+            </div>
+          </div>
+          <div class="p-6 bg-lightgray">
+            <h5 class="font-semibold mb-3">Features:</h5>
+            <ul class="space-y-2">
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Climate control</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Reclining leather seats</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Entertainment system</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Wi-Fi connectivity</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-check-circle text-primary mr-3"></i>
+                <span>Refrigerator</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="index.html#booking" class="bg-primary text-light px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg inline-flex items-center">
+          <i class="fas fa-calendar-check mr-2"></i> Book Your Ride Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Our Standards</h3>
+        <h2 class="text-4xl font-bold mb-4">Certifications & Licenses</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">We adhere to the highest industry standards to ensure safety and quality service.</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover-scale transition-transform" data-aos="zoom-in" data-aos-delay="100">
+          <div class="mb-4 h-16 flex items-center justify-center">
+            <i class="fas fa-certificate text-primary text-4xl"></i>
+          </div>
+          <h5 class="font-semibold">Fully Licensed</h5>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover-scale transition-transform" data-aos="zoom-in" data-aos-delay="200">
+          <div class="mb-4 h-16 flex items-center justify-center">
+            <i class="fas fa-shield-alt text-primary text-4xl"></i>
+          </div>
+          <h5 class="font-semibold">Insured Service</h5>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover-scale transition-transform" data-aos="zoom-in" data-aos-delay="300">
+          <div class="mb-4 h-16 flex items-center justify-center">
+            <i class="fas fa-id-card text-primary text-4xl"></i>
+          </div>
+          <h5 class="font-semibold">DBS Checked Drivers</h5>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md text-center hover-scale transition-transform" data-aos="zoom-in" data-aos-delay="400">
+          <div class="mb-4 h-16 flex items-center justify-center">
+            <i class="fas fa-award text-primary text-4xl"></i>
+          </div>
+          <h5 class="font-semibold">Safety Certified</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-primary py-16">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <h2 class="text-3xl font-bold text-white mb-6" data-aos="fade-up">Ready to Experience Premium Transportation?</h2>
+      <p class="text-lg text-white opacity-90 mb-8" data-aos="fade-up" data-aos-delay="100">Book your journey with Nawab Travel today and travel in comfort and style</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+        <a href="index.html#booking" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-calendar-check mr-2"></i> Book Now
+        </a>
+        <a href="tel:01234567890" class="bg-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-darkgray transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-phone-alt mr-2"></i> Call Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Have Questions?</h3>
+        <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">Find answers to commonly asked questions about our services.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="mb-6">
+            <h4 class="text-xl font-semibold mb-3 flex items-center">
+              <i class="fas fa-question-circle text-primary mr-3"></i>
+              How far in advance should I book?
+            </h4>
+            <p class="pl-8">We recommend booking at least 48 hours in advance to ensure availability, especially during peak seasons. For large groups or special events, earlier booking is advisable.</p>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-semibold mb-3 flex items-center">
+              <i class="fas fa-question-circle text-primary mr-3"></i>
+              What is your cancellation policy?
+            </h4>
+            <p class="pl-8">Cancellations made 24 hours or more before the scheduled pickup time receive a full refund. Cancellations within 24 hours are subject to a 50% charge.</p>
+          </div>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="mb-6">
+            <h4 class="text-xl font-semibold mb-3 flex items-center">
+              <i class="fas fa-question-circle text-primary mr-3"></i>
+              Do you provide services outside of Coventry?
+            </h4>
+            <p class="pl-8">Yes, we provide transportation services throughout the UK, including airport transfers, corporate events, and long-distance journeys.</p>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-semibold mb-3 flex items-center">
+              <i class="fas fa-question-circle text-primary mr-3"></i>
+              Are your drivers professionally trained?
+            </h4>
+            <p class="pl-8">All our drivers are professionally licensed, DBS checked, and undergo regular training in customer service, defensive driving, and safety protocols.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-10" data-aos="fade-up">
+        <a href="index.html#contact" class="text-primary hover:text-red-700 transition-colors duration-300 inline-flex items-center font-semibold">
+          Have more questions? Contact us
+          <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">What People Say</h3>
+        <h2 class="text-4xl font-bold mb-4">Client Testimonials</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="max-w-3xl mx-auto text-lg">Don't just take our word for it. Here's what our clients have to say about Nawab Travel.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="ml-2 text-sm">5.0</span>
+          </div>
+          <p class="italic mb-6">"Absolutely fantastic service! The driver was punctual, professional, and the minibus was spotlessly clean. Will definitely use Nawab Travel again for our corporate events."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-secondary rounded-full overflow-hidden mr-4">
+              <img src="/api/placeholder/100/100" alt="Client" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h5 class="font-semibold">James Wilson</h5>
+              <p class="text-sm">Event Manager, Tech Solutions Ltd</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="ml-2 text-sm">5.0</span>
+          </div>
+          <p class="italic mb-6">"We hired Nawab Travel for our wedding day transportation, and they exceeded our expectations. The executive minibus was beautiful, and the driver went above and beyond to make our day special."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-secondary rounded-full overflow-hidden mr-4">
+              <img src="/api/placeholder/100/100" alt="Client" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h5 class="font-semibold">Emma & Mark Taylor</h5>
+              <p class="text-sm">Wedding Clients</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="ml-2 text-sm">4.5</span>
+          </div>
+          <p class="italic mb-6">"Used Nawab Travel for our school trip to London. The booking process was easy, the price was competitive, and the journey was smooth. The children loved the comfortable seats and USB charging ports!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-secondary rounded-full overflow-hidden mr-4">
+              <img src="/api/placeholder/100/100" alt="Client" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h5 class="font-semibold">Mrs. Patel</h5>
+              <p class="text-sm">Teacher, Hillcrest Primary School</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-light pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div>
+          <div class="flex items-center mb-6">
+            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+            <h2 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h2>
+          </div>
+          <p class="mb-6">Providing premium transportation services in Coventry and across the UK since 2008.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
+            <li><a href="services.html" class="hover:text-primary transition-colors duration-300">Services</a></li>
+            <li><a href="index.html#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
+            <li><a href="#" class="text-primary transition-colors duration-300">About Us</a></li>
+            <li><a href="index.html#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Our Services</h4>
+          <ul class="space-y-3">
+            <li><a href="services.html#airport" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+            <li><a href="services.html#corporate" class="hover:text-primary transition-colors duration-300">Corporate Travel</a></li>
+            <li><a href="services.html#events" class="hover:text-primary transition-colors duration-300">Event Transportation</a></li>
+            <li><a href="services.html#wedding" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+            <li><a href="services.html#school" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Contact Us</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span>123 Transport Road, Coventry, CV1 2AA, United Kingdom</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-phone-alt text-primary mr-3"></i>
+              <a href="tel:01234567890" class="hover:text-primary transition-colors duration-300">01234 567890</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope text-primary mr-3"></i>
+              <a href="mailto:info@nawabtravel.co.uk" class="hover:text-primary transition-colors duration-300">info@nawabtravel.co.uk</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-clock text-primary mr-3"></i>
+              <span>24/7 Service Available</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-darkgray pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p>&copy; 2025 Nawab Travel. All rights reserved.</p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="hover:text-primary transition-colors duration-300 mr-6">Privacy Policy</a>
+          <a href="#" class="hover:text-primary transition-colors duration-300 mr-6">Terms of Service</a>
+          <a href="#" class="hover:text-primary transition-colors duration-300">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS Animation
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+    
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.remove('opacity-0', 'invisible');
+        backToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'invisible');
+        backToTopBtn.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+</html>

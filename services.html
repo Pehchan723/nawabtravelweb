@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nawab Travel - Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E50914',
+            secondary: '#1A1A1A',
+            light: '#FFFFFF',
+            darkgray: '#333333',
+            lightgray: '#F8F8F8'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      scroll-behavior: smooth;
+    }
+    
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="bg-lightgray text-darkgray font-sans">
+
+  <!-- Header with sticky navbar -->
+  <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+      <div class="flex items-center">
+        <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+        <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+      </div>
+      <nav id="desktop-menu" class="hidden md:block">
+        <a href="index.html#home" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
+        <a href="#services-main" class="px-4 text-primary transition-colors duration-300">Services</a>
+        <a href="index.html#booking" class="px-4 hover:text-primary transition-colors duration-300">Book Now</a>
+        <a href="index.html#about" class="px-4 hover:text-primary transition-colors duration-300">About Us</a>
+        <a href="index.html#contact" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-light">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-secondary py-4 px-6 shadow-inner border-t border-darkgray">
+      <ul class="space-y-3">
+        <li><a href="index.html#home" class="block py-2 hover:text-primary transition-colors duration-300">Home</a></li>
+        <li><a href="#services-main" class="block py-2 text-primary transition-colors duration-300">Services</a></li>
+        <li><a href="index.html#booking" class="block py-2 hover:text-primary transition-colors duration-300">Book Now</a></li>
+        <li><a href="index.html#about" class="block py-2 hover:text-primary transition-colors duration-300">About Us</a></li>
+        <li><a href="index.html#contact" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Services Hero Banner -->
+  <section class="relative pt-32 pb-20 bg-secondary overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-30">
+      <img src="/api/placeholder/1920/500" alt="Services Banner" class="w-full h-full object-cover" />
+    </div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-light">Our Services</h1>
+      <p class="text-xl md:text-2xl mb-8 text-light opacity-90 max-w-3xl mx-auto">Discover our comprehensive range of premium transportation solutions tailored to meet your specific needs</p>
+      <div class="w-24 h-1 bg-primary mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Our Core Services -->
+  <section id="services-main" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Premium Transportation</h3>
+        <h2 class="text-4xl font-bold mb-4">Our Core Services</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">We offer a wide range of transportation services with our premium fleet of mini buses. All services include professional, DBS-checked drivers and well-maintained vehicles for your comfort and safety.</p>
+      </div>
+      
+      <!-- Service Item 1 - Airport Transfers -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="order-2 md:order-1">
+          <span class="bg-primary bg-opacity-10 text-primary font-bold px-4 py-1 rounded-full text-sm mb-4 inline-block">Most Popular</span>
+          <h3 class="text-3xl font-bold mb-4">Airport Transfers</h3>
+          <div class="w-16 h-1 bg-primary mb-6"></div>
+          <p class="text-gray-600 mb-6">Our airport transfer service ensures stress-free travel to and from all major UK airports. We monitor flight arrivals in real-time to adjust for any delays, ensuring we're always there when you need us.</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Service available for all major UK airports</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Flight monitoring and flexible pickup times</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Meet and greet service available</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Door-to-door service with luggage assistance</p>
+            </li>
+          </ul>
+          <a href="index.html#booking" class="bg-primary text-white px-6 py-3 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300">
+            <i class="fas fa-calendar-check mr-2"></i> Book This Service
+          </a>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="bg-secondary p-2 rounded-lg shadow-xl">
+            <img src="/api/placeholder/600/400" alt="Airport Transfer Service" class="w-full rounded-lg" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Service Item 2 - Group Travel -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div>
+          <div class="bg-secondary p-2 rounded-lg shadow-xl">
+            <img src="/api/placeholder/600/400" alt="Group Travel Service" class="w-full rounded-lg" />
+          </div>
+        </div>
+        <div>
+          <h3 class="text-3xl font-bold mb-4">Group Travel</h3>
+          <div class="w-16 h-1 bg-primary mb-6"></div>
+          <p class="text-gray-600 mb-6">Perfect for weddings, family gatherings, or any group outing. Our mini buses accommodate from 8 to 16 passengers with ample space for luggage, ensuring everyone travels together in comfort and style.</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Ideal for weddings, parties and special occasions</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Comfortable seating with ample luggage space</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Multiple pickup and drop-off options</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Flexible scheduling to suit your itinerary</p>
+            </li>
+          </ul>
+          <a href="index.html#booking" class="bg-primary text-white px-6 py-3 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300">
+            <i class="fas fa-calendar-check mr-2"></i> Book This Service
+          </a>
+        </div>
+      </div>
+      
+      <!-- Service Item 3 - Corporate Travel -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="order-2 md:order-1">
+          <h3 class="text-3xl font-bold mb-4">Corporate Travel</h3>
+          <div class="w-16 h-1 bg-primary mb-6"></div>
+          <p class="text-gray-600 mb-6">Professional transportation solutions for businesses of all sizes. Whether it's team events, airport transfers for executives, or conference transport, we provide reliable and punctual service with corporate accounts available.</p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Corporate accounts with flexible payment options</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Professional drivers with business etiquette</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Priority booking for corporate clients</p>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
+              <p>Conference and event transportation management</p>
+            </li>
+          </ul>
+          <a href="index.html#booking" class="bg-primary text-white px-6 py-3 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300">
+            <i class="fas fa-calendar-check mr-2"></i> Book This Service
+          </a>
+        </div>
+        <div class="order-1 md:order-2">
+          <div class="bg-secondary p-2 rounded-lg shadow-xl">
+            <img src="/api/placeholder/600/400" alt="Corporate Travel Service" class="w-full rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Services -->
+  <section class="py-20 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">More Options</h3>
+        <h2 class="text-4xl font-bold mb-4">Additional Services</h2>
+        <div class="w-24 h-1 bg-primary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Wedding Transport -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-ring text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Wedding Transport</h4>
+            <p class="text-gray-600 mb-4">Stylish and reliable transportation for your special day. Coordinate transport for wedding party and guests with our professional service.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Wedding-themed vehicle decoration</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Coordination between multiple venues</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- School Trips -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-school text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">School Trips</h4>
+            <p class="text-gray-600 mb-4">Safe and secure transportation for educational outings and school events with experienced, DBS-checked drivers.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Enhanced safety protocols for children</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Special rates for educational institutions</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Day Trips & Tours -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-map-marked-alt text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Day Trips & Tours</h4>
+            <p class="text-gray-600 mb-4">Organized day trips to popular destinations throughout the UK. Custom itineraries and guided tours available.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Popular tourist destinations covered</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Custom itinerary planning assistance</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <!-- Sporting Events -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-futbol text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Sporting Events</h4>
+            <p class="text-gray-600 mb-4">Transportation to football matches, cricket games, and other sporting events across the UK for teams and spectators.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Group discounts for team travel</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Flexible pickup for post-event return</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Night Out Transport -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-glass-cheers text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Night Out Transport</h4>
+            <p class="text-gray-600 mb-4">Safe transportation for nights out, parties, and special celebrations with flexible pickup times and multiple stops.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Late night service available</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Multiple pickup and drop-off locations</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Contract Hire -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="h-48 bg-secondary flex items-center justify-center">
+            <i class="fas fa-file-contract text-primary text-5xl"></i>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Contract Hire</h4>
+            <p class="text-gray-600 mb-4">Long-term transportation solutions for businesses, schools, and organizations with special contract pricing.</p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Customized long-term agreements</p>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <p class="text-sm">Competitive pricing for regular service</p>
+              </li>
+            </ul>
+            <a href="index.html#booking" class="flex items-center text-primary">
+              <span class="font-medium">Book Now</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Fleet -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Vehicles</h3>
+        <h2 class="text-4xl font-bold mb-4">Our Fleet</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Our modern fleet of mini buses is regularly maintained to ensure comfort, safety, and reliability for all our services.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Vehicle 1 -->
+        <div class="bg-lightgray rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="relative">
+            <img src="/api/placeholder/600/400" alt="8-Seater Minibus" class="w-full h-64 object-cover" />
+            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">8 Seats</div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Standard Mini Bus</h4>
+            <p class="text-gray-600 mb-4">Our 8-seater mini bus is perfect for smaller groups and offers comfort and ample luggage space.</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="flex items-center">
+                <i class="fas fa-luggage-cart text-primary mr-2"></i>
+                <span class="text-sm">Luggage Space</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-climate text-primary mr-2"></i>
+                <span class="text-sm">Air Conditioning</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-wifi text-primary mr-2"></i>
+                <span class="text-sm">Free WiFi</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-charging-station text-primary mr-2"></i>
+                <span class="text-sm">USB Charging</span>
+              </div>
+            </div>
+            <a href="index.html#booking" class="bg-primary text-white px-4 py-2 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300 text-sm">
+              <i class="fas fa-calendar-check mr-2"></i> Book This Vehicle
+            </a>
+          </div>
+        </div>
+        
+        <!-- Vehicle 2 -->
+        <div class="bg-lightgray rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
+          <div class="relative">
+            <img src="/api/placeholder/600/400" alt="16-Seater Minibus" class="w-full h-64 object-cover" />
+            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">16 Seats</div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-2xl font-semibold mb-3">Executive Mini Bus</h4>
+            <p class="text-gray-600 mb-4">Our 16-seater executive mini bus is ideal for larger groups and offers premium comfort features.</p>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="flex items-center">
+                <i class="fas fa-luggage-cart text-primary mr-2"></i>
+                <span class="text-sm">Extra Luggage Space</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-climate text-primary mr-2"></i>
+                <span class="text-sm">Climate Control</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-wifi text-primary mr-2"></i>
+                <span class="text-sm">High-Speed WiFi</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-tv text-primary mr-2"></i>
+                <span class="text-sm">Entertainment System</span>
+              </div>
+            </div>
+            <a href="index.html#booking" class="bg-primary text-white px-4 py-2 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300 text-sm">
+              <i class="fas fa-calendar-check mr-2"></i> Book This Vehicle
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-20 bg-secondary text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Coverage</h3>
+        <h2 class="text-4xl font-bold mb-4">Our Service Areas</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">We provide our premium mini bus services across Coventry and to destinations throughout the UK.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Local Coverage</h3>
+          <p class="text-gray-300 mb-6">Our primary service area covers Coventry and surrounding areas including:</p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Coventry</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Birmingham</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Leamington Spa</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Warwick</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Nuneaton</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Rugby</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Kenilworth</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+              <span>Solihull</span>
+            </div>
+          </div>
+          
+          <h3 class="text-2xl font-bold mb-4">UK-Wide Service</h3>
+          <p class="text-gray-300 mb-6">We also provide services to major cities and airports across the UK including:</p>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center">
+              <i class="fas fa-plane text-primary mr-2"></i>
+              <span>Heathrow Airport</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-plane text-primary mr-2"></i>
+              <span>Gatwick Airport</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-plane text-primary mr-2"></i>
+              <span>Birmingham Airport</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-plane text-primary mr-2"></i>
+              <span>Manchester Airport</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-city text-primary mr-2"></i>
+              <span>London</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-city text-primary mr-2"></i>
+              <span>London</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-city text-primary mr-2"></i>
+              <span>Manchester</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-city text-primary mr-2"></i>
+              <span>Edinburgh</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-city text-primary mr-2"></i>
+              <span>Cardiff</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-darkgray p-2 rounded-lg shadow-xl">
+          <img src="/api/placeholder/600/400" alt="UK Service Map" class="w-full rounded-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-lightgray">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">What People Say</h3>
+        <h2 class="text-4xl font-bold mb-4">Customer Testimonials</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hear what our satisfied customers have to say about our transportation services.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-6">"Our football team uses Nawab Travel regularly for away matches. The service is always punctual, the drivers are professional, and the mini buses are comfortable. Highly recommended!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-user text-gray-500"></i>
+            </div>
+            <div>
+              <h5 class="font-semibold">John Smith</h5>
+              <p class="text-sm text-gray-500">Local Football Club Manager</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-6">"We used Nawab Travel for our wedding transportation, and they were fantastic! The mini bus was spotless, arrived early, and the driver was so friendly. They made our special day even better!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-user text-gray-500"></i>
+            </div>
+            <div>
+              <h5 class="font-semibold">Sarah Johnson</h5>
+              <p class="text-sm text-gray-500">Wedding Client</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-lg hover-scale transition-transform">
+          <div class="flex items-center mb-4">
+            <div class="text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <p class="text-gray-600 italic mb-6">"As a school teacher who organizes regular field trips, I can't recommend Nawab Travel enough. They're reliable, safety-conscious, and great with the children. Our go-to transportation provider!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
+              <i class="fas fa-user text-gray-500"></i>
+            </div>
+            <div>
+              <h5 class="font-semibold">David Williams</h5>
+              <p class="text-sm text-gray-500">Primary School Teacher</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Frequently Asked Questions</h3>
+        <h2 class="text-4xl font-bold mb-4">Common Questions</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Find answers to our most commonly asked questions about our services.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- FAQ Item 1 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">How far in advance should I book a mini bus?</h4>
+          <p class="text-gray-600">We recommend booking at least 2 weeks in advance for regular services and 4-6 weeks for peak times (holidays, wedding season, etc.) to ensure availability. For corporate clients with regular needs, we offer priority booking options.</p>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">What happens if my flight is delayed?</h4>
+          <p class="text-gray-600">For airport transfers, we monitor all flight arrivals in real-time. Our drivers will adjust their schedule according to your actual arrival time at no extra charge for normal delays. We include a buffer in our pricing for this convenience.</p>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">Do you offer discounts for regular bookings?</h4>
+          <p class="text-gray-600">Yes, we offer corporate accounts and contract rates for regular clients. Schools, sports teams, and businesses that use our services frequently can benefit from special pricing. Contact us to discuss your specific requirements.</p>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">Are your drivers DBS checked?</h4>
+          <p class="text-gray-600">Yes, all our drivers are fully DBS (Disclosure and Barring Service) checked, professionally licensed, and have extensive experience. We prioritize safety and professionalism, especially when transporting children and vulnerable adults.</p>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">What is your cancellation policy?</h4>
+          <p class="text-gray-600">Cancellations made more than 48 hours before the scheduled service receive a full refund. Cancellations within 24-48 hours receive a 50% refund. Cancellations less than 24 hours before the service are non-refundable. Special terms may apply for corporate accounts.</p>
+        </div>
+        
+        <!-- FAQ Item 6 -->
+        <div class="border-b border-gray-200 pb-6">
+          <h4 class="text-xl font-semibold mb-2">Can I make multiple stops during my journey?</h4>
+          <p class="text-gray-600">Yes, multiple pickup and drop-off points can be arranged for all our services. Please specify your requirements when booking so we can plan the route efficiently and provide accurate pricing. Additional stops may incur extra charges depending on the route.</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-6">Don't see your question here? Contact our customer service team for more information.</p>
+        <a href="index.html#contact" class="bg-primary text-white px-6 py-3 rounded-full inline-flex items-center hover:bg-red-700 transition-colors duration-300">
+          <i class="fas fa-question-circle mr-2"></i> Ask a Question
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-secondary text-white">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-6">Ready to Book Your Journey?</h2>
+      <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">Experience premium transportation services tailored to your needs. Our professional team is ready to provide you with a comfortable and reliable journey.</p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="index.html#booking" class="bg-primary text-white px-8 py-4 rounded-full inline-flex items-center justify-center hover:bg-red-700 transition-colors duration-300">
+          <i class="fas fa-calendar-check mr-2"></i> Book Now
+        </a>
+        <a href="index.html#contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full inline-flex items-center justify-center hover:bg-white hover:text-secondary transition-colors duration-300">
+          <i class="fas fa-phone-alt mr-2"></i> Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-darkgray text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+            <h3 class="text-xl font-bold">NAWAB TRAVEL</h3>
+          </div>
+          <p class="text-gray-300 mb-4">Premium mini bus transportation services across Coventry and the UK.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html#home" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
+            <li><a href="#services-main" class="text-primary transition-colors duration-300">Services</a></li>
+            <li><a href="index.html#booking" class="text-gray-300 hover:text-primary transition-colors duration-300">Book Now</a></li>
+            <li><a href="index.html#about" class="text-gray-300 hover:text-primary transition-colors duration-300">About Us</a></li>
+            <li><a href="index.html#contact" class="text-gray-300 hover:text-primary transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Our Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#services-main" class="text-gray-300 hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+            <li><a href="#services-main" class="text-gray-300 hover:text-primary transition-colors duration-300">Group Travel</a></li>
+            <li><a href="#services-main" class="text-gray-300 hover:text-primary transition-colors duration-300">Corporate Travel</a></li>
+            <li><a href="#services-main" class="text-gray-300 hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+            <li><a href="#services-main" class="text-gray-300 hover:text-primary transition-colors duration-300">School Trips</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span class="text-gray-300">123 Main Street, Coventry, CV1 2AB</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+              <span class="text-gray-300">+44 (0) 1234 567890</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+              <span class="text-gray-300">info@nawabtravel.co.uk</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+              <span class="text-gray-300">Mon-Fri: 9:00 AM - 6:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p class="text-gray-400">&copy; 2025 Nawab Travel. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#" id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.add('opacity-0', 'invisible');
+        backToTopButton.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href !== '#') {
+          e.preventDefault();
+          
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
