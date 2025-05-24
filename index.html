@@ -44,6 +44,37 @@
 
   <!-- Header with sticky navbar -->
   <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+    <!-- Top contact bar with social links (visible on all screens) -->
+    <div class="bg-secondary border-b border-darkgray/30">
+      <div class="max-w-6xl mx-auto flex justify-between items-center py-1 px-6 text-sm">
+        <div class="flex items-center">
+          <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300 mr-4">
+            <i class="fas fa-phone-alt mr-2 text-primary"></i>
+            <span class="hidden sm:inline">+44 7123 456789</span>
+          </a>
+          <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-colors duration-300">
+            <i class="fas fa-envelope mr-2 text-primary"></i>
+            <span class="hidden sm:inline">info@nawabtravel.com</span>
+          </a>
+        </div>
+        <div class="flex items-center space-x-3">
+          <a href="#" aria-label="Facebook" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" aria-label="Instagram" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Twitter" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main navigation -->
     <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
       <div class="flex items-center">
         <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
@@ -60,6 +91,7 @@
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
+    
     <!-- Mobile Menu -->
     <nav id="mobile-menu" class="hidden bg-secondary py-4 px-6 shadow-inner border-t border-darkgray">
       <ul class="space-y-3">
@@ -69,29 +101,66 @@
         <li><a href="about.html" class="block py-2 hover:text-primary transition-colors duration-300">About Us</a></li>
         <li><a href="contact.html" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
       </ul>
+      
+      <!-- Contact info in mobile menu -->
+      <div class="mt-4 pt-4 border-t border-darkgray/30">
+        <div class="flex justify-between">
+          <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300">
+            <i class="fas fa-phone-alt mr-2 text-primary"></i>
+            <span>+44 7123 456789</span>
+          </a>
+          <div class="flex items-center space-x-4">
+            <a href="#" aria-label="Facebook" class="hover:text-primary transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Instagram" class="hover:text-primary transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        <a href="mailto:info@nawabtravel.com" class="flex items-center mt-2 hover:text-primary transition-colors duration-300">
+          <i class="fas fa-envelope mr-2 text-primary"></i>
+          <span>info@nawabtravel.com</span>
+        </a>
+      </div>
     </nav>
   </header>
 
+  <!-- Add this script to ensure the mobile menu still works -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
+
   <!-- Hero Section -->
-  <section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="./asset/hero.png" alt="Luxury Minibus" class="w-full h-full object-cover opacity-40" />
-     
-    </div>
-    <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center z-10">
-      <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
-        <h2 class="text-5xl md:text-6xl font-bold mb-6 text-light">Premium Mini Bus Service in Coventry</h2>
-        <p class="text-xl md:text-2xl mb-8 text-light opacity-90">Professional transportation for any occasion across the UK</p>
-        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-          <a href="#booking" class="bg-primary text-light px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg flex items-center justify-center">
-            <i class="fas fa-calendar-check mr-2"></i> Book Your Ride
-          </a>
-          <a href="#services" class="bg-light text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
-            <i class="fas fa-info-circle mr-2"></i> Our Services
-          </a>
-        </div>
+<section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img src="./asset/hero.png" alt="Luxury Minibus" class="w-full h-full object-cover opacity-40" />
+  </div>
+  <div class="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center z-10">
+    <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 text-light">Premium Mini Bus Service in Coventry</h2>
+      <p class="text-xl md:text-2xl mb-8 text-light opacity-90">Professional transportation for any occasion across the UK</p>
+      <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+        <a href="booking.html" class="bg-primary text-light px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-calendar-check mr-2"></i> Book Your Ride
+        </a>
+        <a href="services.html" class="bg-light text-secondary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-info-circle mr-2"></i> Our Services
+        </a>
       </div>
-  </section>
+    </div>
+  </div>
+</section>
 
   <!-- Features Highlights -->
   <section class="py-12 bg-white shadow-inner">
@@ -122,106 +191,118 @@
     </div>
   </section>
 
-  <!-- Services -->
   <section id="services" class="py-20 bg-lightgray">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">What We Offer</h3>
-        <h2 class="text-4xl font-bold mb-4">Our Premium Services</h2>
-        <div class="w-24 h-1 bg-primary mx-auto"></div>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 opacity-0 translate-y-10" id="services-header">
+      <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">What We Offer</h3>
+      <h2 class="text-4xl font-bold mb-4">Our Premium Services</h2>
+      <div class="w-24 h-1 bg-primary mx-auto"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Airport Transfers Card -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl opacity-0 translate-y-10" id="service-card-1">
+        <div class="h-56 relative overflow-hidden">
+          <img src="asset/airport.jpg" alt="Airport Transfer Service" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+            <i class="fas fa-plane-departure text-primary text-5xl mb-4 ml-6"></i>
+          </div>
+        </div>
+        <div class="p-6 border-t-4 border-primary">
+          <h4 class="text-2xl font-semibold mb-3">Airport Transfers</h4>
+          <p class="text-gray-600 mb-4">Stress-free travel to all major UK airports with flight monitoring and flexible pickup times.</p>
+          <a href="services.html#airport-transfers" class="flex items-center text-primary hover:underline group">
+            <span class="font-medium">Learn More</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+          </a>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
-          <div class="h-48 bg-secondary flex items-center justify-center">
-            <i class="fas fa-plane-departure text-primary text-5xl"></i>
-          </div>
-          <div class="p-6">
-            <h4 class="text-2xl font-semibold mb-3">Airport Transfers</h4>
-            <p class="text-gray-600 mb-4">Stress-free travel to all major UK airports with flight monitoring and flexible pickup times.</p>
-            <div class="flex items-center text-primary">
-              <span class="font-medium">Learn More</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </div>
+      
+      <!-- Group Travel Card -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl opacity-0 translate-y-10" id="service-card-2">
+        <div class="h-56 relative overflow-hidden">
+          <img src="asset/gr.jpg" alt="Group Travel Service" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+            <i class="fas fa-users text-primary text-5xl mb-4 ml-6"></i>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
-          <div class="h-48 bg-secondary flex items-center justify-center">
-            <i class="fas fa-users text-primary text-5xl"></i>
-          </div>
-          <div class="p-6">
-            <h4 class="text-2xl font-semibold mb-3">Group Travel</h4>
-            <p class="text-gray-600 mb-4">Perfect for weddings, events, and family trips with comfortable seating and ample storage.</p>
-            <div class="flex items-center text-primary">
-              <span class="font-medium">Learn More</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </div>
+        <div class="p-6 border-t-4 border-primary">
+          <h4 class="text-2xl font-semibold mb-3">Group Travel</h4>
+          <p class="text-gray-600 mb-4">Perfect for weddings, events, and family trips with comfortable seating and ample storage.</p>
+          <a href="services.html#group-travel" class="flex items-center text-primary hover:underline group">
+            <span class="font-medium">Learn More</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Corporate Hire Card -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl opacity-0 translate-y-10" id="service-card-3">
+        <div class="h-56 relative overflow-hidden">
+          <img src="asset/cr.jpg" alt="Corporate Hire Service" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+            <i class="fas fa-briefcase text-primary text-5xl mb-4 ml-6"></i>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-scale transition-transform">
-          <div class="h-48 bg-secondary flex items-center justify-center">
-            <i class="fas fa-briefcase text-primary text-5xl"></i>
-          </div>
-          <div class="p-6">
-            <h4 class="text-2xl font-semibold mb-3">Corporate Hire</h4>
-            <p class="text-gray-600 mb-4">Professional travel solutions for businesses with priority bookings and corporate accounts.</p>
-            <div class="flex items-center text-primary">
-              <span class="font-medium">Learn More</span>
-              <i class="fas fa-arrow-right ml-2"></i>
-            </div>
-          </div>
+        <div class="p-6 border-t-4 border-primary">
+          <h4 class="text-2xl font-semibold mb-3">Corporate Hire</h4>
+          <p class="text-gray-600 mb-4">Professional travel solutions for businesses with priority bookings and corporate accounts.</p>
+          <a href="services.html#corporate-hire" class="flex items-center text-primary hover:underline group">
+            <span class="font-medium">Learn More</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Testimonials Section -->
-  <section class="py-20 bg-secondary text-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Client Reviews</h3>
-        <h2 class="text-4xl font-bold mb-4">What Our Customers Say</h2>
-        <div class="w-24 h-1 bg-primary mx-auto"></div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-darkgray rounded-lg p-6 shadow-lg">
-          <div class="text-primary mb-4">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="mb-6 italic">"Absolutely fantastic service! Our driver was punctual, professional and friendly. The minibus was immaculate and comfortable. Will definitely use Nawab Travel again for our next family trip!"</p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
-            <div>
-              <h5 class="font-semibold">Sarah Thompson</h5>
-              <p class="text-gray-400 text-sm">Family Trip to London</p>
-            </div>
-          </div>
-        </div>
-        <div class="bg-darkgray rounded-lg p-6 shadow-lg">
-          <div class="text-primary mb-4">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          <p class="mb-6 italic">"As a corporate client, reliability is crucial for us. Nawab Travel has consistently provided excellent service for our team outings and airport transfers. Highly recommended for business needs!"</p>
-          <div class="flex items-center">
-            <div class="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
-            <div>
-              <h5 class="font-semibold">James Wilson</h5>
-              <p class="text-gray-400 text-sm">Business Development Manager</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Booking Form -->
+  <!-- Add animation scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Register ScrollTrigger plugin
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animate header
+      gsap.to("#services-header", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#services",
+          start: "top 80%",
+        }
+      });
+      
+      // Animate service cards with staggered effect
+      gsap.to("#service-card-1, #service-card-2, #service-card-3", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: "#services",
+          start: "top 70%",
+        }
+      });
+      
+      // Add hover effect for cards
+      const cards = document.querySelectorAll('.grid > div');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.querySelector('i').classList.add('animate-bounce');
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.querySelector('i').classList.remove('animate-bounce');
+        });
+      });
+    });
+  </script>
+</section>
+<!-- Booking Form -->
   <section id="booking" class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center mb-16">
@@ -318,38 +399,47 @@
     </div>
   </section>
 
-  <!-- About Us -->
-  <section id="about" class="py-20 bg-lightgray">
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-secondary text-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="md:flex items-center gap-12">
-        <div class="md:w-1/2 mb-10 md:mb-0">
-          <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Our Story</h3>
-          <h2 class="text-4xl font-bold mb-6">Why Choose Nawab Travel?</h2>
-          <div class="w-24 h-1 bg-primary mb-6"></div>
-          <p class="text-lg mb-6">With over 15 years of experience in the transportation industry, Nawab Travel has established itself as Coventry's premier mini bus service provider.</p>
-          <p class="text-lg mb-6">Our fleet of modern, well-maintained vehicles and team of professional drivers ensure that every journey is safe, comfortable, and on time.</p>
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
-              <p>Licensed and fully insured service</p>
-            </div>
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
-              <p>DBS checked, experienced drivers</p>
-            </div>
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
-              <p>Modern fleet with regular maintenance</p>
-            </div>
-            <div class="flex items-start">
-              <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
-              <p>24/7 customer support</p>
+      <div class="text-center mb-16">
+        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Client Reviews</h3>
+        <h2 class="text-4xl font-bold mb-4">What Our Customers Say</h2>
+        <div class="w-24 h-1 bg-primary mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-darkgray rounded-lg p-6 shadow-lg">
+          <div class="text-primary mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="mb-6 italic">"Absolutely fantastic service! Our driver was punctual, professional and friendly. The minibus was immaculate and comfortable. Will definitely use Nawab Travel again for our next family trip!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
+            <div>
+              <h5 class="font-semibold">Sarah Thompson</h5>
+              <p class="text-gray-400 text-sm">Family Trip to London</p>
             </div>
           </div>
         </div>
-        <div class="md:w-1/2">
-          <div class="bg-secondary p-2 rounded-lg shadow-xl">
-            <img src="/api/placeholder/600/400" alt="Nawab Travel Minibus" class="w-full rounded-lg" />
+        <div class="bg-darkgray rounded-lg p-6 shadow-lg">
+          <div class="text-primary mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="mb-6 italic">"As a corporate client, reliability is crucial for us. Nawab Travel has consistently provided excellent service for our team outings and airport transfers. Highly recommended for business needs!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gray-500 rounded-full mr-4"></div>
+            <div>
+              <h5 class="font-semibold">James Wilson</h5>
+              <p class="text-gray-400 text-sm">Business Development Manager</p>
+            </div>
           </div>
         </div>
       </div>
@@ -399,7 +489,7 @@
       <h2 class="text-3xl font-bold text-white mb-6">Ready to Book Your Journey?</h2>
       <p class="text-lg text-white opacity-90 mb-8">Experience premium transportation services with Nawab Travel</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#booking" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
+        <a href="booking.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
           <i class="fas fa-calendar-check mr-2"></i> Book Now
         </a>
         <a href="tel:01234567890" class="bg-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-darkgray transition-colors duration-300 shadow-lg flex items-center justify-center">
