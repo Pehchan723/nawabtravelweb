@@ -42,7 +42,7 @@
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
- <!-- Header with sticky navbar -->
+<!-- Header with sticky navbar -->
 <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
   <!-- Top contact bar with social links (visible on all screens) -->
   <div class="bg-secondary border-b border-darkgray/30">
@@ -137,27 +137,37 @@
     
     // Check if elements exist
     if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', function(e) {
+      // Add both click and touchstart events for better mobile support
+      function toggleMenu(e) {
         e.preventDefault();
         e.stopPropagation();
         
         // Toggle the hidden class
         mobileMenu.classList.toggle('hidden');
-      });
+      }
       
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
+      mobileMenuButton.addEventListener('click', toggleMenu);
+      mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
+      
+      // Close menu when clicking/touching outside
+      function closeMenu(e) {
         if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
           mobileMenu.classList.add('hidden');
         }
-      });
+      }
+      
+      document.addEventListener('click', closeMenu);
+      document.addEventListener('touchstart', closeMenu);
       
       // Close menu when clicking on menu links
       const menuLinks = mobileMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        function closeMobileMenu() {
           mobileMenu.classList.add('hidden');
-        });
+        }
+        
+        link.addEventListener('click', closeMobileMenu);
+        link.addEventListener('touchstart', closeMobileMenu);
       });
     }
   });
