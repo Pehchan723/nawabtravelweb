@@ -38,28 +38,11 @@
     .hover-scale:hover {
       transform: scale(1.03);
     }
-
-    /* Mobile menu button styling for better touch targets */
-    #mobile-menu-button {
-      padding: 10px;
-      min-width: 44px;
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Ensure mobile menu has proper z-index */
-    #mobile-menu {
-      z-index: 40;
-    }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
-  <!-- Header with sticky navbar -->
+ <!-- Header with sticky navbar -->
 <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
   <!-- Top contact bar with social links (visible on all screens) -->
   <div class="bg-secondary border-b border-darkgray/30">
@@ -179,6 +162,7 @@
     }
   });
 </script>
+
   <!-- Hero Section -->
 <section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
   <div class="absolute inset-0 z-0">
@@ -527,4 +511,123 @@
       <h2 class="text-3xl font-bold text-white mb-6">Ready to Book Your Journey?</h2>
       <p class="text-lg text-white opacity-90 mb-8">Experience premium transportation services with Nawab Travel</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="booking.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:
+        <a href="booking.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-calendar-check mr-2"></i> Book Now
+        </a>
+        <a href="tel:01234567890" class="bg-secondary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-darkgray transition-colors duration-300 shadow-lg flex items-center justify-center">
+          <i class="fas fa-phone-alt mr-2"></i> Call Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-secondary text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+            <h1 class="text-xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+          </div>
+          <p class="mb-4 text-gray-400">Your trusted transportation partner in Coventry and across the UK.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
+            <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
+            <li><a href="#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
+            <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+            <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Our Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+              <span>123 Travel Lane, Coventry, CV1 2AB</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+              <span>01234 567890</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+              <span>info@nawabtravel.co.uk</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+              <span>24/7 Customer Support</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-darkgray text-center text-gray-400">
+        <p>© 2025 Nawab Travel. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Simple JavaScript for smooth scrolling and mobile menu -->
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Close mobile menu when a link is clicked
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu.classList.contains('block')) {
+          mobileMenu.classList.replace('block', 'hidden');
+        }
+      });
+    });
+    
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.replace('hidden', 'block');
+      } else {
+        mobileMenu.classList.replace('block', 'hidden');
+      }
+    });
+  </script>
+</body>
+</html>
