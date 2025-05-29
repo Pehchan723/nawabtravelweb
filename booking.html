@@ -67,35 +67,194 @@
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
-  <!-- Header with sticky navbar -->
-  <header class="bg-secondary text-light fixed w-full z-50 shadow-md">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+<!-- Header with sticky navbar -->
+<header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+  <!-- Top contact bar with social links (visible on all screens) -->
+  <div class="bg-secondary border-b border-darkgray/30">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-1 px-4 text-sm">
       <div class="flex items-center">
-        <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
-        <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+        <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300 mr-4">
+          <i class="fas fa-phone-alt mr-2 text-primary"></i>
+          <span class="hidden sm:inline">+44 7123 456789</span>
+        </a>
+        <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-colors duration-300">
+          <i class="fas fa-envelope mr-2 text-primary"></i>
+          <span class="hidden sm:inline">info@nawabtravel.com</span>
+        </a>
       </div>
-      <nav id="desktop-menu" class="hidden md:block">
-        <a href="index.html#home" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
-        <a href="services.html" class="px-4 hover:text-primary transition-colors duration-300">Services</a>
-        <a href="#" class="px-4 text-primary transition-colors duration-300">Book Now</a>
-        <a href="about.html" class="px-4 hover:text-primary transition-colors duration-300">About Us</a>
-        <a href="contact.html" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
-      </nav>
-      <button id="mobile-menu-button" class="md:hidden text-light">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
+      <div class="flex items-center space-x-3">
+        <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors duration-300">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors duration-300">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors duration-300">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://wa.me/447123456789" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
-    <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="hidden bg-secondary py-4 px-6 shadow-inner border-t border-darkgray">
-      <ul class="space-y-3">
-        <li><a href="index.html#home" class="block py-2 hover:text-primary transition-colors duration-300">Home</a></li>
-        <li><a href="services.html" class="block py-2 hover:text-primary transition-colors duration-300">Services</a></li>
-        <li><a href="#" class="block py-2 text-primary transition-colors duration-300">Book Now</a></li>
-        <li><a href="about.html" class="block py-2 hover:text-primary transition-colors duration-300">About Us</a></li>
-        <li><a href="contact.html" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
-      </ul>
+  </div>
+  
+  <!-- Main navigation -->
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-4">
+    <div class="flex items-center">
+      <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+      <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+    </div>
+    <nav id="desktop-menu" class="hidden md:block">
+      <a href="index.html" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
+      <a href="services.html" class="px-4 hover:text-primary transition-colors duration-300">Services</a>
+      <a href="booking.html" class="px-4 hover:text-primary transition-colors duration-300">Book Now</a>
+      <a href="about.html" class="px-4 hover:text-primary transition-colors duration-300">About Us</a>
+      <a href="contact.html" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
     </nav>
-  </header>
+    <button id="mobile-menu-button" class="md:hidden text-light">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden bg-secondary py-4 px-4 shadow-inner border-t border-darkgray">
+    <ul class="space-y-3">
+      <li><a href="index.html" class="block py-2 hover:text-primary transition-colors duration-300">Home</a></li>
+      <li><a href="services.html" class="block py-2 hover:text-primary transition-colors duration-300">Services</a></li>
+      <li><a href="booking.html" class="block py-2 hover:text-primary transition-colors duration-300">Book Now</a></li>
+      <li><a href="about.html" class="block py-2 hover:text-primary transition-colors duration-300">About Us</a></li>
+      <li><a href="contact.html" class="block py-2 hover:text-primary transition-colors duration-300">Contact</a></li>
+    </ul>
+    
+    <!-- Contact info in mobile menu -->
+    <div class="mt-4 pt-4 border-t border-darkgray/30">
+      <div class="flex justify-between">
+        <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300">
+          <i class="fas fa-phone-alt mr-2 text-primary"></i>
+          <span>+44 7123 456789</span>
+        </a>
+        <div class="flex items-center space-x-4">
+          <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/447123456789" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <a href="mailto:info@nawabtravel.com" class="flex items-center mt-2 hover:text-primary transition-colors duration-300">
+        <i class="fas fa-envelope mr-2 text-primary"></i>
+        <span>info@nawabtravel.com</span>
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- CSS for mobile responsiveness -->
+<style>
+  /* Mobile-first responsive design */
+  @media (max-width: 640px) {
+    header {
+      font-size: 14px;
+    }
+    
+    .max-w-6xl {
+      max-width: 100%;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Top contact bar mobile adjustments */
+    header .text-sm {
+      font-size: 12px;
+    }
+    
+    /* Main navigation mobile adjustments */
+    header h1 {
+      font-size: 1.25rem !important;
+      line-height: 1.75rem;
+    }
+    
+    header .fas.fa-bus-alt {
+      font-size: 1.25rem !important;
+      margin-right: 0.5rem !important;
+    }
+    
+    /* Mobile menu button */
+    #mobile-menu-button {
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Contact info mobile layout */
+    header .space-x-3 > * + * {
+      margin-left: 0.5rem;
+    }
+  }
+  
+  /* Ensure proper box-sizing */
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+</style>
+
+<!-- Fixed script for mobile menu -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    // Check if elements exist
+    if (mobileMenuButton && mobileMenu) {
+      // Add both click and touchstart events for better mobile support
+      function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle the hidden class
+        mobileMenu.classList.toggle('hidden');
+      }
+      
+      mobileMenuButton.addEventListener('click', toggleMenu);
+      mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
+      
+      // Close menu when clicking/touching outside
+      function closeMenu(e) {
+        if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+        }
+      }
+      
+      document.addEventListener('click', closeMenu);
+      document.addEventListener('touchstart', closeMenu);
+      
+      // Close menu when clicking on menu links
+      const menuLinks = mobileMenu.querySelectorAll('a');
+      menuLinks.forEach(link => {
+        function closeMobileMenu(e) {
+          // Don't prevent default for links - let them navigate
+          mobileMenu.classList.add('hidden');
+        }
+        
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+  });
+</script>
 
   <!-- Page Banner -->
   <section class="pt-24 pb-16 bg-secondary text-white">
