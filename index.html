@@ -162,17 +162,17 @@
       // Close menu when clicking on menu links
       const menuLinks = mobileMenu.querySelectorAll('a');
       menuLinks.forEach(link => {
-        function closeMobileMenu() {
+        function closeMobileMenu(e) {
+          // Don't prevent default for links - let them navigate
           mobileMenu.classList.add('hidden');
         }
         
         link.addEventListener('click', closeMobileMenu);
-        link.addEventListener('touchstart', closeMobileMenu);
+        // Remove touchstart from links to avoid interference with navigation
       });
     }
   });
 </script>
-
   <!-- Hero Section -->
 <section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
   <div class="absolute inset-0 z-0">
