@@ -92,31 +92,31 @@
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Header with sticky navbar -->
-<header class="bg-secondary text-light fixed w-full z-50 shadow-md">
+<header class="bg-secondary text-light fixed w-full z-50 shadow-md overflow-x-hidden">
   <!-- Top contact bar with social links (visible on all screens) -->
-  <div class="bg-secondary border-b border-darkgray/30">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-1 px-6 text-sm">
-      <div class="flex items-center">
-        <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300 mr-4">
-          <i class="fas fa-phone-alt mr-2 text-primary"></i>
-          <span class="hidden sm:inline">+44 7123 456789</span>
+  <div class="bg-secondary border-b border-darkgray/30 overflow-x-hidden">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-1 px-3 sm:px-6 text-sm min-w-0">
+      <div class="flex items-center flex-shrink-0">
+        <a href="tel:+447123456789" class="flex items-center hover:text-primary transition-colors duration-300 mr-2 sm:mr-4">
+          <i class="fas fa-phone-alt mr-1 sm:mr-2 text-primary text-xs sm:text-sm"></i>
+          <span class="hidden sm:inline text-xs sm:text-sm">+44 7123 456789</span>
         </a>
         <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-colors duration-300">
-          <i class="fas fa-envelope mr-2 text-primary"></i>
-          <span class="hidden sm:inline">info@nawabtravel.com</span>
+          <i class="fas fa-envelope mr-1 sm:mr-2 text-primary text-xs sm:text-sm"></i>
+          <span class="hidden sm:inline text-xs sm:text-sm">info@nawabtravel.com</span>
         </a>
       </div>
-      <div class="flex items-center space-x-3">
-        <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors duration-300">
+      <div class="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+        <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-primary transition-colors duration-300 text-xs sm:text-sm">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors duration-300">
+        <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-primary transition-colors duration-300 text-xs sm:text-sm">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors duration-300">
+        <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="hover:text-primary transition-colors duration-300 text-xs sm:text-sm">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="https://wa.me/447123456789" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300">
+        <a href="https://wa.me/447123456789" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="hover:text-primary transition-colors duration-300 text-xs sm:text-sm">
           <i class="fab fa-whatsapp"></i>
         </a>
       </div>
@@ -124,10 +124,10 @@
   </div>
   
   <!-- Main navigation -->
-  <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-    <div class="flex items-center">
-      <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
-      <h1 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-3 sm:px-6 min-w-0">
+    <div class="flex items-center flex-shrink-0">
+      <i class="fas fa-bus-alt text-primary text-xl sm:text-2xl mr-2 sm:mr-3"></i>
+      <h1 class="text-lg sm:text-2xl font-bold whitespace-nowrap">NAWAB <span class="text-primary">TRAVEL</span></h1>
     </div>
     <nav id="desktop-menu" class="hidden md:block">
       <a href="index.html" class="px-4 hover:text-primary transition-colors duration-300">Home</a>
@@ -136,8 +136,8 @@
       <a href="about.html" class="px-4 hover:text-primary transition-colors duration-300">About Us</a>
       <a href="contact.html" class="px-4 hover:text-primary transition-colors duration-300">Contact</a>
     </nav>
-    <button id="mobile-menu-button" class="md:hidden text-light">
-      <i class="fas fa-bars text-xl"></i>
+    <button id="mobile-menu-button" class="md:hidden text-light p-2 flex-shrink-0">
+      <i class="fas fa-bars text-lg sm:text-xl"></i>
     </button>
   </div>
   
