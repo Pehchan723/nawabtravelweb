@@ -129,7 +129,7 @@
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
-<header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
+<header id="main-header" class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
   <!-- Top contact bar with social links (visible on all screens) -->
   <div class="bg-gradient-to-r from-secondary to-darkgray border-b border-primary/20">
     <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 sm:px-6 text-xs sm:text-sm">
@@ -214,7 +214,7 @@
       
       <!-- Get Quote Button -->
       <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
-        <i class="fas fa-quote-left mr-2"></i>Book Now
+        <i class="fas fa-quote-left mr-2"></i>Get Quote
       </a>
     </nav>
 
@@ -222,7 +222,7 @@
     <div class="flex items-center lg:hidden space-x-3">
       <!-- Mobile Get Quote Button -->
       <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
-        <i class="fas fa-quote-left mr-1"></i>Book Now
+        <i class="fas fa-quote-left mr-1"></i>Quote
       </a>
       
       <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300">
@@ -280,7 +280,7 @@
         <!-- Get Quote Button in Mobile -->
         <div class="mb-4">
           <a href="#quote" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
-            <i class="fas fa-quote-left mr-2"></i>Book Now
+            <i class="fas fa-quote-left mr-2"></i>Get Your Quote Now
           </a>
         </div>
         
@@ -418,9 +418,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Removed auto-hide scroll effect - header stays sticky
 });
 
-// CSS Animations
+// CSS Animations and Mobile Layout Fix
 const style = document.createElement('style');
 style.textContent = `
+  /* Fix for mobile layout - add padding to body */
+  body {
+    padding-top: 120px; /* Adjust based on header height */
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding-top: 100px; /* Smaller padding for mobile */
+    }
+  }
+  
+  @media (max-width: 640px) {
+    body {
+      padding-top: 90px; /* Even smaller for very small screens */
+    }
+  }
+  
   @keyframes slideDown {
     from { transform: translateY(-100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -478,8 +495,42 @@ style.textContent = `
       font-size: 1.125rem;
     }
   }
+  
+  /* Ensure content doesn't overlap with fixed header */
+  main, .content, .page-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Fix for viewport height on mobile */
+  @media (max-width: 768px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+  }
 `;
 document.head.appendChild(style);
+
+// Dynamically adjust body padding based on actual header height
+function adjustBodyPadding() {
+  const header = document.getElementById('main-header');
+  if (header) {
+    const headerHeight = header.offsetHeight;
+    document.body.style.paddingTop = headerHeight + 'px';
+  }
+}
+
+// Call on load and resize
+window.addEventListener('load', adjustBodyPadding);
+window.addEventListener('resize', adjustBodyPadding);
+
+// Call immediately
+adjustBodyPadding();
 </script>
   <!-- Hero Banner -->
   <section class="relative pt-24 bg-secondary overflow-hidden">
