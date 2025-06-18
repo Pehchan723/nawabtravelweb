@@ -1055,7 +1055,15 @@ document.head.appendChild(style);
       duration: 800,
       once: true,
       offset: 100
-    });
+    });  // Header Fix Patch for Scroll Glitch
+  window.addEventListener('load', function () {
+    const firstSection = document.querySelector('section');
+    if (firstSection && getComputedStyle(firstSection).paddingTop === '96px') {
+      firstSection.style.paddingTop = '130px';
+    }
+  });
+
+    
     
     // Mobile Menu Toggle
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
@@ -1103,5 +1111,12 @@ document.head.appendChild(style);
       });
     });
   </script>
+          <script>
+  // Initialize AOS
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100
+  });
 </body>
 </html>
