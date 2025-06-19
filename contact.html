@@ -124,36 +124,54 @@
       box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
       transition: box-shadow 0.3s ease;
     }
+    
     /* Mobile-specific improvements */
-@media (max-width: 640px) {
-  .logo-text {
-    font-size: 1rem;
-    line-height: 1.2;
-  }
-  
-  .max-w-6xl {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .whitespace-nowrap {
-    white-space: nowrap;
-  }
-  
-  .flex-shrink-0 {
-    flex-shrink: 0;
-  }
-  
-  .min-w-0 {
-    min-width: 0;
-  }
-}
+    @media (max-width: 640px) {
+      .logo-text {
+        font-size: 1rem;
+        line-height: 1.2;
+      }
+      
+      .max-w-6xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      
+      .whitespace-nowrap {
+        white-space: nowrap;
+      }
+      
+      .flex-shrink-0 {
+        flex-shrink: 0;
+      }
+      
+      .min-w-0 {
+        min-width: 0;
+      }
+    }
 
-@media (max-width: 480px) {
-  .logo-text {
-    font-size: 0.9rem;
-  }
-}
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Fix for hero section padding */
+    .hero-section {
+      padding-top: 120px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding-top: 140px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .hero-section {
+        padding-top: 130px;
+      }
+    }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
@@ -511,7 +529,7 @@ style.textContent = `
 document.head.appendChild(style);
 </script>
   <!-- Hero Banner -->
- <section class="relative bg-secondary overflow-hidden" style="padding-top: 130px;">
+ <section class="hero-section relative bg-secondary overflow-hidden">
     <div class="absolute inset-0 z-0 opacity-20">
       <div class="bg-[url('/api/placeholder/1600/400')] bg-cover bg-center h-full w-full"></div>
     </div>
@@ -535,7 +553,6 @@ document.head.appendChild(style);
       </svg>
     </div>
   </section>
-
   <!-- Contact Info Cards -->
   <section class="py-12 bg-lightgray">
     <div class="max-w-6xl mx-auto px-6">
