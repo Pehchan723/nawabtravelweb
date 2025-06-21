@@ -188,6 +188,7 @@
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
  <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
+<!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
 <header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
   <!-- Top contact bar with social links (visible on all screens) -->
   <div class="bg-gradient-to-r from-secondary to-darkgray border-b border-primary/20">
@@ -220,15 +221,15 @@
   </div>
   
   <!-- Main navigation -->
-  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 mobile-header-padding sm:py-4 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 mobile-header-padding sm:py-4 px-2 sm:px-6">
     <!-- Logo Section -->
-    <div class="flex items-center logo-container flex-shrink-0">
+    <div class="flex items-center logo-container flex-shrink-0 mr-2">
       <!-- Company Logo -->
       <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
         <i class="fas fa-bus-alt text-white text-sm sm:text-lg md:text-xl"></i>
       </div>
       <div class="flex flex-col min-w-0">
-        <h1 class="text-sm sm:text-base md:text-lg lg:text-2xl font-bold logo-text whitespace-nowrap">
+        <h1 class="text-xs sm:text-base md:text-lg lg:text-2xl font-bold logo-text whitespace-nowrap">
           NAWAB <span class="text-primary">TRAVEL</span>
         </h1>
         <p class="text-xs text-gray-300 hidden sm:block">Your Journey, Our Priority</p>
@@ -278,14 +279,14 @@
     </nav>
 
     <!-- Mobile Menu Button and Get Quote -->
-   <div class="flex items-center lg:hidden space-x-1 sm:space-x-2 flex-shrink-0">
+   <div class="flex items-center lg:hidden space-x-1 flex-shrink-0">
       <!-- Mobile Get Quote Button -->
-      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all duration-300 hover:scale-105 text-xs whitespace-nowrap">
+      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-2 py-1 rounded-full transition-all duration-300 hover:scale-105 text-xs whitespace-nowrap">
         <i class="fas fa-quote-left mr-1"></i>Book
       </a>
       
-      <button id="mobile-menu-button" class="text-light p-1.5 sm:p-2 hover:bg-darkgray rounded-lg transition-all duration-300 flex-shrink-0">
-        <i id="menu-icon" class="fas fa-bars text-lg sm:text-xl transition-transform duration-300"></i>
+      <button id="mobile-menu-button" class="text-light p-1.5 hover:bg-darkgray rounded-lg transition-all duration-300 flex-shrink-0">
+        <i id="menu-icon" class="fas fa-bars text-lg transition-transform duration-300"></i>
       </button>
     </div>
   </div>
@@ -373,6 +374,50 @@
     </div>
   </nav>
 </header>
+
+<style>
+/* Additional mobile-specific CSS fixes */
+@media (max-width: 640px) {
+  .logo-text {
+    font-size: 0.75rem !important; /* Made smaller for better fit */
+    line-height: 1.1;
+  }
+  
+  .max-w-6xl {
+    padding-left: 0.5rem !important; /* Reduced padding */
+    padding-right: 0.5rem !important;
+  }
+  
+  /* Compact mobile header */
+  .mobile-header-padding {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Smaller contact bar on mobile */
+  .mobile-contact-bar {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  
+  /* Ensure logo section doesn't take too much space */
+  .logo-container {
+    max-width: 60% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 0.7rem !important; /* Even smaller for very small screens */
+  }
+  
+  /* Tighter spacing on very small screens */
+  .max-w-6xl {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+}
+</style>
 
 <!-- Enhanced JavaScript for mobile menu and effects -->
 <script>
