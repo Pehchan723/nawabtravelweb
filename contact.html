@@ -125,16 +125,16 @@
       transition: box-shadow 0.3s ease;
     }
     
-    /* Mobile-specific improvements */
+    /* Mobile-specific improvements - Reduced spacing */
     @media (max-width: 640px) {
       .logo-text {
-        font-size: 1rem;
-        line-height: 1.2;
+        font-size: 0.9rem;
+        line-height: 1.1;
       }
       
       .max-w-6xl {
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
       }
       
       .whitespace-nowrap {
@@ -148,11 +148,23 @@
       .min-w-0 {
         min-width: 0;
       }
+      
+      /* Reduced header padding on mobile */
+      .mobile-header-padding {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      /* Smaller contact bar on mobile */
+      .mobile-contact-bar {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
     }
 
     @media (max-width: 480px) {
       .logo-text {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
     }
 
@@ -163,13 +175,13 @@
     
     @media (max-width: 768px) {
       .hero-section {
-        padding-top: 140px;
+        padding-top: 110px;
       }
     }
     
     @media (max-width: 640px) {
       .hero-section {
-        padding-top: 130px;
+        padding-top: 100px;
       }
     }
   </style>
@@ -179,7 +191,7 @@
 <header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
   <!-- Top contact bar with social links (visible on all screens) -->
   <div class="bg-gradient-to-r from-secondary to-darkgray border-b border-primary/20">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 sm:px-6 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-2 mobile-contact-bar px-4 sm:px-6 text-xs sm:text-sm">
       <div class="flex items-center space-x-2 sm:space-x-4">
         <a href="tel:02476266666" class="flex items-center hover:text-primary transition-all duration-300 hover:scale-105">
           <i class="fas fa-phone-alt mr-1 sm:mr-2 text-primary animate-pulse"></i>
@@ -208,15 +220,15 @@
   </div>
   
   <!-- Main navigation -->
-  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 mobile-header-padding sm:py-4 px-4 sm:px-6">
     <!-- Logo Section -->
     <div class="flex items-center logo-container flex-shrink-0">
       <!-- Company Logo -->
-      <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
-        <i class="fas fa-bus-alt text-white text-lg sm:text-xl"></i>
+      <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
+        <i class="fas fa-bus-alt text-white text-sm sm:text-lg md:text-xl"></i>
       </div>
       <div class="flex flex-col min-w-0">
-        <h1 class="text-base sm:text-lg md:text-2xl font-bold logo-text whitespace-nowrap">
+        <h1 class="text-sm sm:text-base md:text-lg lg:text-2xl font-bold logo-text whitespace-nowrap">
           NAWAB <span class="text-primary">TRAVEL</span>
         </h1>
         <p class="text-xs text-gray-300 hidden sm:block">Your Journey, Our Priority</p>
@@ -225,7 +237,7 @@
 
     <!-- Desktop Navigation -->
     <nav id="desktop-menu" class="hidden lg:flex items-center space-x-6">
-      <a href="#home" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 relative">Home</a>
+      <a href="index.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 relative">Home</a>
       
       <!-- Services Dropdown -->
       <div class="relative group">
@@ -260,20 +272,20 @@
       <a href="contact.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300">Contact</a>
       
       <!-- Get Quote Button -->
-      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
+      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
         <i class="fas fa-quote-left mr-2"></i>Book Now
       </a>
     </nav>
 
     <!-- Mobile Menu Button and Get Quote -->
-   <div class="flex items-center lg:hidden space-x-2 sm:space-x-3 flex-shrink-0">
+   <div class="flex items-center lg:hidden space-x-1 sm:space-x-2 flex-shrink-0">
       <!-- Mobile Get Quote Button -->
-      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-full transition-all duration-300 hover:scale-105 text-xs sm:text-sm whitespace-nowrap">
-        <i class="fas fa-quote-left mr-1"></i>Book Now
+      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all duration-300 hover:scale-105 text-xs whitespace-nowrap">
+        <i class="fas fa-quote-left mr-1"></i>Book
       </a>
       
-      <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300 flex-shrink-0">
-        <i id="menu-icon" class="fas fa-bars text-xl transition-transform duration-300"></i>
+      <button id="mobile-menu-button" class="text-light p-1.5 sm:p-2 hover:bg-darkgray rounded-lg transition-all duration-300 flex-shrink-0">
+        <i id="menu-icon" class="fas fa-bars text-lg sm:text-xl transition-transform duration-300"></i>
       </button>
     </div>
   </div>
@@ -282,7 +294,7 @@
   <nav id="mobile-menu" class="lg:hidden hidden bg-gradient-to-b from-secondary to-darkgray shadow-inner border-t border-primary/20 mobile-menu-backdrop">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <ul class="space-y-2">
-        <li><a href="#home" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+        <li><a href="index.html" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
           <i class="fas fa-home mr-3 text-primary"></i>Home
         </a></li>
         
@@ -326,7 +338,7 @@
       <div class="mt-6 pt-4 border-t border-gray-600">
         <!-- Get Quote Button in Mobile -->
         <div class="mb-4">
-          <a href="#quote" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
+          <a href="booking.html" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
             <i class="fas fa-quote-left mr-2"></i>Book Now
           </a>
         </div>
@@ -522,7 +534,7 @@ style.textContent = `
   
   @media (max-width: 640px) {
     .logo-text {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
   }
 `;
