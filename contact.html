@@ -185,6 +185,228 @@
       }
     }
   </style>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Social Buttons</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+
+
+    <!-- FLOATING SOCIAL BUTTONS - ADD THIS CODE TO END OF ALL YOUR PAGES -->
+    <div class="floating-social-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+        <!-- Call Button -->
+        <a href="tel:02476266666" class="floating-btn call-btn" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        
+        <!-- Facebook Button -->
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" class="floating-btn facebook-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" class="floating-btn instagram-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <style>
+        /* FLOATING SOCIAL BUTTONS CSS - COPY THIS TO YOUR MAIN CSS FILE */
+        body {
+            background: #f5f5f5;
+        }
+
+        .floating-social-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white !important;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-btn:hover::before {
+            transform: scale(1);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+         /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128c7e, #25d366);
+        }
+
+        /* Call Button */
+        .floating-social-buttons .call-btn {
+            background: #007bff !important;
+            background-color: #007bff !important;
+        }
+
+        .floating-social-buttons .call-btn:hover {
+            background: #0056b3 !important;
+            background-color: #0056b3 !important;
+        }
+
+        /* Facebook Button */
+        .facebook-btn {
+            background: linear-gradient(135deg, #3b5998, #8b9dc3);
+        }
+
+        .facebook-btn:hover {
+            background: linear-gradient(135deg, #8b9dc3, #3b5998);
+        }
+
+        .floating-social-buttons .facebook-btn:hover {
+            background: #166fe5 !important;
+            background-color: #166fe5 !important;
+            background-image: none !important;
+        }
+
+        .floating-social-buttons .facebook-btn i {
+            color: white !important;
+        }
+
+        /* Instagram Button - FIXED */
+        .instagram-btn {
+            background: linear-gradient(135deg, #E4405F, #C13584) !important;
+        }
+
+        .instagram-btn:hover {
+            background: linear-gradient(135deg, #C13584, #833ab4) !important;
+        }
+
+        .floating-social-buttons .instagram-btn i {
+            color: white !important;
+            font-size: 24px !important;
+            display: block !important;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .floating-social-buttons {
+                right: 15px;
+                bottom: 15px;
+                gap: 12px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-social-buttons {
+                right: 10px;
+                bottom: 10px;
+                gap: 10px;
+            }
+
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animation on page load */
+        .floating-btn {
+            animation: slideInRight 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .floating-btn:nth-child(1) { animation-delay: 0.1s; }
+        .floating-btn:nth-child(2) { animation-delay: 0.2s; }
+        .floating-btn:nth-child(3) { animation-delay: 0.3s; }
+        .floating-btn:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Pulse animation for WhatsApp button */
+        .whatsapp-btn {
+            animation: slideInRight 0.6s ease forwards, pulse 2s infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            }
+        }
+    </style>
+
+    <!-- SEPARATE CODE BLOCKS FOR EASY COPYING -->
+    <script>
+        // Optional: Add click tracking or additional functionality
+        document.querySelectorAll('.floating-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add any tracking code here if needed
+                console.log('Social button clicked:', this.getAttribute('aria-label'));
+            });
+        });
+    </script>
+</body>
+</html>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
  <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
@@ -204,16 +426,15 @@
         </a>
       </div>
       <div class="flex items-center space-x-2 sm:space-x-3">
-        <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-facebook-f text-sm sm:text-base"></i>
         </a>
-        <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-instagram text-sm sm:text-base"></i>
         </a>
-        <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-          <i class="fab fa-twitter text-sm sm:text-base"></i>
+      
         </a>
-        <a href="https://wa.me/00447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-whatsapp text-sm sm:text-base"></i>
         </a>
       </div>
@@ -273,20 +494,20 @@
       <a href="contact.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300">Contact</a>
       
       <!-- Get Quote Button -->
-      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
-        <i class="fas fa-quote-left mr-2"></i>Book Now
+      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
+        Book Now
       </a>
     </nav>
 
     <!-- Mobile Menu Button and Get Quote -->
-   <div class="flex items-center lg:hidden space-x-1 flex-shrink-0">
+    <div class="flex items-center lg:hidden space-x-3">
       <!-- Mobile Get Quote Button -->
-      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-2 py-1 rounded-full transition-all duration-300 hover:scale-105 text-xs whitespace-nowrap">
-        <i class="fas fa-quote-left mr-1"></i>Book
+      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
+        Book Now
       </a>
       
-      <button id="mobile-menu-button" class="text-light p-1.5 hover:bg-darkgray rounded-lg transition-all duration-300 flex-shrink-0">
-        <i id="menu-icon" class="fas fa-bars text-lg transition-transform duration-300"></i>
+      <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300">
+        <i id="menu-icon" class="fas fa-bars text-xl transition-transform duration-300"></i>
       </button>
     </div>
   </div>
@@ -295,7 +516,7 @@
   <nav id="mobile-menu" class="lg:hidden hidden bg-gradient-to-b from-secondary to-darkgray shadow-inner border-t border-primary/20 mobile-menu-backdrop">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <ul class="space-y-2">
-        <li><a href="index.html" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+        <li><a href="#home" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
           <i class="fas fa-home mr-3 text-primary"></i>Home
         </a></li>
         
@@ -339,8 +560,8 @@
       <div class="mt-6 pt-4 border-t border-gray-600">
         <!-- Get Quote Button in Mobile -->
         <div class="mb-4">
-          <a href="booking.html" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
-            <i class="fas fa-quote-left mr-2"></i>Book Now
+          <a href="#quote" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
+            Book Now
           </a>
         </div>
         
@@ -357,16 +578,15 @@
         
         <!-- Social links in mobile -->
         <div class="flex justify-center space-x-6 mt-4">
-          <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
+          <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-facebook-f text-xl"></i>
           </a>
-          <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
+          <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-instagram text-xl"></i>
           </a>
-          <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
-            <i class="fab fa-twitter text-xl"></i>
+         
           </a>
-          <a href="https://wa.me/00447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
+          <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-whatsapp text-xl"></i>
           </a>
         </div>
@@ -374,50 +594,6 @@
     </div>
   </nav>
 </header>
-
-<style>
-/* Additional mobile-specific CSS fixes */
-@media (max-width: 640px) {
-  .logo-text {
-    font-size: 0.75rem !important; /* Made smaller for better fit */
-    line-height: 1.1;
-  }
-  
-  .max-w-6xl {
-    padding-left: 0.5rem !important; /* Reduced padding */
-    padding-right: 0.5rem !important;
-  }
-  
-  /* Compact mobile header */
-  .mobile-header-padding {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  
-  /* Smaller contact bar on mobile */
-  .mobile-contact-bar {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
-  
-  /* Ensure logo section doesn't take too much space */
-  .logo-container {
-    max-width: 60% !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-text {
-    font-size: 0.7rem !important; /* Even smaller for very small screens */
-  }
-  
-  /* Tighter spacing on very small screens */
-  .max-w-6xl {
-    padding-left: 0.25rem !important;
-    padding-right: 0.25rem !important;
-  }
-}
-</style>
 
 <!-- Enhanced JavaScript for mobile menu and effects -->
 <script>
@@ -579,16 +755,16 @@ style.textContent = `
   
   @media (max-width: 640px) {
     .logo-text {
-      font-size: 1rem;
+      font-size: 1.125rem;
     }
   }
 `;
 document.head.appendChild(style);
 </script>
-  <!-- Hero Banner -->
+ <!-- Hero Banner -->
  <section class="hero-section relative bg-secondary overflow-hidden">
-    <div class="absolute inset-0 z-0 opacity-20">
-      <div class="bg-[url('/api/placeholder/1600/400')] bg-cover bg-center h-full w-full"></div>
+    <div class="absolute inset-0 z-0 opacity-30">
+      <div class="bg-[url('./asset/contact.png')] bg-cover bg-center h-full w-full"></div>
     </div>
     <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 z-10 relative">
       <div class="text-center animate-fade-in">
@@ -610,51 +786,47 @@ document.head.appendChild(style);
       </svg>
     </div>
   </section>
-  <!-- Contact Info Cards -->
-  <section class="py-12 bg-lightgray">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">
-          <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">
-            <i class="fas fa-map-marker-alt text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Our Location</h3>
-          <p class="mb-2">Visit our office</p>
-          <p class="text-primary font-semibold">551A Foleshill Road,Coventry,CV6 5JW</p>
-          <a href="https://goo.gl/maps/123" target="_blank" class="inline-block mt-4 text-primary hover:underline font-medium">
-            <i class="fas fa-directions mr-1"></i> Get Directions
-          </a>
-        </div>
-        
-        <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">
-          <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">
-            <i class="fas fa-phone-alt text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Call Us</h3>
-          <p class="mb-2">We're available 24/7</p>
-          <a href="tel:02476266666" class="text-primary hover:underline font-semibold text-xl">02476266666</a>
-          <p class="mt-4 text-gray-500">
-            <span class="block">Mon-Fri: 9am - 6pm</span>
-            <span class="block">Sat-Sun: 10am - 4pm</span>
-          </p>
-        </div>
-        
-        <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">
-          <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">
-            <i class="fas fa-envelope text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Email Us</h3>
-          <p class="mb-2">Quick response within 2 hours</p>
-          <a href="mailto:info@nawabtravel.co.uk" class="text-primary hover:underline font-semibold">info@nawabtravel.co.uk</a>
-          <p class="mt-4 text-gray-500">
-            <span class="block">For bookings: bookings@nawabtravel.co.uk</span>
-            <span class="block">For feedback: feedback@nawabtravel.co.uk</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Contact Info Cards -->   
+<section class="py-12 bg-lightgray">     
+  <div class="max-w-6xl mx-auto px-6">       
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">         
+      <div data-aos="fade-up" data-aos-delay="100" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">           
+        <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">             
+          <i class="fas fa-map-marker-alt text-2xl"></i>           
+        </div>           
+        <h3 class="text-xl font-semibold mb-3">Our Location</h3>           
+        <p class="mb-2">Visit our office</p>           
+        <p class="text-primary font-semibold">551A Foleshill Road,Coventry,CV6 5JW</p>           
+        <a href="https://goo.gl/maps/123" target="_blank" class="inline-block mt-4 text-primary hover:underline font-medium">             
+          <i class="fas fa-directions mr-1"></i> Get Directions           
+        </a>         
+      </div>                  
+      
+      <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">           
+        <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">             
+          <i class="fas fa-phone-alt text-2xl"></i>           
+        </div>           
+        <h3 class="text-xl font-semibold mb-3">Call Us</h3>           
+        <p class="mb-2">We're available all week</p>           
+        <a href="tel:02476266666" class="text-primary hover:underline font-semibold text-xl">02476266666</a>           
+        <p class="mt-4 text-gray-500">             
+          <span class="block">Monday-Friday: 9:00am - 6:00pm</span>             
+          <span class="block">Saturday: 10:00am - 4:00pm</span>
+          <span class="block">Sunday: 10:00am - 4:00pm</span>           
+        </p>         
+      </div>                  
+      
+      <div data-aos="fade-up" data-aos-delay="300" class="bg-white rounded-lg p-8 shadow-lg text-center hover-scale transition-transform">           
+        <div class="inline-block bg-primary p-4 rounded-full text-white mb-6 animate-pulse-slow">             
+          <i class="fas fa-envelope text-2xl"></i>           
+        </div>           
+        <h3 class="text-xl font-semibold mb-3">Email Us</h3>           
+        <p class="mb-2">Quick response within few time</p>           
+        <a href="mailto:info@nawabtravel.co.uk" class="text-primary hover:underline font-semibold">info@nawabtravel.co.uk</a>         
+      </div>       
+    </div>     
+  </div>   
+</section>
   <!-- Map and Contact Form Section -->
   <section id="contact-form" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-6">
@@ -684,7 +856,7 @@ document.head.appendChild(style);
               </div>
              
               <div class="pt-3 mt-3 border-t border-gray-300">
-                <span class="font-medium text-primary">24/7 Emergency Support Available</span>
+                <span class="font-medium text-primary">Emergency Support Available</span>
               </div>
             </div>
           </div>
@@ -864,85 +1036,7 @@ document.head.appendChild(style);
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-12" data-aos="fade-up">
-        <h3 class="text-sm text-primary font-bold uppercase tracking-wide mb-2">Questions & Answers</h3>
-        <h2 class="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-        <div class="w-24 h-1 bg-primary mx-auto mb-6"></div>
-      </div>
-      
-      <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>How far in advance should I book?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>We recommend booking at least 48 hours in advance to secure your preferred date and time. For peak periods (holidays, weekends) and larger groups, booking 1-2 weeks ahead is advisable. However, we do accommodate last-minute bookings when possible.</p>
-          </div>
-        </div>
-        
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>What payment methods do you accept?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>We accept all major credit and debit cards, PayPal, bank transfers, and cash payments (for certain services). Corporate accounts can be arranged with invoice payment terms for regular business clients.</p>
-          </div>
-        </div>
-        
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>What if my flight is delayed?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>For airport transfers, we monitor flight arrivals. Our drivers will wait for up to 60 minutes after the actual landing time at no extra charge. For longer delays, a small waiting fee may apply. Rest assured, we'll be there whenever you arrive.</p>
-          </div>
-        </div>
-        
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>What if my flight is delayed?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>For airport transfers, we monitor flight arrivals. Our drivers will wait for up to 60 minutes after the actual landing time at no extra charge. For longer delays, a small waiting fee may apply. Rest assured, we'll be there whenever you arrive.</p>
-          </div>
-        </div>
-        
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>Can I cancel or modify my booking?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>Yes, bookings can be cancelled or modified. Cancellations made 24 hours or more before the scheduled pickup time will receive a full refund. Changes to bookings can be made subject to availability. Please contact our customer service team as soon as possible to discuss your requirements.</p>
-          </div>
-        </div>
-        
-        <div class="border border-gray-200 rounded-lg overflow-hidden">
-          <button class="faq-toggle w-full bg-lightgray px-6 py-4 text-left font-semibold flex justify-between items-center">
-            <span>Are there any extra charges?</span>
-            <i class="fas fa-plus text-primary transition-transform duration-300"></i>
-          </button>
-          <div class="faq-content bg-white px-6 py-4 border-t border-gray-200 hidden">
-            <p>Our quotes include all standard charges. Additional fees may apply for extra waiting time, additional stops, or special requirements. Any potential extra charges will be clearly communicated before confirmation of your booking. There are no hidden fees with Nawab Travel.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mt-8 text-center" data-aos="fade-up" data-aos-delay="200">
-        <p class="mb-4">Still have questions?</p>
-        <a href="tel:02476266666" class="bg-primary text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 inline-flex items-center">
-          <i class="fas fa-phone-alt mr-2"></i> Call Us Now
-        </a>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Testimonials Section -->
   <section class="py-20 bg-lightgray">
@@ -1008,113 +1102,79 @@ document.head.appendChild(style);
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 bg-secondary text-white relative overflow-hidden">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="md:flex items-center justify-between">
-        <div class="mb-8 md:mb-0 md:w-2/3" data-aos="fade-right">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Next Journey?</h2>
-          <p class="text-lg opacity-90 mb-6">Experience reliable, comfortable and professional transportation services with Nawab Travel. Contact us today for a free quote.</p>
+ 
+   <!-- Footer -->
+<footer class="bg-secondary text-white py-12 relative" style="background-image: url('./asset/ac.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <!-- Black Overlay -->
+  <div class="absolute inset-0 bg-black opacity-80"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+          <h1 class="text-xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
         </div>
-        <div class="md:w-1/3 text-center" data-aos="fade-left">
-          <a href="index.html#booking" class="bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors duration-300 inline-flex items-center">
-            <i class="fas fa-ticket-alt mr-2"></i> Book Now
+        <p class="mb-4 text-gray-400">Your trusted transportation partner in Coventry and across the UK.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-instagram"></i>
           </a>
         </div>
       </div>
-    </div>
-    <div class="absolute top-0 right-0 w-full h-full opacity-10">
-      <div class="bg-[url('/api/placeholder/1600/400')] bg-cover bg-center h-full w-full"></div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-darkgray text-white pt-16 pb-8">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <!-- Company Info -->
-        <div>
-          <div class="flex items-center mb-6">
-            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
-            <h2 class="text-2xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h2>
-          </div>
-          <p class="mb-6">Providing reliable and professional transportation services throughout the UK. Your comfort and safety are our top priorities.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="bg-secondary hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="bg-secondary hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="bg-secondary hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="bg-secondary hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-        
-        <!-- Quick Links -->
-        <div>
-          <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
-          <ul class="space-y-3">
-            <li><a href="index.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Home</a></li>
-            <li><a href="services.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Services</a></li>
-            <li><a href="about.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> About Us</a></li>
-            <li><a href="contact.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Contact</a></li>
-            <li><a href="terms.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Terms & Conditions</a></li>
-            <li><a href="privacy.html" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Privacy Policy</a></li>
-          </ul>
-        </div>
-        
-        <!-- Services -->
-        <div>
-          <h3 class="text-xl font-semibold mb-6">Our Services</h3>
-          <ul class="space-y-3">
-            <li><a href="services.html#airport" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Airport Transfers</a></li>
-            <li><a href="services.html#corporate" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Corporate Travel</a></li>
-            <li><a href="services.html#events" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Event Transportation</a></li>
-            <li><a href="services.html#wedding" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Wedding Transport</a></li>
-            <li><a href="services.html#tour" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> Tour Services</a></li>
-            <li><a href="services.html#school" class="hover:text-primary transition-colors duration-300 flex items-center"><i class="fas fa-chevron-right text-primary mr-2 text-sm"></i> School Trips</a></li>
-          </ul>
-        </div>
-        
-        <!-- Contact Info -->
-        <div>
-          <h3 class="text-xl font-semibold mb-6">Contact Us</h3>
-          <ul class="space-y-4">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-              <span>551A Foleshill Road,Coventry,CV6 5JW</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-phone-alt text-primary mr-3"></i>
-              <span>02476266666</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-envelope text-primary mr-3"></i>
-              <span>info@nawabtravel.co.uk</span>
-            </li>
-            <li class="flex items-center">
-              <i class="fas fa-clock text-primary mr-3"></i>
-              <span>Mon-Fri: 9am - 6pm</span>
-            </li>
-          </ul>
-          <div class="mt-6">
-            <h4 class="font-semibold mb-2">24/7 Emergency Contact</h4>
-            <a href="tel:02476266666" class="text-primary hover:underline">02476266666</a>
-          </div>
-        </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
+          <li><a href="#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
+          <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+          <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+        </ul>
       </div>
-      
-      <!-- Bottom Bar -->
-      <div class="pt-8 border-t border-gray-700 text-center md:flex md:justify-between md:items-center">
-        <p class="mb-4 md:mb-0">&copy; 2025 Nawab Travel. All rights reserved.</p>
-        <div class="space-x-4">
-         
-  </footer>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Our Services</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+            <span>551A Foleshill Road, Coventry, CV6 5JW</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+            <span>02476266666</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+            <span>info@nawabtravel.co.uk</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+            <span>Available 7 Days </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-darkgray text-center text-gray-400">
+      <p>© 2025 Nawab Travel. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 
   <!-- Back to Top Button -->
   <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
@@ -1192,5 +1252,4 @@ document.head.appendChild(style);
     once: true,
     offset: 100
   });
-</body>
-</html>
+  
