@@ -58,16 +58,14 @@
         </a>
       </div>
       <div class="flex items-center space-x-2 sm:space-x-3">
-        <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-facebook-f text-sm sm:text-base"></i>
         </a>
-        <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-instagram text-sm sm:text-base"></i>
         </a>
-        <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-          <i class="fab fa-twitter text-sm sm:text-base"></i>
-        </a>
-        <a href="https://wa.me/00447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
+      
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
           <i class="fab fa-whatsapp text-sm sm:text-base"></i>
         </a>
       </div>
@@ -128,7 +126,7 @@
       
       <!-- Get Quote Button -->
       <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
-        <i class="fas fa-quote-left mr-2"></i>Book Now
+        Book Now
       </a>
     </nav>
 
@@ -136,7 +134,7 @@
     <div class="flex items-center lg:hidden space-x-3">
       <!-- Mobile Get Quote Button -->
       <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
-        <i class="fas fa-quote-left mr-1"></i>Book Now
+        Book Now
       </a>
       
       <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300">
@@ -194,7 +192,7 @@
         <!-- Get Quote Button in Mobile -->
         <div class="mb-4">
           <a href="#quote" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
-            <i class="fas fa-quote-left mr-2"></i>Book Now
+            Book Now
           </a>
         </div>
         
@@ -214,13 +212,11 @@
           <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-facebook-f text-xl"></i>
           </a>
-          <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
+          <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-instagram text-xl"></i>
           </a>
-          <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
-            <i class="fab fa-twitter text-xl"></i>
           </a>
-          <a href="https://wa.me/00447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
+          <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
             <i class="fab fa-whatsapp text-xl"></i>
           </a>
         </div>
@@ -395,13 +391,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 </script>
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Section with Moving Pictures</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -426,87 +415,35 @@ document.head.appendChild(style);
             display: flex;
             align-items: center;
             padding-top: 4rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, #374151 100%);
             overflow: hidden;
         }
 
-        /* Moving Pictures Container */
-        .moving-pictures {
+        /* Background Video */
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.3;
         }
 
-        .picture-row {
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Video Overlay */
+        .video-overlay {
             position: absolute;
-            width: 200%;
-            height: 120px;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            animation: moveLeft 20s linear infinite;
-        }
-
-        .picture-row:nth-child(1) {
-            top: 10%;
-            animation-duration: 25s;
-        }
-
-        .picture-row:nth-child(2) {
-            top: 30%;
-            animation-duration: 30s;
-            animation-delay: -5s;
-        }
-
-        .picture-row:nth-child(3) {
-            top: 50%;
-            animation-duration: 22s;
-            animation-delay: -10s;
-        }
-
-        .picture-row:nth-child(4) {
-            top: 70%;
-            animation-duration: 28s;
-            animation-delay: -15s;
-        }
-
-        .picture-item {
-            flex-shrink: 0;
-            width: 150px;
-            height: 100px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .picture-item:nth-child(2n) {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-        }
-
-        .picture-item:nth-child(3n) {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-        }
-
-        .picture-item:nth-child(4n) {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-        }
-
-        @keyframes moveLeft {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(31, 41, 55, 0.6);
+            z-index: 2;
         }
 
         /* Content Container */
@@ -527,47 +464,46 @@ document.head.appendChild(style);
             text-align: center;
             max-width: 800px;
             padding: 2rem;
-            background: rgba(31, 41, 55, 0.8);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             color: var(--light);
             line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
             color: var(--light);
             opacity: 0.9;
             line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .button-container {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            flex-direction: row;
+            gap: 0.5rem;
             align-items: center;
+            justify-content: center;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2rem;
+            padding: 0.5rem 1rem;
             border-radius: 9999px;
-            font-size: 1.125rem;
+            font-size: 0.875rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            min-width: 200px;
+            min-width: 120px;
         }
 
         .btn-primary {
@@ -593,7 +529,7 @@ document.head.appendChild(style);
         }
 
         .btn i {
-            margin-right: 0.5rem;
+            margin-right: 0.25rem;
         }
 
         /* Mobile Responsiveness */
@@ -603,13 +539,13 @@ document.head.appendChild(style);
             }
 
             .hero-title {
-                font-size: 2rem;
-                margin-bottom: 1rem;
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
             }
 
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
+                font-size: 0.8rem;
+                margin-bottom: 1rem;
             }
 
             .hero-content {
@@ -617,125 +553,66 @@ document.head.appendChild(style);
                 margin: 1rem;
             }
 
-            .picture-item {
-                width: 100px;
-                height: 70px;
-                font-size: 1.5rem;
-            }
-
-            .picture-row {
-                height: 80px;
-                gap: 1.5rem;
-            }
-
             .btn {
-                padding: 0.75rem 1.5rem;
-                font-size: 1rem;
-                min-width: 180px;
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
+                min-width: 100px;
+            }
+
+            .button-container {
+                gap: 0.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.75rem;
+                font-size: 1.125rem;
             }
 
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.75rem;
             }
 
             .hero-content {
                 padding: 1rem;
             }
 
-            .picture-item {
-                width: 80px;
-                height: 60px;
-                font-size: 1.2rem;
-            }
-
-            .picture-row {
-                height: 70px;
-                gap: 1rem;
-            }
-
             .btn {
-                padding: 0.7rem 1.25rem;
-                font-size: 0.9rem;
-                min-width: 160px;
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+                min-width: 90px;
             }
         }
 
-        @media (min-width: 640px) {
-            .button-container {
-                flex-direction: row;
-                justify-content: center;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .hero-title {
-                font-size: 3.75rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-title {
-                font-size: 4rem;
-            }
+        /* Fallback for browsers that don't support video */
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, #374151 100%);
+            z-index: 0;
         }
     </style>
 </head>
 <body>
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-16 bg-secondary overflow-hidden">
-        <!-- Moving Pictures Background -->
-        <div class="moving-pictures">
-            <div class="picture-row">
-                <div class="picture-item"><i class="fas fa-bus"></i></div>
-                <div class="picture-item"><i class="fas fa-route"></i></div>
-                <div class="picture-item"><i class="fas fa-users"></i></div>
-                <div class="picture-item"><i class="fas fa-shield-alt"></i></div>
-                <div class="picture-item"><i class="fas fa-clock"></i></div>
-                <div class="picture-item"><i class="fas fa-star"></i></div>
-                <div class="picture-item"><i class="fas fa-map-marked-alt"></i></div>
-                <div class="picture-item"><i class="fas fa-thumbs-up"></i></div>
-            </div>
-            <div class="picture-row">
-                <div class="picture-item"><i class="fas fa-steering-wheel"></i></div>
-                <div class="picture-item"><i class="fas fa-phone"></i></div>
-                <div class="picture-item"><i class="fas fa-calendar"></i></div>
-                <div class="picture-item"><i class="fas fa-medal"></i></div>
-                <div class="picture-item"><i class="fas fa-heart"></i></div>
-                <div class="picture-item"><i class="fas fa-handshake"></i></div>
-                <div class="picture-item"><i class="fas fa-road"></i></div>
-                <div class="picture-item"><i class="fas fa-award"></i></div>
-            </div>
-            <div class="picture-row">
-                <div class="picture-item"><i class="fas fa-compass"></i></div>
-                <div class="picture-item"><i class="fas fa-wifi"></i></div>
-                <div class="picture-item"><i class="fas fa-coffee"></i></div>
-                <div class="picture-item"><i class="fas fa-music"></i></div>
-                <div class="picture-item"><i class="fas fa-air-freshener"></i></div>
-                <div class="picture-item"><i class="fas fa-snowflake"></i></div>
-                <div class="picture-item"><i class="fas fa-car-side"></i></div>
-                <div class="picture-item"><i class="fas fa-building"></i></div>
-            </div>
-            <div class="picture-row">
-                <div class="picture-item"><i class="fas fa-tools"></i></div>
-                <div class="picture-item"><i class="fas fa-clipboard-check"></i></div>
-                <div class="picture-item"><i class="fas fa-headset"></i></div>
-                <div class="picture-item"><i class="fas fa-globe"></i></div>
-                <div class="picture-item"><i class="fas fa-lock"></i></div>
-                <div class="picture-item"><i class="fas fa-credit-card"></i></div>
-                <div class="picture-item"><i class="fas fa-mobile-alt"></i></div>
-                <div class="picture-item"><i class="fas fa-gem"></i></div>
-            </div>
+    <section id="home">
+        <!-- Fallback Background -->
+        <div class="video-fallback"></div>
+        
+        <!-- Background Video -->
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="asset/vd.mp4" type="video/mp4">
+                <source src="asset/hero-video.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
         </div>
+
+        <!-- Video Overlay -->
+        <div class="video-overlay"></div>
 
         <!-- Centered Content -->
         <div class="content-container">
@@ -1054,7 +931,7 @@ document.head.appendChild(style);
             <i class="fas fa-phone-alt text-2xl"></i>
           </div>
           <h4 class="text-xl font-semibold mb-2">Call Us</h4>
-          <p class="mb-2">Available 24/7 for bookings</p>
+          <p class="mb-2">Available for bookings</p>
           <a href="tel:02476266666" class="text-primary hover:underline font-semibold">02476266666</a>
         </div>
         <div class="bg-lightgray p-6 rounded-lg shadow-lg text-center hover-scale transition-transform">
@@ -1062,7 +939,7 @@ document.head.appendChild(style);
             <i class="fas fa-envelope text-2xl"></i>
           </div>
           <h4 class="text-xl font-semibold mb-2">Email Us</h4>
-          <p class="mb-2">We'll respond within 2 hours</p>
+          <p class="mb-2">We'll respond within hours</p>
           <a href="mailto:info@nawabtravel.co.uk" class="text-primary hover:underline font-semibold">info@nawabtravel.co.uk</a>
         </div>
         <div class="bg-lightgray p-6 rounded-lg shadow-lg text-center hover-scale transition-transform">
@@ -1081,7 +958,7 @@ document.head.appendChild(style);
   <section class="bg-primary py-16">
     <div class="max-w-4xl mx-auto text-center px-6">
       <h2 class="text-3xl font-bold text-white mb-6">Ready to Book Your Journey?</h2>
-      <p class="text-lg text-white opacity-90 mb-8">Experience premium transportation services with Nawab Travel</p>
+      <p class="text-lg text-white opacity-90 mb-8">Experience comfortable transportation services with Nawab Travel</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="booking.html" class="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300 shadow-lg flex items-center justify-center">
           <i class="fas fa-calendar-check mr-2"></i> Book Now
@@ -1094,74 +971,76 @@ document.head.appendChild(style);
   </section>
 
   <!-- Footer -->
-  <footer class="bg-secondary text-white py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <div class="flex items-center mb-4">
-            <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
-            <h1 class="text-xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
-          </div>
-          <p class="mb-4 text-gray-400">Your trusted transportation partner in Coventry and across the UK.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
+<footer class="bg-secondary text-white py-12 relative" style="background-image: url('./asset/ac.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <!-- Black Overlay -->
+  <div class="absolute inset-0 bg-black opacity-80"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div class="flex items-center mb-4">
+          <i class="fas fa-bus-alt text-primary text-2xl mr-3"></i>
+          <h1 class="text-xl font-bold">NAWAB <span class="text-primary">TRAVEL</span></h1>
         </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
-            <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
-            <li><a href="#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
-            <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
-            <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Our Services</h4>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
-            <li><a href="#" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
-          <ul class="space-y-3">
-            <li class="flex items-start">
-              <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-              <span>551A Foleshill Road, Coventry, CV6 5JW</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
-              <span>02476266666</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
-              <span>info@nawabtravel.co.uk</span>
-            </li>
-            <li class="flex items-start">
-              <i class="fas fa-clock text-primary mt-1 mr-3"></i>
-              <span>24/7 Customer Support</span>
-            </li>
-          </ul>
+        <p class="mb-4 text-gray-400">Your trusted transportation partner in Coventry and across the UK.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
-      <div class="pt-8 border-t border-darkgray text-center text-gray-400">
-        <p>© 2025 Nawab Travel. All rights reserved.</p>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
+          <li><a href="#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
+          <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+          <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Our Services</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+          <li><a href="#" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+            <span>551A Foleshill Road, Coventry, CV6 5JW</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+            <span>02476266666</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+            <span>info@nawabtravel.co.uk</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+            <span>Available 7 Days </span>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="pt-8 border-t border-darkgray text-center text-gray-400">
+      <p>© 2025 Nawab Travel. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
   <!-- Back to Top Button -->
   <a href="#home" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors duration-300">
@@ -1201,5 +1080,204 @@ document.head.appendChild(style);
       }
     });
   </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Social Buttons</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body { background: #f5f5f5; }>
+    
+
+
+    <!-- FLOATING SOCIAL BUTTONS - ADD THIS CODE TO END OF ALL YOUR PAGES -->
+    <div class="floating-social-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+        <!-- Call Button -->
+        <a href="tel:02476266666" class="floating-btn call-btn" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        
+        <!-- Facebook Button -->
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" class="floating-btn facebook-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" class="floating-btn instagram-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <style>
+        /* FLOATING SOCIAL BUTTONS CSS - COPY THIS TO YOUR MAIN CSS FILE */
+        .floating-social-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-btn:hover::before {
+            transform: scale(1);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128c7e, #25d366);
+        }
+
+        /* Call Button */
+        .call-btn {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+        }
+
+        .call-btn:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+        }
+
+        /* Facebook Button */
+        .facebook-btn {
+            background: linear-gradient(135deg, #3b5998, #8b9dc3);
+        }
+
+        .facebook-btn:hover {
+            background: linear-gradient(135deg, #8b9dc3, #3b5998);
+        }
+
+        /* Instagram Button */
+        .instagram-btn {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .instagram-btn:hover {
+            background: linear-gradient(135deg, #bc1888 0%, #cc2366 25%, #dc2743 50%, #e6683c 75%, #f09433 100%);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .floating-social-buttons {
+                right: 15px;
+                bottom: 15px;
+                gap: 12px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-social-buttons {
+                right: 10px;
+                bottom: 10px;
+                gap: 10px;
+            }
+
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animation on page load */
+        .floating-btn {
+            animation: slideInRight 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .floating-btn:nth-child(1) { animation-delay: 0.1s; }
+        .floating-btn:nth-child(2) { animation-delay: 0.2s; }
+        .floating-btn:nth-child(3) { animation-delay: 0.3s; }
+        .floating-btn:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Pulse animation for WhatsApp button */
+        .whatsapp-btn {
+            animation: slideInRight 0.6s ease forwards, pulse 2s infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            }
+        }
+    </style>
+
+    <!-- SEPARATE CODE BLOCKS FOR EASY COPYING -->
+    <script>
+        // Optional: Add click tracking or additional functionality
+        document.querySelectorAll('.floating-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add any tracking code here if needed
+                console.log('Social button clicked:', this.getAttribute('aria-label'));
+            });
+        });
+    </script>
 </body>
 </html>
