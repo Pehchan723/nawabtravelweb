@@ -565,6 +565,137 @@ document.head.appendChild(style);
                 </div>
             </div>
 
+         <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Booking Form</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --darkgray: #374151;
+            --lightgray: #f3f4f6;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .form-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-header {
+            background: linear-gradient(135deg, var(--primary), #b91c1c);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px 16px 0 0;
+        }
+        
+        input, select, textarea {
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .address-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        
+        .address-option {
+            padding: 0.75rem;
+            cursor: pointer;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .address-option:hover {
+            background: #f3f4f6;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .location-item {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .remove-location {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .add-location {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Shorter date/time inputs */
+        input[type="date"], input[type="time"] {
+            max-width: 200px;
+        }
+        
+        @media (max-width: 768px) {
+            input[type="date"], input[type="time"] {
+                max-width: 100%;
+            }
+        }
+    </style>
+
             <!-- Booking Form -->
             <div class="form-card">
                 <div id="booking-form">
@@ -578,43 +709,43 @@ document.head.appendChild(style);
                             <form id="personal-details-form" class="space-y-6">
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-user mr-2 text-primary"></i>Personal Information
+                                        <i class="fas fa-user mr-2 text-red-600"></i>Personal Information
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div class="input-group">
                                             <label for="first-name" class="block text-sm font-medium mb-2 text-gray-700">First Name*</label>
                                             <input type="text" id="first-name" name="first-name" required class="w-full" placeholder="Enter your first name" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter your first name</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter your first name</p>
                                         </div>
                                         <div class="input-group">
                                             <label for="last-name" class="block text-sm font-medium mb-2 text-gray-700">Last Name*</label>
                                             <input type="text" id="last-name" name="last-name" required class="w-full" placeholder="Enter your last name" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter your last name</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter your last name</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-envelope mr-2 text-primary"></i>Contact Information
+                                        <i class="fas fa-envelope mr-2 text-red-600"></i>Contact Information
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div class="input-group">
                                             <label for="email" class="block text-sm font-medium mb-2 text-gray-700">Email Address*</label>
                                             <input type="email" id="email" name="email" required class="w-full" placeholder="your@email.com" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter a valid email address</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter a valid email address</p>
                                         </div>
                                         <div class="input-group">
                                             <label for="phone" class="block text-sm font-medium mb-2 text-gray-700">Phone Number*</label>
                                             <input type="tel" id="phone" name="phone" required class="w-full" placeholder="07123 456789" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter a valid UK phone number</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter a valid UK phone number</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-map-marker-alt mr-2 text-primary"></i>Address Information <span class="text-sm font-normal text-gray-500">(Optional)</span>
+                                        <i class="fas fa-map-marker-alt mr-2 text-red-600"></i>Address Information <span class="text-sm font-normal text-gray-500">(Optional)</span>
                                     </h3>
                                     <div class="input-group mb-4">
                                         <label for="address" class="block text-sm font-medium mb-2 text-gray-700">Street Address</label>
@@ -637,7 +768,7 @@ document.head.appendChild(style);
                                 </div>
 
                                 <div class="pt-6 flex justify-end">
-                                    <button type="button" id="next-step-1" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                    <button type="button" id="next-step-1" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                         Continue <i class="fas fa-arrow-right ml-2"></i>
                                     </button>
                                 </div>
@@ -655,7 +786,7 @@ document.head.appendChild(style);
                             <form id="journey-details-form" class="space-y-6">
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-route mr-2 text-primary"></i>Journey Type & Passengers
+                                        <i class="fas fa-route mr-2 text-red-600"></i>Journey Type & Passengers
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div class="input-group">
@@ -667,7 +798,7 @@ document.head.appendChild(style);
                                                 <option value="hourly">Hourly Hire</option>
                                                 <option value="daily">Daily Hire</option>
                                             </select>
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please select journey type</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select journey type</p>
                                         </div>
                                         <div class="input-group">
                                             <label for="passengers" class="block text-sm font-medium mb-2 text-gray-700">Number of Passengers*</label>
@@ -678,45 +809,67 @@ document.head.appendChild(style);
                                                 <option value="9-12">9-12 passengers</option>
                                                 <option value="16+">16+ passengers</option> 
                                             </select>
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please select number of passengers</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select number of passengers</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-map-marked-alt mr-2 text-primary"></i>Pickup & Dropoff Locations
+                                        <i class="fas fa-map-marked-alt mr-2 text-red-600"></i>Pickup Locations
                                     </h3>
-                                    <div class="space-y-4">
-                                        <div class="input-group">
-                                            <label for="pickup" class="block text-sm font-medium mb-2 text-gray-700">Pickup Location*</label>
-                                            <input type="text" id="pickup" name="pickup" required class="w-full" placeholder="Start typing address..." />
-                                            <div id="pickup-dropdown" class="address-dropdown hidden"></div>
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter pickup location</p>
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="dropoff" class="block text-sm font-medium mb-2 text-gray-700">Dropoff Location*</label>
-                                            <input type="text" id="dropoff" name="dropoff" required class="w-full" placeholder="Start typing address..." />
-                                            <div id="dropoff-dropdown" class="address-dropdown hidden"></div>
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please enter dropoff location</p>
+                                    <div id="pickup-locations">
+                                        <div class="location-item" data-location-type="pickup" data-location-index="0">
+                                            <div class="space-y-4">
+                                                <div class="input-group relative">
+                                                    <label class="block text-sm font-medium mb-2 text-gray-700">Pickup Location 1*</label>
+                                                    <input type="text" name="pickup-0" required class="w-full pickup-input" placeholder="Start typing address..." />
+                                                    <div class="address-dropdown hidden"></div>
+                                                    <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter pickup location</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <button type="button" id="add-pickup" class="add-location">
+                                        <i class="fas fa-plus mr-1"></i> Add Another Pickup Location
+                                    </button>
                                 </div>
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-calendar-alt mr-2 text-primary"></i>Date & Time
+                                        <i class="fas fa-map-marked-alt mr-2 text-red-600"></i>Dropoff Locations
+                                    </h3>
+                                    <div id="dropoff-locations">
+                                        <div class="location-item" data-location-type="dropoff" data-location-index="0">
+                                            <div class="space-y-4">
+                                                <div class="input-group relative">
+                                                    <label class="block text-sm font-medium mb-2 text-gray-700">Dropoff Location 1*</label>
+                                                    <input type="text" name="dropoff-0" required class="w-full dropoff-input" placeholder="Start typing address..." />
+                                                    <div class="address-dropdown hidden"></div>
+                                                    <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter dropoff location</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-dropoff" class="add-location">
+                                        <i class="fas fa-plus mr-1"></i> Add Another Dropoff Location
+                                    </button>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
+                                        <i class="fas fa-calendar-alt mr-2 text-red-600"></i>Date & Time
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div class="input-group">
                                             <label for="pickup-date" class="block text-sm font-medium mb-2 text-gray-700">Pickup Date*</label>
-                                            <input type="date" id="pickup-date" name="pickup-date" required class="w-full" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please select pickup date</p>
+                                            <input type="date" id="pickup-date" name="pickup-date" required />
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select pickup date</p>
                                         </div>
                                         <div class="input-group">
                                             <label for="pickup-time" class="block text-sm font-medium mb-2 text-gray-700">Pickup Time*</label>
-                                            <input type="time" id="pickup-time" name="pickup-time" required class="w-full" />
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please select pickup time</p>
+                                            <input type="time" id="pickup-time" name="pickup-time" required />
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select pickup time</p>
                                         </div>
                                     </div>
                                 </div>
@@ -730,13 +883,13 @@ document.head.appendChild(style);
                                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div class="input-group">
                                                 <label for="return-date" class="block text-sm font-medium mb-2 text-gray-700">Return Date*</label>
-                                                <input type="date" id="return-date" name="return-date" class="w-full" />
-                                                <p class="error-message text-primary text-xs mt-1 hidden">Please select return date</p>
+                                                <input type="date" id="return-date" name="return-date" />
+                                                <p class="error-message text-red-600 text-xs mt-1 hidden">Please select return date</p>
                                             </div>
                                             <div class="input-group">
                                                 <label for="return-time" class="block text-sm font-medium mb-2 text-gray-700">Return Time*</label>
-                                                <input type="time" id="return-time" name="return-time" class="w-full" />
-                                                <p class="error-message text-primary text-xs mt-1 hidden">Please select return time</p>
+                                                <input type="time" id="return-time" name="return-time" />
+                                                <p class="error-message text-red-600 text-xs mt-1 hidden">Please select return time</p>
                                             </div>
                                         </div>
                                     </div>
@@ -762,14 +915,14 @@ document.head.appendChild(style);
                                                 <option value="8">8 hours</option>
                                                 <option value="9">9+ hours (We'll contact you)</option>
                                             </select>
-                                            <p class="error-message text-primary text-xs mt-1 hidden">Please select number of hours</p>
+                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select number of hours</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-comment mr-2 text-primary"></i>Additional Information
+                                        <i class="fas fa-comment mr-2 text-red-600"></i>Additional Information
                                     </h3>
                                     <div class="input-group">
                                         <label for="special-requirements" class="block text-sm font-medium mb-2 text-gray-700">Special Requirements (Optional)</label>
@@ -778,10 +931,10 @@ document.head.appendChild(style);
                                 </div>
 
                                 <div class="pt-6 flex justify-between">
-                                    <button type="button" id="prev-step-2" class="border-2 border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
+                                    <button type="button" id="prev-step-2" class="border-2 border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
                                         <i class="fas fa-arrow-left mr-2"></i> Back
                                     </button>
-                                    <button type="button" id="next-step-2" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                    <button type="button" id="next-step-2" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                         Continue <i class="fas fa-arrow-right ml-2"></i>
                                     </button>
                                 </div>
@@ -799,7 +952,7 @@ document.head.appendChild(style);
                             <div class="space-y-6">
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-user-check mr-2 text-primary"></i>Personal Details
+                                        <i class="fas fa-user-check mr-2 text-red-600"></i>Personal Details
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
@@ -819,7 +972,7 @@ document.head.appendChild(style);
 
                                 <div class="form-section">
                                     <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-route mr-2 text-primary"></i>Journey Details
+                                        <i class="fas fa-route mr-2 text-red-600"></i>Journey Details
                                     </h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
@@ -830,13 +983,15 @@ document.head.appendChild(style);
                                             <p class="text-sm text-gray-600">Number of Passengers</p>
                                             <p id="review-passengers" class="font-medium text-gray-800">5-8 passengers</p>
                                         </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Pickup Location</p>
-                                            <p id="review-pickup" class="font-medium text-gray-800">123 Street Name, City, Postcode</p>
+                                    </div>
+                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <p class="text-sm text-gray-600">Pickup Locations</p>
+                                            <div id="review-pickup-locations" class="font-medium text-gray-800"></div>
                                         </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Dropoff Location</p>
-                                            <p id="review-dropoff" class="font-medium text-gray-800">456 Street Name, City, Postcode</p>
+                                        <div class="mb-4">
+                                            <p class="text-sm text-gray-600">Dropoff Locations</p>
+                                            <div id="review-dropoff-locations" class="font-medium text-gray-800"></div>
                                         </div>
                                         <div>
                                             <p class="text-sm text-gray-600">Pickup Date & Time</p>
@@ -866,19 +1021,19 @@ document.head.appendChild(style);
                                         After you approve the quote, we'll process your payment and confirm your booking.
                                     </p>
                                     <div class="flex items-start mb-4">
-                                        <input type="checkbox" id="terms" name="terms" class="mt-1 w-4 h-4 text-primary" required>
+                                        <input type="checkbox" id="terms" name="terms" class="mt-1 w-4 h-4 text-red-600" required>
                                         <label for="terms" class="ml-3 text-sm text-gray-700">
-                                            I agree to the <a href="#" class="text-primary hover:underline font-medium">terms and conditions</a> and consent to the processing of my personal data for the purpose of this booking.
+                                            I agree to the <a href="#" class="text-red-600 hover:underline font-medium">terms and conditions</a> and consent to the processing of my personal data for the purpose of this booking.
                                         </label>
                                     </div>
-                                    <p id="terms-error" class="error-message text-primary text-xs mb-4 hidden">Please agree to the terms and conditions</p>
+                                    <p id="terms-error" class="error-message text-red-600 text-xs mb-4 hidden">Please agree to the terms and conditions</p>
                                 </div>
 
                                 <div class="pt-6 flex justify-between">
-                                    <button type="button" id="prev-step-3" class="border-2 border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
+                                    <button type="button" id="prev-step-3" class="border-2 border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
                                         <i class="fas fa-arrow-left mr-2"></i> Back
                                     </button>
-                                    <button type="submit" id="submit-booking" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                    <button type="submit" id="submit-booking" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                         <i class="fas fa-paper-plane mr-2"></i> Submit Booking
                                     </button>
                                 </div>
@@ -895,38 +1050,32 @@ document.head.appendChild(style);
                             <h2 class="text-4xl font-bold mb-6 text-gray-800">Booking Request Submitted!</h2>
                             <p class="text-xl mb-8 text-gray-600">Thank you for choosing Nawab Travel. Your booking request has been successfully submitted.</p>
                             
-                            <div class="bg-lightgray p-8 rounded-lg max-w-md mx-auto mb-8">
+                            <div class="bg-gray-100 p-8 rounded-lg max-w-md mx-auto mb-8">
                                 <h3 class="font-semibold text-lg mb-6 text-gray-800">What happens next?</h3>
                                 <ul class="text-left space-y-4">
                                     <li class="flex items-start">
-                                        <i class="fas fa-envelope text-primary mt-1 mr-3 text-lg"></i>
+                                        <i class="fas fa-envelope text-red-600 mt-1 mr-3 text-lg"></i>
                                         <span class="text-gray-700">You will receive a confirmation email shortly</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <i class="fas fa-clipboard-check text-primary mt-1 mr-3 text-lg"></i>
+                                        <i class="fas fa-clipboard-check text-red-600 mt-1 mr-3 text-lg"></i>
                                         <span class="text-gray-700">Our team will review your request and send you a quote within 2 hours</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <i class="fas fa-credit-card text-primary mt-1 mr-3 text-lg"></i>
+                                        <i class="fas fa-credit-card text-red-600 mt-1 mr-3 text-lg"></i>
                                         <span class="text-gray-700">Once you approve the quote, we'll process your payment and confirm your booking</span>
                                     </li>
                                 </ul>
                             </div>
                             
-                            <div class="mb-8 p-6 bg-white rounded-lg border-2 border-primary">
+                            <div class="mb-8 p-6 bg-white rounded-lg border-2 border-red-600">
                                 <p class="font-medium mb-2 text-gray-600">Booking Reference</p>
-                                <p class="text-3xl font-bold text-primary" id="booking-reference">NT-25052025-XYZ</p>
-                                <p class="text-sm text-gray-500 mt-2">Please keep this reference for future correspondence</p>
+                                <p class="text-2xl font-bold text-red-600" id="booking-reference">NWT-2025-001234</p>
                             </div>
                             
-                            <div class="space-x-4">
-                                <a href="index.html" class="inline-block border-2 border-gray-300 bg-white text-darkgray px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300">
-                                    Back to Home
-                                </a>
-                                <a href="contact.html" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300">
-                                    Contact Us
-                                </a>
-                            </div>
+                            <button type="button" id="new-booking" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center mx-auto shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <i class="fas fa-plus mr-2"></i> Make Another Booking
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -935,353 +1084,44 @@ document.head.appendChild(style);
     </section>
 
     <script>
-        // Sample address data for UK cities and locations
-        const addressData = {
-            'manchester': [
-                'Manchester City Centre, Manchester M1 1AA',
-                'Manchester Airport, Manchester M90 1QX',
-                'Manchester University, Oxford Road, Manchester M13 9PL',
-                'Manchester Piccadilly Station, Manchester M1 2QP',
-                'Trafford Centre, Manchester M17 8AA'
-            ],
-            'london': [
-                'London Bridge Station, London SE1 9SP',
-                'Heathrow Airport, London TW6 1AP',
-                'Westminster, London SW1A 0AA',
-                'Tower Bridge, London SE1 2UP',
-                'Oxford Street, London W1C 1JN'
-            ],
-            'birmingham': [
-                'Birmingham City Centre, Birmingham B1 1BB',
-                'Birmingham Airport, Birmingham B26 3QJ',
-                'Birmingham New Street Station, Birmingham B2 4QA',
-                'Bullring Shopping Centre, Birmingham B5 4BU',
-                'University of Birmingham, Birmingham B15 2TT'
-            ],
-            'coventry': [
-                'Coventry City Centre, Coventry CV1 1GF',
-                'Coventry University, Coventry CV1 5FB',
-                'Coventry Cathedral, Coventry CV1 5AB',
-                'Coventry Station, Coventry CV1 2GW',
-                'Ricoh Arena, Coventry CV6 6GE'
-            ],
-            'leeds': [
-                'Leeds City Centre, Leeds LS1 1BA',
-                'Leeds Bradford Airport, Leeds LS19 7TU',
-                'Leeds Station, Leeds LS1 4DY',
-                'University of Leeds, Leeds LS2 9JT',
-                'Trinity Leeds Shopping Centre, Leeds LS1 6HZ'
-            ],
-            'liverpool': [
-                'Liverpool City Centre, Liverpool L1 1JQ',
-                'Liverpool John Lennon Airport, Liverpool L24 1YD',
-                'Liverpool Lime Street Station, Liverpool L1 1JD',
-                'Albert Dock, Liverpool L3 4BB',
-                'University of Liverpool, Liverpool L69 3BX'
-            ]
-        };
+        // Global variables
+        let currentStep = 1;
+        let pickupLocationCount = 1;
+        let dropoffLocationCount = 1;
+        let bookingData = {};
 
-        // Initialize form functionality
+        // Initialize form
         document.addEventListener('DOMContentLoaded', function() {
             initializeForm();
-            initializeAddressAutocomplete();
+            setupEventListeners();
             setMinDate();
         });
 
         function initializeForm() {
+            showStep(1);
+        }
+
+        function setupEventListeners() {
             // Step navigation
-            document.getElementById('next-step-1').addEventListener('click', function() {
-                if (validateStep1()) {
-                    showStep(2);
-                    updateStepIndicator(2);
-                }
-            });
+            document.getElementById('next-step-1').addEventListener('click', () => validateAndNextStep(1));
+            document.getElementById('next-step-2').addEventListener('click', () => validateAndNextStep(2));
+            document.getElementById('prev-step-2').addEventListener('click', () => showStep(1));
+            document.getElementById('prev-step-3').addEventListener('click', () => showStep(2));
+            document.getElementById('submit-booking').addEventListener('click', submitBooking);
+            document.getElementById('new-booking').addEventListener('click', resetForm);
 
-            document.getElementById('next-step-2').addEventListener('click', function() {
-                if (validateStep2()) {
-                    populateReviewData();
-                    showStep(3);
-                    updateStepIndicator(3);
-                }
-            });
+            // Journey type change
+            document.getElementById('journey-type').addEventListener('change', handleJourneyTypeChange);
 
-            document.getElementById('prev-step-2').addEventListener('click', function() {
-                showStep(1);
-                updateStepIndicator(1);
-            });
+            // Add/remove location buttons
+            document.getElementById('add-pickup').addEventListener('click', () => addLocation('pickup'));
+            document.getElementById('add-dropoff').addEventListener('click', () => addLocation('dropoff'));
 
-            document.getElementById('prev-step-3').addEventListener('click', function() {
-                showStep(2);
-                updateStepIndicator(2);
-            });
+            // Address autocomplete
+            setupAddressAutocomplete();
 
-            // Journey type change handler
-            document.getElementById('journey-type').addEventListener('change', function() {
-                const returnSection = document.getElementById('return-journey');
-                const hourlySection = document.getElementById('hourly-hire');
-                
-                if (this.value === 'return') {
-                    returnSection.classList.remove('hidden');
-                    hourlySection.classList.add('hidden');
-                } else if (this.value === 'hourly' || this.value === 'daily') {
-                    hourlySection.classList.remove('hidden');
-                    returnSection.classList.add('hidden');
-                } else {
-                    returnSection.classList.add('hidden');
-                    hourlySection.classList.add('hidden');
-                }
-            });
-
-            // Form submission
-            document.getElementById('submit-booking').addEventListener('click', function() {
-                if (validateStep3()) {
-                    submitBooking();
-                }
-            });
-        }
-
-        function initializeAddressAutocomplete() {
-            const pickupInput = document.getElementById('pickup');
-            const dropoffInput = document.getElementById('dropoff');
-            const pickupDropdown = document.getElementById('pickup-dropdown');
-            const dropoffDropdown = document.getElementById('dropoff-dropdown');
-
-            setupAddressInput(pickupInput, pickupDropdown);
-            setupAddressInput(dropoffInput, dropoffDropdown);
-        }
-
-        function setupAddressInput(input, dropdown) {
-            input.addEventListener('input', function() {
-                const query = this.value.toLowerCase();
-                if (query.length < 2) {
-                    dropdown.classList.add('hidden');
-                    return;
-                }
-
-                const suggestions = getAddressSuggestions(query);
-                if (suggestions.length > 0) {
-                    showAddressSuggestions(dropdown, suggestions, input);
-                } else {
-                    dropdown.classList.add('hidden');
-                }
-            });
-
-            // Hide dropdown when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
-                    dropdown.classList.add('hidden');
-                }
-            });
-        }
-
-        function getAddressSuggestions(query) {
-            const suggestions = [];
-            
-            // Search through all cities
-            for (const city in addressData) {
-                if (city.includes(query)) {
-                    // Add all addresses for matching city
-                    suggestions.push(...addressData[city]);
-                } else {
-                    // Search within addresses
-                    addressData[city].forEach(address => {
-                        if (address.toLowerCase().includes(query)) {
-                            suggestions.push(address);
-                        }
-                    });
-                }
-            }
-            
-            // Remove duplicates and limit results
-            return [...new Set(suggestions)].slice(0, 8);
-        }
-
-        function showAddressSuggestions(dropdown, suggestions, input) {
-            dropdown.innerHTML = '';
-            
-            suggestions.forEach(address => {
-                const option = document.createElement('div');
-                option.className = 'address-option';
-                option.textContent = address;
-                option.addEventListener('click', function() {
-                    input.value = address;
-                    dropdown.classList.add('hidden');
-                });
-                dropdown.appendChild(option);
-            });
-            
-            dropdown.classList.remove('hidden');
-        }
-
-        function showStep(stepNumber) {
-            // Hide all steps
-            for (let i = 1; i <= 3; i++) {
-                document.getElementById(`step-${i}`).classList.add('hidden');
-            }
-            
-            // Show current step with animation
-            const currentStep = document.getElementById(`step-${stepNumber}`);
-            currentStep.classList.remove('hidden');
-            currentStep.classList.add('fade-in');
-        }
-
-        function updateStepIndicator(activeStep) {
-            for (let i = 1; i <= 3; i++) {
-                const indicator = document.getElementById(`step-indicator-${i}`);
-                indicator.classList.remove('active', 'completed');
-                
-                if (i < activeStep) {
-                    indicator.classList.add('completed');
-                } else if (i === activeStep) {
-                    indicator.classList.add('active');
-                }
-            }
-        }
-
-        function validateStep1() {
-            const fields = ['first-name', 'last-name', 'email', 'phone'];
-            let isValid = true;
-            
-            fields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                const errorElement = field.parentElement.querySelector('.error-message');
-                
-                if (!field.value.trim()) {
-                    errorElement.classList.remove('hidden');
-                    field.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    errorElement.classList.add('hidden');
-                    field.classList.remove('border-red-500');
-                }
-            });
-            
-            return isValid;
-        }
-
-        function validateStep2() {
-            const fields = ['journey-type', 'passengers', 'pickup', 'dropoff', 'pickup-date', 'pickup-time'];
-            let isValid = true;
-            
-            fields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                const errorElement = field.parentElement.querySelector('.error-message');
-                
-                if (!field.value.trim()) {
-                    errorElement.classList.remove('hidden');
-                    field.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    errorElement.classList.add('hidden');
-                    field.classList.remove('border-red-500');
-                }
-            });
-            
-            // Validate conditional fields
-            const journeyType = document.getElementById('journey-type').value;
-            if (journeyType === 'return') {
-                const returnFields = ['return-date', 'return-time'];
-                returnFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    const errorElement = field.parentElement.querySelector('.error-message');
-                    
-                    if (!field.value.trim()) {
-                        errorElement.classList.remove('hidden');
-                        field.classList.add('border-red-500');
-                        isValid = false;
-                    } else {
-                        errorElement.classList.add('hidden');
-                        field.classList.remove('border-red-500');
-                    }
-                });
-            } else if (journeyType === 'hourly' || journeyType === 'daily') {
-                const hoursField = document.getElementById('hours');
-                const errorElement = hoursField.parentElement.querySelector('.error-message');
-                
-                if (!hoursField.value.trim()) {
-                    errorElement.classList.remove('hidden');
-                    hoursField.classList.add('border-red-500');
-                    isValid = false;
-                } else {
-                    errorElement.classList.add('hidden');
-                    hoursField.classList.remove('border-red-500');
-                }
-            }
-            
-            return isValid;
-        }
-
-        function validateStep3() {
-            const termsCheckbox = document.getElementById('terms');
-            const errorElement = document.getElementById('terms-error');
-            
-            if (!termsCheckbox.checked) {
-                errorElement.classList.remove('hidden');
-                return false;
-            } else {
-                errorElement.classList.add('hidden');
-                return true;
-            }
-        }
-
-        function populateReviewData() {
-            // Personal details
-            document.getElementById('review-name').textContent = 
-                `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
-            document.getElementById('review-email').textContent = document.getElementById('email').value;
-            document.getElementById('review-phone').textContent = document.getElementById('phone').value;
-            
-            // Journey details
-            document.getElementById('review-journey-type').textContent = 
-                document.getElementById('journey-type').selectedOptions[0].textContent;
-            document.getElementById('review-passengers').textContent = 
-                document.getElementById('passengers').selectedOptions[0].textContent;
-            document.getElementById('review-pickup').textContent = document.getElementById('pickup').value;
-            document.getElementById('review-dropoff').textContent = document.getElementById('dropoff').value;
-            
-            // Date and time
-            const pickupDate = new Date(document.getElementById('pickup-date').value);
-            const pickupTime = document.getElementById('pickup-time').value;
-            document.getElementById('review-pickup-datetime').textContent = 
-                `${pickupDate.toLocaleDateString('en-GB')} at ${pickupTime}`;
-            
-            // Conditional fields
-            const journeyType = document.getElementById('journey-type').value;
-            if (journeyType === 'return') {
-                const returnDate = new Date(document.getElementById('return-date').value);
-                const returnTime = document.getElementById('return-time').value;
-                document.getElementById('review-return-datetime').textContent = 
-                    `${returnDate.toLocaleDateString('en-GB')} at ${returnTime}`;
-                document.getElementById('review-return-container').classList.remove('hidden');
-            } else if (journeyType === 'hourly' || journeyType === 'daily') {
-                document.getElementById('review-hours').textContent = 
-                    document.getElementById('hours').selectedOptions[0].textContent;
-                document.getElementById('review-hours-container').classList.remove('hidden');
-            }
-            
-            // Special requirements
-            const requirements = document.getElementById('special-requirements').value;
-            document.getElementById('review-requirements').textContent = 
-                requirements || 'No special requirements provided.';
-        }
-
-        function submitBooking() {
-            // Generate booking reference
-            const now = new Date();
-            const dateStr = now.getFullYear().toString().substr(-2) + 
-                           (now.getMonth() + 1).toString().padStart(2, '0') + 
-                           now.getDate().toString().padStart(2, '0');
-            const randomStr = Math.random().toString(36).substr(2, 3).toUpperCase();
-            const bookingRef = `NT-${dateStr}-${randomStr}`;
-            
-            document.getElementById('booking-reference').textContent = bookingRef;
-            
-            // Hide form and show success
-            document.getElementById('step-3').classList.add('hidden');
-            document.getElementById('booking-success').classList.remove('hidden');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Phone number formatting
+            document.getElementById('phone').addEventListener('input', formatPhoneNumber);
         }
 
         function setMinDate() {
@@ -1292,6 +1132,401 @@ document.head.appendChild(style);
             const minDate = tomorrow.toISOString().split('T')[0];
             document.getElementById('pickup-date').setAttribute('min', minDate);
             document.getElementById('return-date').setAttribute('min', minDate);
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById(`step-${i}`).classList.add('hidden');
+            }
+            
+            // Show current step
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            document.getElementById(`step-${step}`).classList.add('fade-in');
+            
+            currentStep = step;
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validateAndNextStep(step) {
+            if (validateStep(step)) {
+                if (step === 2) {
+                    populateReviewSection();
+                }
+                showStep(step + 1);
+            }
+        }
+
+        function validateStep(step) {
+            let isValid = true;
+            const form = document.getElementById(step === 1 ? 'personal-details-form' : 'journey-details-form');
+            
+            // Clear previous errors
+            form.querySelectorAll('.error-message').forEach(msg => msg.classList.add('hidden'));
+            form.querySelectorAll('input, select').forEach(field => field.classList.remove('border-red-500'));
+
+            if (step === 1) {
+                // Validate personal details
+                const requiredFields = ['first-name', 'last-name', 'email', 'phone'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value.trim()) {
+                        showFieldError(field);
+                        isValid = false;
+                    }
+                });
+
+                // Validate email format
+                const email = document.getElementById('email');
+                if (email.value && !isValidEmail(email.value)) {
+                    showFieldError(email);
+                    isValid = false;
+                }
+
+                // Validate phone format
+                const phone = document.getElementById('phone');
+                if (phone.value && !isValidUKPhone(phone.value)) {
+                    showFieldError(phone);
+                    isValid = false;
+                }
+            } else if (step === 2) {
+                // Validate journey details
+                const requiredFields = ['journey-type', 'passengers', 'pickup-date', 'pickup-time'];
+                requiredFields.forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (!field.value) {
+                        showFieldError(field);
+                        isValid = false;
+                    }
+                });
+
+                // Validate pickup locations
+                const pickupInputs = document.querySelectorAll('[name^="pickup-"]');
+                pickupInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        showFieldError(input);
+                        isValid = false;
+                    }
+                });
+
+                // Validate dropoff locations
+                const dropoffInputs = document.querySelectorAll('[name^="dropoff-"]');
+                dropoffInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        showFieldError(input);
+                        isValid = false;
+                    }
+                });
+
+                // Validate journey-specific fields
+                const journeyType = document.getElementById('journey-type').value;
+                if (journeyType === 'return') {
+                    const returnDate = document.getElementById('return-date');
+                    const returnTime = document.getElementById('return-time');
+                    if (!returnDate.value || !returnTime.value) {
+                        if (!returnDate.value) showFieldError(returnDate);
+                        if (!returnTime.value) showFieldError(returnTime);
+                        isValid = false;
+                    }
+                } else if (journeyType === 'hourly') {
+                    const hours = document.getElementById('hours');
+                    if (!hours.value) {
+                        showFieldError(hours);
+                        isValid = false;
+                    }
+                }
+            }
+
+            return isValid;
+        }
+
+        function showFieldError(field) {
+            field.classList.add('border-red-500');
+            const errorMsg = field.parentNode.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidUKPhone(phone) {
+            const ukPhoneRegex = /^(\+44|0)[1-9]\d{8,9}$/;
+            return ukPhoneRegex.test(phone.replace(/\s/g, ''));
+        }
+
+        function formatPhoneNumber(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('44')) {
+                value = '+44 ' + value.substring(2);
+            } else if (value.startsWith('0')) {
+                value = value.substring(0, 5) + ' ' + value.substring(5);
+            }
+            e.target.value = value;
+        }
+
+        function handleJourneyTypeChange(e) {
+            const journeyType = e.target.value;
+            const returnSection = document.getElementById('return-journey');
+            const hourlySection = document.getElementById('hourly-hire');
+            
+            // Hide all conditional sections
+            returnSection.classList.add('hidden');
+            hourlySection.classList.add('hidden');
+            
+            // Show relevant section
+            if (journeyType === 'return') {
+                returnSection.classList.remove('hidden');
+                document.getElementById('return-date').required = true;
+                document.getElementById('return-time').required = true;
+                document.getElementById('hours').required = false;
+            } else if (journeyType === 'hourly' || journeyType === 'daily') {
+                hourlySection.classList.remove('hidden');
+                document.getElementById('hours').required = true;
+                document.getElementById('return-date').required = false;
+                document.getElementById('return-time').required = false;
+            } else {
+                document.getElementById('return-date').required = false;
+                document.getElementById('return-time').required = false;
+                document.getElementById('hours').required = false;
+            }
+        }
+
+        function addLocation(type) {
+            const container = document.getElementById(`${type}-locations`);
+            const count = type === 'pickup' ? ++pickupLocationCount : ++dropoffLocationCount;
+            
+            const locationDiv = document.createElement('div');
+            locationDiv.className = 'location-item';
+            locationDiv.setAttribute('data-location-type', type);
+            locationDiv.setAttribute('data-location-index', count - 1);
+            
+            locationDiv.innerHTML = `
+                <button type="button" class="remove-location" onclick="removeLocation(this)">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="space-y-4">
+                    <div class="input-group relative">
+                        <label class="block text-sm font-medium mb-2 text-gray-700">${type.charAt(0).toUpperCase() + type.slice(1)} Location ${count}</label>
+                        <input type="text" name="${type}-${count - 1}" class="w-full ${type}-input" placeholder="Start typing address..." />
+                        <div class="address-dropdown hidden"></div>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(locationDiv);
+            setupAddressAutocompleteForElement(locationDiv.querySelector(`.${type}-input`));
+        }
+
+        function removeLocation(button) {
+            const locationItem = button.closest('.location-item');
+            const type = locationItem.getAttribute('data-location-type');
+            locationItem.remove();
+            
+            // Update counts and reindex
+            if (type === 'pickup') {
+                pickupLocationCount--;
+            } else {
+                dropoffLocationCount--;
+            }
+            reindexLocations(type);
+        }
+
+        function reindexLocations(type) {
+            const locations = document.querySelectorAll(`[data-location-type="${type}"]`);
+            locations.forEach((location, index) => {
+                location.setAttribute('data-location-index', index);
+                const input = location.querySelector('input');
+                const label = location.querySelector('label');
+                
+                input.name = `${type}-${index}`;
+                label.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Location ${index + 1}${index === 0 ? '*' : ''}`;
+            });
+        }
+
+        function setupAddressAutocomplete() {
+            document.querySelectorAll('.pickup-input, .dropoff-input').forEach(setupAddressAutocompleteForElement);
+        }
+
+        function setupAddressAutocompleteForElement(input) {
+            let timeout;
+            
+            input.addEventListener('input', function(e) {
+                clearTimeout(timeout);
+                const query = e.target.value;
+                const dropdown = e.target.parentNode.querySelector('.address-dropdown');
+                
+                if (query.length < 3) {
+                    dropdown.classList.add('hidden');
+                    return;
+                }
+                
+                timeout = setTimeout(() => {
+                    // Simulate address suggestions (in real implementation, use actual geocoding API)
+                    const suggestions = generateAddressSuggestions(query);
+                    showAddressSuggestions(dropdown, suggestions, input);
+                }, 300);
+            });
+            
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!input.contains(e.target)) {
+                    const dropdown = input.parentNode.querySelector('.address-dropdown');
+                    dropdown.classList.add('hidden');
+                }
+            });
+        }
+
+        function generateAddressSuggestions(query) {
+            // Simulate address suggestions - in real implementation, use Google Places API or similar
+            const mockSuggestions = [
+                `${query} Street, London, UK`,
+                `${query} Road, Manchester, UK`,
+                `${query} Avenue, Birmingham, UK`,
+                `${query} Close, Liverpool, UK`,
+                `${query} Lane, Leeds, UK`
+            ];
+            return mockSuggestions.slice(0, 5);
+        }
+
+        function showAddressSuggestions(dropdown, suggestions, input) {
+            dropdown.innerHTML = '';
+            suggestions.forEach(suggestion => {
+                const option = document.createElement('div');
+                option.className = 'address-option';
+                option.textContent = suggestion;
+                option.addEventListener('click', () => {
+                    input.value = suggestion;
+                    dropdown.classList.add('hidden');
+                });
+                dropdown.appendChild(option);
+            });
+            dropdown.classList.remove('hidden');
+        }
+
+        function populateReviewSection() {
+            // Personal details
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            document.getElementById('review-name').textContent = `${firstName} ${lastName}`;
+            document.getElementById('review-email').textContent = document.getElementById('email').value;
+            document.getElementById('review-phone').textContent = document.getElementById('phone').value;
+
+            // Journey details
+            const journeyType = document.getElementById('journey-type');
+            document.getElementById('review-journey-type').textContent = journeyType.options[journeyType.selectedIndex].text;
+            
+            const passengers = document.getElementById('passengers');
+            document.getElementById('review-passengers').textContent = passengers.options[passengers.selectedIndex].text;
+
+            // Locations
+            const pickupLocations = Array.from(document.querySelectorAll('[name^="pickup-"]')).map(input => input.value);
+            const dropoffLocations = Array.from(document.querySelectorAll('[name^="dropoff-"]')).map(input => input.value);
+            
+            document.getElementById('review-pickup-locations').innerHTML = pickupLocations.map((loc, i) => `<p>${i + 1}. ${loc}</p>`).join('');
+            document.getElementById('review-dropoff-locations').innerHTML = dropoffLocations.map((loc, i) => `<p>${i + 1}. ${loc}</p>`).join('');
+
+            // Date and time
+            const pickupDate = new Date(document.getElementById('pickup-date').value);
+            const pickupTime = document.getElementById('pickup-time').value;
+            document.getElementById('review-pickup-datetime').textContent = `${pickupDate.toLocaleDateString('en-GB')} at ${pickupTime}`;
+
+            // Conditional fields
+            const journeyTypeValue = document.getElementById('journey-type').value;
+            const returnContainer = document.getElementById('review-return-container');
+            const hoursContainer = document.getElementById('review-hours-container');
+            
+            returnContainer.classList.add('hidden');
+            hoursContainer.classList.add('hidden');
+            
+            if (journeyTypeValue === 'return') {
+                const returnDate = new Date(document.getElementById('return-date').value);
+                const returnTime = document.getElementById('return-time').value;
+                document.getElementById('review-return-datetime').textContent = `${returnDate.toLocaleDateString('en-GB')} at ${returnTime}`;
+                returnContainer.classList.remove('hidden');
+            } else if (journeyTypeValue === 'hourly' || journeyTypeValue === 'daily') {
+                const hours = document.getElementById('hours');
+                document.getElementById('review-hours').textContent = hours.options[hours.selectedIndex].text;
+                hoursContainer.classList.remove('hidden');
+            }
+
+            // Special requirements
+            const requirements = document.getElementById('special-requirements').value;
+            document.getElementById('review-requirements').textContent = requirements || 'No special requirements provided.';
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            
+            // Check terms acceptance
+            const termsCheckbox = document.getElementById('terms');
+            const termsError = document.getElementById('terms-error');
+            
+            if (!termsCheckbox.checked) {
+                termsError.classList.remove('hidden');
+                return;
+            }
+            
+            termsError.classList.add('hidden');
+            
+            // Generate booking reference
+            const bookingRef = generateBookingReference();
+            document.getElementById('booking-reference').textContent = bookingRef;
+            
+            // Show success message
+            document.getElementById('step-3').classList.add('hidden');
+            document.getElementById('booking-success').classList.remove('hidden');
+            document.getElementById('booking-success').classList.add('fade-in');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function generateBookingReference() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            return `NWT-${year}${month}${day}-${random}`;
+        }
+
+        function resetForm() {
+            // Reset all form fields
+            document.querySelectorAll('input, select, textarea').forEach(field => {
+                if (field.type === 'checkbox') {
+                    field.checked = false;
+                } else {
+                    field.value = '';
+                }
+                field.classList.remove('border-red-500');
+            });
+            
+            // Hide error messages
+            document.querySelectorAll('.error-message').forEach(msg => msg.classList.add('hidden'));
+            
+            // Reset location counts
+            pickupLocationCount = 1;
+            dropoffLocationCount = 1;
+            
+            // Remove extra locations
+            document.querySelectorAll('.location-item').forEach((item, index) => {
+                if (index > 0) {
+                    item.remove();
+                }
+            });
+            
+            // Reset conditional sections
+            document.getElementById('return-journey').classList.add('hidden');
+            document.getElementById('hourly-hire').classList.add('hidden');
+            
+            // Go back to step 1
+            showStep(1);
         }
     </script>
 </body>
@@ -1322,7 +1557,7 @@ document.head.appendChild(style);
             </li>
             <li class="flex items-start">
               <i class="fas fa-check-circle text-primary mt-1 mr-3"></i>
-              <span>24/7 customer support</span>
+              <span>Whole Week customer support</span>
             </li>
           </ul>
         </div>
@@ -1361,11 +1596,45 @@ document.head.appendChild(style);
             </li>
             <li class="flex items-start">
               <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
-              <span>Email: <a href="mailto:bookings@nawabtravel.co.uk" class="hover:text-primary transition-colors duration-300">bookings@nawabtravel.co.uk</a></span>
+              <span>Email: <a href="mailto:info@nawabtravel.co.uk" class="hover:text-primary transition-colors duration-300">info@nawabtravel.co.uk</a></span>
             </li>
             <li class="flex items-start">
               <i class="fas fa-clock text-primary mt-1 mr-3"></i>
-              <span>Office hours: 8am - 8pm, 7 days a week</span>
+              <div>
+                <span class="font-medium">Office hours:</span>
+                <div class="mt-2 text-sm">
+                  <table class="w-full max-w-xs">
+                    <tr>
+                      <td class="pr-4 py-1">Monday:</td>
+                      <td class="py-1">9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Tuesday:</td>
+                      <td class="py-1">9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Wednesday:</td>
+                      <td class="py-1">9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Thursday:</td>
+                      <td class="py-1">9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Friday:</td>
+                      <td class="py-1">9:00 AM - 6:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Saturday:</td>
+                      <td class="py-1">10:00 AM - 4:00 PM</td>
+                    </tr>
+                    <tr>
+                      <td class="pr-4 py-1">Sunday:</td>
+                      <td class="py-1">10:00 AM - 4:00 PM</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </li>
           </ul>
           <div class="mt-6">
