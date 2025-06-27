@@ -944,80 +944,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </footer>
-
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });  // Header Fix Patch for Scroll Glitch
-  window.addEventListener('load', function () {
-    const firstSection = document.querySelector('section');
-    if (firstSection && getComputedStyle(firstSection).paddingTop === '96px') {
-      firstSection.style.paddingTop = '130px';
-    }
-  });
-
-    
-    
-    // Mobile Menu Toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // FAQ Toggles
-    document.querySelectorAll('.faq-toggle').forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        const icon = this.querySelector('i');
-        
-        content.classList.toggle('hidden');
-        icon.classList.toggle('transform');
-        icon.classList.toggle('rotate-45');
-      });
-    });
-    
-    // Back to Top Button
-    const backToTopButton = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.remove('opacity-0', 'invisible');
-        backToTopButton.classList.add('opacity-100', 'visible');
-      } else {
-        backToTopButton.classList.add('opacity-0', 'invisible');
-        backToTopButton.classList.remove('opacity-100', 'visible');
-      }
-    });
-    
-    backToTopButton.addEventListener('click', function() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Form Validation
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-      form.addEventListener('submit', function(e) {
-        // Basic form validation could be added here if needed
-        // This is a placeholder for future validation logic
-      });
-    });
-  </script>
-          <script>
-  // Initialize AOS
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100
-  });
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1217,3 +1144,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 </html>
   
+
+ 
