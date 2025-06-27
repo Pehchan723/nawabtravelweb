@@ -19,6 +19,9 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
           },
+          screens: {
+            'xs': '480px',
+          }
         }
       }
     }
@@ -28,7 +31,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
     
     body {
-      scroll-behavior: smooth;;l
+      scroll-behavior: smooth;
     }
     
     .transition-transform {
@@ -63,51 +66,172 @@
     .step-line-active {
       background-color: #E50914;
     }
+
+    /* Enhanced mobile styles */
+    @media (max-width: 768px) {
+      .mobile-menu-backdrop {
+        backdrop-filter: blur(10px);
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(51, 51, 51, 0.95));
+      }
+      
+      .social-icon {
+        padding: 8px;
+        border-radius: 50%;
+        background: rgba(229, 9, 20, 0.1);
+      }
+      
+      .logo-text {
+        font-size: 1rem !important;
+        line-height: 1.2;
+      }
+      
+      .nav-mobile-item {
+        border-radius: 8px;
+        margin: 4px 0;
+      }
+      
+      .nav-mobile-item:hover {
+        background: linear-gradient(135deg, #E50914, #b91c1c);
+        transform: translateX(8px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 0.875rem !important;
+      }
+      
+      .mobile-contact-bar {
+        font-size: 0.75rem;
+      }
+      
+      .mobile-menu-item {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Touch-friendly improvements */
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .mobile-menu-button {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    
+    /* Improved animations */
+    @keyframes slideDown {
+      from { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+      }
+      to { 
+        transform: translateY(0); 
+        opacity: 1; 
+      }
+    }
+    
+    @keyframes slideUp {
+      from { 
+        transform: translateY(0); 
+        opacity: 1; 
+      }
+      to { 
+        transform: translateY(-100%); 
+        opacity: 0; 
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(255, 107, 53, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.8), 0 0 30px rgba(255, 107, 53, 0.4); }
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 2s infinite;
+    }
+    
+    .logo-hover:hover {
+      transform: scale(1.05) rotate(5deg);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .nav-link:hover::before {
+      left: 100%;
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    
+    header {
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
 <header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
-  <!-- Top contact bar with social links (visible on all screens) -->
+  <!-- Top contact bar with social links -->
   <div class="bg-gradient-to-r from-secondary to-darkgray border-b border-primary/20">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-4 sm:px-6 text-xs sm:text-sm">
+    <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-3 sm:px-6 text-xs sm:text-sm mobile-contact-bar">
       <div class="flex items-center space-x-2 sm:space-x-4">
-        <a href="tel:02476266666" class="flex items-center hover:text-primary transition-all duration-300 hover:scale-105">
-          <i class="fas fa-phone-alt mr-1 sm:mr-2 text-primary animate-pulse"></i>
+        <a href="tel:02476266666" class="flex items-center hover:text-primary transition-all duration-300 hover:scale-105 touch-target">
+          <i class="fas fa-phone-alt mr-1 sm:mr-2 text-primary animate-pulse text-xs sm:text-sm"></i>
           <span class="hidden xs:inline">02476266666</span>
         </a>
-        <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-all duration-300 hover:scale-105">
-          <i class="fas fa-envelope mr-1 sm:mr-2 text-primary"></i>
+        <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-all duration-300 hover:scale-105 touch-target">
+          <i class="fas fa-envelope mr-1 sm:mr-2 text-primary text-xs sm:text-sm"></i>
           <span class="hidden sm:inline">info@nawabtravel.com</span>
         </a>
       </div>
-      <div class="flex items-center space-x-2 sm:space-x-3">
-        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-          <i class="fab fa-facebook-f text-sm sm:text-base"></i>
+      <div class="flex items-center space-x-1 sm:space-x-3">
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1 touch-target">
+          <i class="fab fa-facebook-f text-xs sm:text-base"></i>
         </a>
-        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-          <i class="fab fa-instagram text-sm sm:text-base"></i>
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1 touch-target">
+          <i class="fab fa-instagram text-xs sm:text-base"></i>
         </a>
-       
-        </a>
-        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1">
-          <i class="fab fa-whatsapp text-sm sm:text-base"></i>
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 hover:-translate-y-1 touch-target">
+          <i class="fab fa-whatsapp text-xs sm:text-base"></i>
         </a>
       </div>
     </div>
   </div>
   
   <!-- Main navigation -->
-  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6">
     <!-- Logo Section -->
     <div class="flex items-center logo-container">
       <!-- Company Logo -->
-      <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
-        <i class="fas fa-bus-alt text-white text-lg sm:text-xl"></i>
+      <div class="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
+        <i class="fas fa-bus-alt text-white text-sm xs:text-base sm:text-xl"></i>
       </div>
       <div class="flex flex-col">
-        <h1 class="text-lg sm:text-2xl font-bold logo-text">
+        <h1 class="text-sm xs:text-base sm:text-2xl font-bold logo-text">
           NAWAB <span class="text-primary">TRAVEL</span>
         </h1>
         <p class="text-xs text-gray-300 hidden sm:block">Your Journey, Our Priority</p>
@@ -151,35 +275,35 @@
       <a href="contact.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300">Contact</a>
       
       <!-- Get Quote Button -->
-      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
+      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg animate-pulse-glow ml-4">
         Book Now
       </a>
     </nav>
 
     <!-- Mobile Menu Button and Get Quote -->
-    <div class="flex items-center lg:hidden space-x-3">
+    <div class="flex items-center lg:hidden space-x-2 xs:space-x-3">
       <!-- Mobile Get Quote Button -->
-      <a href="#quote" class="bg-primary hover:bg-orange-600 text-white px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 text-sm">
+      <a href="booking.html" class="bg-primary hover:bg-orange-600 text-white px-2 xs:px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 text-xs xs:text-sm touch-target">
         Book Now
       </a>
       
-      <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300">
-        <i id="menu-icon" class="fas fa-bars text-xl transition-transform duration-300"></i>
+      <button id="mobile-menu-button" class="text-light p-2 hover:bg-darkgray rounded-lg transition-all duration-300 mobile-menu-button touch-target" aria-label="Toggle mobile menu">
+        <i id="menu-icon" class="fas fa-bars text-lg xs:text-xl transition-transform duration-300"></i>
       </button>
     </div>
   </div>
   
   <!-- Mobile Menu -->
-  <nav id="mobile-menu" class="lg:hidden hidden bg-gradient-to-b from-secondary to-darkgray shadow-inner border-t border-primary/20 mobile-menu-backdrop">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <ul class="space-y-2">
-        <li><a href="#home" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+  <nav id="mobile-menu" class="lg:hidden hidden mobile-menu-backdrop shadow-inner border-t border-primary/20">
+    <div class="max-w-6xl mx-auto px-3 xs:px-4 py-4">
+      <ul class="space-y-1">
+        <li><a href="index.html" class="nav-mobile-item block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600 mobile-menu-item">
           <i class="fas fa-home mr-3 text-primary"></i>Home
         </a></li>
         
         <!-- Mobile Services Dropdown -->
         <li>
-          <button id="mobile-services-toggle" class="w-full flex justify-between items-center py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+          <button id="mobile-services-toggle" class="nav-mobile-item w-full flex justify-between items-center py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600 mobile-menu-item">
             <span><i class="fas fa-cog mr-3 text-primary"></i>Services</span>
             <i id="mobile-services-icon" class="fas fa-chevron-down transition-transform duration-300"></i>
           </button>
@@ -202,13 +326,13 @@
           </div>
         </li>
         
-        <li><a href="booking.html" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+        <li><a href="booking.html" class="nav-mobile-item block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600 mobile-menu-item">
           <i class="fas fa-calendar-check mr-3 text-primary"></i>Book Now
         </a></li>
-        <li><a href="about.html" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+        <li><a href="about.html" class="nav-mobile-item block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600 mobile-menu-item">
           <i class="fas fa-info-circle mr-3 text-primary"></i>About Us
         </a></li>
-        <li><a href="contact.html" class="block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600">
+        <li><a href="contact.html" class="nav-mobile-item block py-3 px-4 hover:bg-primary hover:text-white rounded-lg transition-all duration-300 border-b border-gray-600 mobile-menu-item">
           <i class="fas fa-phone mr-3 text-primary"></i>Contact
         </a></li>
       </ul>
@@ -217,34 +341,33 @@
       <div class="mt-6 pt-4 border-t border-gray-600">
         <!-- Get Quote Button in Mobile -->
         <div class="mb-4">
-          <a href="#quote" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center">
+          <a href="booking.html" class="w-full bg-primary hover:bg-orange-600 text-white py-3 px-4 rounded-lg transition-all duration-300 hover:scale-105 flex items-center justify-center touch-target">
+            <i class="fas fa-calendar-check mr-2"></i>
             Book Now
           </a>
         </div>
         
         <div class="space-y-3">
-          <a href="tel:02476266666" class="flex items-center hover:text-primary transition-all duration-300">
+          <a href="tel:02476266666" class="flex items-center hover:text-primary transition-all duration-300 touch-target">
             <i class="fas fa-phone-alt mr-3 text-primary"></i>
             <span>02476266666</span>
           </a>
-          <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-all duration-300">
+          <a href="mailto:info@nawabtravel.com" class="flex items-center hover:text-primary transition-all duration-300 touch-target">
             <i class="fas fa-envelope mr-3 text-primary"></i>
             <span>info@nawabtravel.com</span>
           </a>
         </div>
         
         <!-- Social links in mobile -->
-        <div class="flex justify-center space-x-6 mt-4">
-          <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
-            <i class="fab fa-facebook-f text-xl"></i>
+        <div class="flex justify-center space-x-4 mt-4">
+          <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 touch-target">
+            <i class="fab fa-facebook-f text-lg"></i>
           </a>
-          <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
-            <i class="fab fa-instagram text-xl"></i>
+          <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 touch-target">
+            <i class="fab fa-instagram text-lg"></i>
           </a>
-        
-          </a>
-          <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110">
-            <i class="fab fa-whatsapp text-xl"></i>
+          <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="social-icon hover:text-primary transition-all duration-300 hover:scale-110 touch-target">
+            <i class="fab fa-whatsapp text-lg"></i>
           </a>
         </div>
       </div>
@@ -262,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesIcon = document.getElementById('mobile-services-icon');
   
-  // Mobile menu toggle with animation
+  // Improved mobile menu toggle with better touch handling
   if (mobileMenuButton && mobileMenu && menuIcon) {
     function toggleMenu(e) {
       e.preventDefault();
@@ -276,25 +399,33 @@ document.addEventListener('DOMContentLoaded', function() {
         menuIcon.classList.remove('fa-bars');
         menuIcon.classList.add('fa-times');
         menuIcon.style.transform = 'rotate(180deg)';
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
       } else {
         mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
         menuIcon.classList.remove('fa-times');
         menuIcon.classList.add('fa-bars');
         menuIcon.style.transform = 'rotate(0deg)';
+        document.body.style.overflow = ''; // Restore scroll
         setTimeout(() => {
           mobileMenu.classList.add('hidden');
         }, 300);
       }
     }
     
+    // Handle both click and touch events
     mobileMenuButton.addEventListener('click', toggleMenu);
-    mobileMenuButton.addEventListener('touchstart', toggleMenu, { passive: false });
+    mobileMenuButton.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      toggleMenu(e);
+    }, { passive: false });
   }
   
-  // Mobile services dropdown
+  // Improved mobile services dropdown
   if (mobileServicesToggle && mobileServicesMenu && mobileServicesIcon) {
-    mobileServicesToggle.addEventListener('click', function(e) {
+    function toggleServices(e) {
       e.preventDefault();
+      e.stopPropagation();
+      
       const isHidden = mobileServicesMenu.classList.contains('hidden');
       
       if (isHidden) {
@@ -304,17 +435,24 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileServicesMenu.classList.add('hidden');
         mobileServicesIcon.style.transform = 'rotate(0deg)';
       }
-    });
+    }
+    
+    mobileServicesToggle.addEventListener('click', toggleServices);
+    mobileServicesToggle.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      toggleServices(e);
+    }, { passive: false });
   }
   
-  // Close menu when clicking outside
+  // Close menu when clicking outside (improved for mobile)
   document.addEventListener('click', function(e) {
-    if (mobileMenu && !mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+    if (mobileMenu && mobileMenuButton && !mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
       if (!mobileMenu.classList.contains('hidden')) {
         mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
         menuIcon.classList.remove('fa-times');
         menuIcon.classList.add('fa-bars');
         menuIcon.style.transform = 'rotate(0deg)';
+        document.body.style.overflow = '';
         setTimeout(() => {
           mobileMenu.classList.add('hidden');
         }, 300);
@@ -322,20 +460,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Close menu when clicking on navigation links
-  const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
-  menuLinks.forEach(link => {
-    link.addEventListener('click', function() {
+  // Handle touch events for mobile menu items
+  document.addEventListener('touchstart', function(e) {
+    if (mobileMenu && mobileMenuButton && !mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
       if (!mobileMenu.classList.contains('hidden')) {
         mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
         menuIcon.classList.remove('fa-times');
         menuIcon.classList.add('fa-bars');
         menuIcon.style.transform = 'rotate(0deg)';
+        document.body.style.overflow = '';
         setTimeout(() => {
           mobileMenu.classList.add('hidden');
         }, 300);
       }
-    });
+    }
+  }, { passive: true });
+  
+  // Close menu when clicking on navigation links
+  const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+  menuLinks.forEach(link => {
+    function closeMenu() {
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+        menuIcon.style.transform = 'rotate(0deg)';
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
+    }
+    
+    link.addEventListener('click', closeMenu);
+    link.addEventListener('touchend', closeMenu, { passive: true });
   });
   
   // Smooth scroll for anchor links
@@ -352,88 +510,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Removed auto-hide scroll effect - header stays sticky
+  // Handle orientation changes on mobile
+  window.addEventListener('orientationchange', function() {
+    setTimeout(function() {
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.style.animation = 'slideUp 0.3s ease-out forwards';
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+        menuIcon.style.transform = 'rotate(0deg)';
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+        }, 300);
+      }
+    }, 100);
+  });
 });
-
-// CSS Animations
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes slideDown {
-    from { transform: translateY(-100%); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  @keyframes slideUp {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(-100%); opacity: 0; }
-  }
-  
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 5px rgba(255, 107, 53, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.8), 0 0 30px rgba(255, 107, 53, 0.4); }
-  }
-  
-  .animate-pulse-glow {
-    animation: pulse-glow 2s infinite;
-  }
-  
-  .logo-hover:hover {
-    transform: scale(1.05) rotate(5deg);
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-link {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff6b35, transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .nav-link:hover::before {
-    left: 100%;
-  }
-  
-  .social-icon {
-    transition: all 0.3s ease;
-  }
-  
-  header {
-    transition: transform 0.3s ease;
-  }
-  
-  @media (max-width: 640px) {
-    .logo-text {
-      font-size: 1.125rem;
-    }
-  }
-`;
-document.head.appendChild(style);
 </script>
 
   <!-- Page Banner -->
-  <section class="pt-40 pb-16 bg-secondary text-white relative bg-cover bg-center bg-no-repeat" style="background-image: url('asset/airport.jpg');">
+  <section class="pt-32 xs:pt-36 sm:pt-40 pb-8 sm:pb-16 bg-secondary text-white relative bg-cover bg-center bg-no-repeat" style="background-image: url('asset/airport.jpg');">
     <!-- Dark overlay for better text readability -->
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 xs:px-6 relative z-10">
       <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Book Your Journey</h1>
-        <p class="text-lg md:text-xl mb-8 opacity-90">Fast, easy and secure online booking for all your transportation needs</p>
+        <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Book Your Journey</h1>
+        <p class="text-sm xs:text-base sm:text-lg md:text-xl mb-4 sm:mb-8 opacity-90">Fast, easy and secure online booking for all your transportation needs</p>
       </div>
     </div>
   </section>
 
 </body>
 </html>
- 
     <style>
         :root {
             --primary: #E50914;
