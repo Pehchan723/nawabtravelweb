@@ -946,11 +946,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -1022,4 +1017,203 @@ document.addEventListener('DOMContentLoaded', function() {
     once: true,
     offset: 100
   });
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Social Buttons</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body { background: #f5f5f5; }>
+    
+
+
+    <!-- FLOATING SOCIAL BUTTONS - ADD THIS CODE TO END OF ALL YOUR PAGES -->
+    <div class="floating-social-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/+447926666649" target="_blank" rel="noopener noreferrer" class="floating-btn whatsapp-btn" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        
+        <!-- Call Button -->
+        <a href="tel:02476266666" class="floating-btn call-btn" aria-label="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        
+        <!-- Facebook Button -->
+        <a href="https://www.facebook.com/nawabtravelltd" target="_blank" rel="noopener noreferrer" class="floating-btn facebook-btn" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        
+        <!-- Instagram Button -->
+        <a href="https://www.instagram.com/nawabtravelltd?utm_source=qr&igsh=MXU2cnpoaWhldDUzdg==" target="_blank" rel="noopener noreferrer" class="floating-btn instagram-btn" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <style>
+        /* FLOATING SOCIAL BUTTONS CSS - COPY THIS TO YOUR MAIN CSS FILE */
+        .floating-social-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-btn:hover::before {
+            transform: scale(1);
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #128c7e, #25d366);
+        }
+
+        /* Call Button */
+        .call-btn {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+        }
+
+        .call-btn:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+        }
+
+        /* Facebook Button */
+        .facebook-btn {
+            background: linear-gradient(135deg, #3b5998, #8b9dc3);
+        }
+
+        .facebook-btn:hover {
+            background: linear-gradient(135deg, #8b9dc3, #3b5998);
+        }
+
+        /* Instagram Button */
+        .instagram-btn {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .instagram-btn:hover {
+            background: linear-gradient(135deg, #bc1888 0%, #cc2366 25%, #dc2743 50%, #e6683c 75%, #f09433 100%);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .floating-social-buttons {
+                right: 15px;
+                bottom: 15px;
+                gap: 12px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-social-buttons {
+                right: 10px;
+                bottom: 10px;
+                gap: 10px;
+            }
+
+            .floating-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animation on page load */
+        .floating-btn {
+            animation: slideInRight 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .floating-btn:nth-child(1) { animation-delay: 0.1s; }
+        .floating-btn:nth-child(2) { animation-delay: 0.2s; }
+        .floating-btn:nth-child(3) { animation-delay: 0.3s; }
+        .floating-btn:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Pulse animation for WhatsApp button */
+        .whatsapp-btn {
+            animation: slideInRight 0.6s ease forwards, pulse 2s infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            }
+        }
+    </style>
+
+    <!-- SEPARATE CODE BLOCKS FOR EASY COPYING -->
+    <script>
+        // Optional: Add click tracking or additional functionality
+        document.querySelectorAll('.floating-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add any tracking code here if needed
+                console.log('Social button clicked:', this.getAttribute('aria-label'));
+            });
+        });
+    </script>
+</body>
+</html>
   
