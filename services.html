@@ -189,6 +189,20 @@
     header {
       transition: transform 0.3s ease;
     }
+
+    /* Desktop Services Dropdown Styles */
+    .services-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .services-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
@@ -243,13 +257,13 @@
       <a href="index.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 relative">Home</a>
       
       <!-- Services Dropdown -->
-      <div class="relative group">
-        <button class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 flex items-center">
+      <div class="relative" id="services-dropdown-container">
+        <button id="services-dropdown-button" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 flex items-center">
           Services
-          <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+          <i id="services-dropdown-icon" class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300"></i>
         </button>
         <!-- Dropdown Menu -->
-        <div class="absolute top-full left-0 mt-2 w-64 bg-white text-secondary rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+        <div id="services-dropdown-menu" class="services-dropdown absolute top-full left-0 mt-2 w-64 bg-white text-secondary rounded-lg shadow-xl">
           <div class="py-2">
             <a href="services.html#bus-rental" class="block px-4 py-3 hover:bg-primary hover:text-white transition-all duration-300 border-b border-gray-100">
               <i class="fas fa-bus mr-3 text-primary"></i>Bus Rental Services
@@ -384,6 +398,67 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileServicesToggle = document.getElementById('mobile-services-toggle');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesIcon = document.getElementById('mobile-services-icon');
+  
+  // Desktop Services Dropdown
+  const servicesDropdownButton = document.getElementById('services-dropdown-button');
+  const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
+  const servicesDropdownIcon = document.getElementById('services-dropdown-icon');
+  const servicesDropdownContainer = document.getElementById('services-dropdown-container');
+  
+  // Desktop Services Dropdown Functionality
+  if (servicesDropdownButton && servicesDropdownMenu && servicesDropdownIcon) {
+    let isDropdownOpen = false;
+    
+    function toggleServicesDropdown(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (isDropdownOpen) {
+        closeServicesDropdown();
+      } else {
+        openServicesDropdown();
+      }
+    }
+    
+    function openServicesDropdown() {
+      servicesDropdownMenu.classList.add('show');
+      servicesDropdownIcon.style.transform = 'rotate(180deg)';
+      isDropdownOpen = true;
+    }
+    
+    function closeServicesDropdown() {
+      servicesDropdownMenu.classList.remove('show');
+      servicesDropdownIcon.style.transform = 'rotate(0deg)';
+      isDropdownOpen = false;
+    }
+    
+    // Click to toggle dropdown
+    servicesDropdownButton.addEventListener('click', toggleServicesDropdown);
+    
+    // Hover functionality (optional - keeps existing behavior)
+    servicesDropdownContainer.addEventListener('mouseenter', function() {
+      openServicesDropdown();
+    });
+    
+    servicesDropdownContainer.addEventListener('mouseleave', function() {
+      closeServicesDropdown();
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!servicesDropdownContainer.contains(e.target)) {
+        closeServicesDropdown();
+      }
+    });
+    
+    // Close dropdown when clicking on dropdown links
+    const dropdownLinks = servicesDropdownMenu.querySelectorAll('a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        closeServicesDropdown();
+      });
+    });
+  }
   
   // Improved mobile menu toggle with better touch handling
   if (mobileMenuButton && mobileMenu && menuIcon) {
