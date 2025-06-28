@@ -571,8 +571,30 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('touchend', closeMenu, { passive: true });
   });
   
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Handle navigation to services page sections
+  document.querySelectorAll('a[href*="services.html#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      const [page, anchor] = href.split('#');
+      
+      // If we're already on the services page, scroll to the section
+      if (window.location.pathname.includes('services.html') || window.location.pathname.endsWith('services.html')) {
+        e.preventDefault();
+        const target = document.getElementById(anchor);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+      // If we're on a different page, let the browser navigate normally
+      // The browser will automatically scroll to the anchor after page load
+    });
+  });
+
+  // Smooth scroll for other anchor links (same page)
+  document.querySelectorAll('a[href^="#"]:not([href*="services.html#"])').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
