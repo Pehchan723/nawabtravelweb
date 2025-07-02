@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Services - Nawab Travel</title>
+  <title>Services - Nawab Travel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -65,6 +65,20 @@
     
     .step-line-active {
       background-color: #E50914;
+    }
+
+    /* Header scroll effect styles */
+    .header-transparent {
+      background: rgba(26, 26, 26, 0);
+      backdrop-filter: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-solid {
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
     /* Enhanced mobile styles */
@@ -187,29 +201,33 @@
     }
     
     header {
-      transition: transform 0.3s ease;
-    }
-
-    /* Desktop Services Dropdown Styles */
-    .services-dropdown {
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
       transition: all 0.3s ease;
     }
+
+    /* Demo content styles */
+    .demo-content {
+      height: 200vh;
+      background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+      padding: 120px 20px 20px;
+    }
     
-    .services-dropdown.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
+    .hero-section {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="48" fill="%23fff" text-anchor="middle">Hero Background Image</text></svg>');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
     }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
-<header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
-
+<header id="main-header" class="text-light fixed top-0 w-full z-50 header-transparent">
   
   <!-- Main navigation -->
   <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6">
@@ -232,13 +250,13 @@
       <a href="index.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 relative">Home</a>
       
       <!-- Services Dropdown -->
-      <div class="relative" id="services-dropdown-container">
-        <button id="services-dropdown-button" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 flex items-center">
+      <div class="relative group">
+        <button class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 flex items-center">
           Services
-          <i id="services-dropdown-icon" class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300"></i>
+          <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
         </button>
         <!-- Dropdown Menu -->
-        <div id="services-dropdown-menu" class="services-dropdown absolute top-full left-0 mt-2 w-64 bg-white text-secondary rounded-lg shadow-xl">
+        <div class="absolute top-full left-0 mt-2 w-64 bg-white text-secondary rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
           <div class="py-2">
             <a href="services.html#bus-rental" class="block px-4 py-3 hover:bg-primary hover:text-white transition-all duration-300 border-b border-gray-100">
               <i class="fas fa-bus mr-3 text-primary"></i>Bus Rental Services
@@ -247,7 +265,7 @@
               <i class="fas fa-plane mr-3 text-primary"></i>Airport Transfers
             </a>
             <a href="services.html#city-tours" class="block px-4 py-3 hover:bg-primary hover:text-white transition-all duration-300 border-b border-gray-100">
-              <i class="fas fa-map-marked-alt mr-3 text-primary"></i>Daytrip & Tours
+              <i class="fas fa-map-marked-alt mr-3 text-primary"></i>City Tours
             </a>
             <a href="services.html#corporate" class="block px-4 py-3 hover:bg-primary hover:text-white transition-all duration-300 border-b border-gray-100">
               <i class="fas fa-briefcase mr-3 text-primary"></i>Corporate Travel
@@ -364,7 +382,8 @@
   </nav>
 </header>
 
-<!-- Enhanced JavaScript for mobile menu and effects -->
+
+<!-- Enhanced JavaScript for mobile menu and scroll effects -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -373,67 +392,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileServicesToggle = document.getElementById('mobile-services-toggle');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesIcon = document.getElementById('mobile-services-icon');
+  const header = document.getElementById('main-header');
   
-  // Desktop Services Dropdown
-  const servicesDropdownButton = document.getElementById('services-dropdown-button');
-  const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
-  const servicesDropdownIcon = document.getElementById('services-dropdown-icon');
-  const servicesDropdownContainer = document.getElementById('services-dropdown-container');
-  
-  // Desktop Services Dropdown Functionality
-  if (servicesDropdownButton && servicesDropdownMenu && servicesDropdownIcon) {
-    let isDropdownOpen = false;
+  // Header scroll effect
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
-    function toggleServicesDropdown(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      
-      if (isDropdownOpen) {
-        closeServicesDropdown();
-      } else {
-        openServicesDropdown();
-      }
+    if (scrollTop > 50) {
+      header.classList.remove('header-transparent');
+      header.classList.add('header-solid');
+    } else {
+      header.classList.remove('header-solid');
+      header.classList.add('header-transparent');
     }
-    
-    function openServicesDropdown() {
-      servicesDropdownMenu.classList.add('show');
-      servicesDropdownIcon.style.transform = 'rotate(180deg)';
-      isDropdownOpen = true;
-    }
-    
-    function closeServicesDropdown() {
-      servicesDropdownMenu.classList.remove('show');
-      servicesDropdownIcon.style.transform = 'rotate(0deg)';
-      isDropdownOpen = false;
-    }
-    
-    // Click to toggle dropdown
-    servicesDropdownButton.addEventListener('click', toggleServicesDropdown);
-    
-    // Hover functionality (optional - keeps existing behavior)
-    servicesDropdownContainer.addEventListener('mouseenter', function() {
-      openServicesDropdown();
-    });
-    
-    servicesDropdownContainer.addEventListener('mouseleave', function() {
-      closeServicesDropdown();
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!servicesDropdownContainer.contains(e.target)) {
-        closeServicesDropdown();
-      }
-    });
-    
-    // Close dropdown when clicking on dropdown links
-    const dropdownLinks = servicesDropdownMenu.querySelectorAll('a');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        closeServicesDropdown();
-      });
-    });
   }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll);
+  
+  // Initial check
+  handleScroll();
   
   // Improved mobile menu toggle with better touch handling
   if (mobileMenuButton && mobileMenu && menuIcon) {
@@ -546,30 +524,8 @@ document.addEventListener('DOMContentLoaded', function() {
     link.addEventListener('touchend', closeMenu, { passive: true });
   });
   
-  // Handle navigation to services page sections
-  document.querySelectorAll('a[href*="services.html#"]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      const [page, anchor] = href.split('#');
-      
-      // If we're already on the services page, scroll to the section
-      if (window.location.pathname.includes('services.html') || window.location.pathname.endsWith('services.html')) {
-        e.preventDefault();
-        const target = document.getElementById(anchor);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-      // If we're on a different page, let the browser navigate normally
-      // The browser will automatically scroll to the anchor after page load
-    });
-  });
-
-  // Smooth scroll for other anchor links (same page)
-  document.querySelectorAll('a[href^="#"]:not([href*="services.html#"])').forEach(anchor => {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
