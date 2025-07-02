@@ -67,6 +67,20 @@
       background-color: #E50914;
     }
 
+    /* Header scroll effect styles */
+    .header-transparent {
+      background: rgba(26, 26, 26, 0);
+      backdrop-filter: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-solid {
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
     /* Enhanced mobile styles */
     @media (max-width: 768px) {
       .mobile-menu-backdrop {
@@ -187,15 +201,33 @@
     }
     
     header {
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    /* Demo content styles */
+    .demo-content {
+      height: 200vh;
+      background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+      padding: 120px 20px 20px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/><text x="600" y="400" font-family="Arial" font-size="48" fill="%23fff" text-anchor="middle">Hero Background Image</text></svg>');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
     }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
-<header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
-
+<header id="main-header" class="text-light fixed top-0 w-full z-50 header-transparent">
   
   <!-- Main navigation -->
   <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6">
@@ -350,7 +382,57 @@
   </nav>
 </header>
 
-<!-- Enhanced JavaScript for mobile menu and effects -->
+<!-- Demo Hero Section -->
+<section class="hero-section">
+  <div class="text-center">
+    <h1 class="text-5xl font-bold mb-4">Welcome to Nawab Travel</h1>
+    <p class="text-xl mb-8">Scroll down to see the header effect</p>
+    <div class="animate-bounce">
+      <i class="fas fa-chevron-down text-3xl"></i>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Content -->
+<div class="demo-content">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center">Header Scroll Effect Demo</h2>
+    <p class="text-lg mb-6 text-center">
+      Notice how the header is transparent at the top and becomes solid with background when you scroll down.
+    </p>
+    
+    <div class="space-y-8">
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Key Features:</h3>
+        <ul class="list-disc list-inside space-y-2">
+          <li>Transparent header when at the top of the page</li>
+          <li>Smooth transition to solid background on scroll</li>
+          <li>Backdrop blur effect for modern look</li>
+          <li>Maintains all original functionality</li>
+          <li>Mobile responsive design</li>
+        </ul>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">How it works:</h3>
+        <p class="mb-4">
+          The header uses JavaScript to detect scroll position and applies different CSS classes:
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li><code class="bg-gray-100 px-2 py-1 rounded">header-transparent</code> - Applied when at the top</li>
+          <li><code class="bg-gray-100 px-2 py-1 rounded">header-solid</code> - Applied when scrolling</li>
+        </ul>
+      </div>
+      
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Continue scrolling...</h3>
+        <p>Keep scrolling to test the header behavior throughout the page.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Enhanced JavaScript for mobile menu and scroll effects -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -359,6 +441,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileServicesToggle = document.getElementById('mobile-services-toggle');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesIcon = document.getElementById('mobile-services-icon');
+  const header = document.getElementById('main-header');
+  
+  // Header scroll effect
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+      header.classList.remove('header-transparent');
+      header.classList.add('header-solid');
+    } else {
+      header.classList.remove('header-solid');
+      header.classList.add('header-transparent');
+    }
+  }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll);
+  
+  // Initial check
+  handleScroll();
   
   // Improved mobile menu toggle with better touch handling
   if (mobileMenuButton && mobileMenu && menuIcon) {
@@ -505,7 +607,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
-
     <style>
         * {
             margin: 0;
