@@ -67,6 +67,20 @@
       background-color: #E50914;
     }
 
+    /* Header scroll effect styles */
+    .header-transparent {
+      background: rgba(26, 26, 26, 0);
+      backdrop-filter: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-solid {
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
     /* Enhanced mobile styles */
     @media (max-width: 768px) {
       .mobile-menu-backdrop {
@@ -187,15 +201,14 @@
     }
     
     header {
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
     }
   </style>
 </head>
 <body class="bg-lightgray text-darkgray font-sans">
 
 <!-- Enhanced Header with Logo, Effects, and Services Dropdown -->
-<header class="bg-secondary text-light fixed top-0 w-full z-50 shadow-lg">
- 
+<header id="main-header" class="text-light fixed top-0 w-full z-50 header-transparent">
   
   <!-- Main navigation -->
   <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6">
@@ -350,7 +363,8 @@
   </nav>
 </header>
 
-<!-- Enhanced JavaScript for mobile menu and effects -->
+
+<!-- Enhanced JavaScript for mobile menu and scroll effects -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -359,6 +373,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const mobileServicesToggle = document.getElementById('mobile-services-toggle');
   const mobileServicesMenu = document.getElementById('mobile-services-menu');
   const mobileServicesIcon = document.getElementById('mobile-services-icon');
+  const header = document.getElementById('main-header');
+  
+  // Header scroll effect
+  function handleScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+      header.classList.remove('header-transparent');
+      header.classList.add('header-solid');
+    } else {
+      header.classList.remove('header-solid');
+      header.classList.add('header-transparent');
+    }
+  }
+  
+  // Add scroll event listener
+  window.addEventListener('scroll', handleScroll);
+  
+  // Initial check
+  handleScroll();
   
   // Improved mobile menu toggle with better touch handling
   if (mobileMenuButton && mobileMenu && menuIcon) {
