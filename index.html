@@ -1137,7 +1137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </section>
 
-  <!-- Footer -->
+ <!-- Footer -->
 <footer class="bg-secondary text-white py-12 relative" style="background-image: url('./asset/ac.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
   <!-- Black Overlay -->
   <div class="absolute inset-0 bg-black opacity-80"></div>
@@ -1150,13 +1150,16 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="mb-4 text-gray-400">Your trusted transportation partner in Coventry and across the UK.</p>
         <div class="flex space-x-4">
-          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/nawabtravel" target="_blank" rel="noopener noreferrer" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+          <!-- Twitter -->
+          <a href="https://www.twitter.com/nawabtravel" target="_blank" rel="noopener noreferrer" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="#" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/nawabtravel" target="_blank" rel="noopener noreferrer" class="bg-darkgray hover:bg-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
@@ -1164,21 +1167,21 @@ document.addEventListener('DOMContentLoaded', function() {
       <div>
         <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
         <ul class="space-y-2">
-          <li><a href="#home" class="hover:text-primary transition-colors duration-300">Home</a></li>
-          <li><a href="#services" class="hover:text-primary transition-colors duration-300">Services</a></li>
-          <li><a href="#booking" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
-          <li><a href="#about" class="hover:text-primary transition-colors duration-300">About Us</a></li>
-          <li><a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a></li>
+          <li><a href="index.html" class="hover:text-primary transition-colors duration-300">Home</a></li>
+          <li><a href="services.html" class="hover:text-primary transition-colors duration-300">Services</a></li>
+          <li><a href="booking.html" class="hover:text-primary transition-colors duration-300">Book Now</a></li>
+          <li><a href="about.html" class="hover:text-primary transition-colors duration-300">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-primary transition-colors duration-300">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4 class="text-lg font-semibold mb-4">Our Services</h4>
         <ul class="space-y-2">
-          <li><a href="#" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
-          <li><a href="#" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
+          <li><a href="services.html#airport-transfers" class="hover:text-primary transition-colors duration-300">Airport Transfers</a></li>
+          <li><a href="services.html#group-travel" class="hover:text-primary transition-colors duration-300">Group Travel</a></li>
+          <li><a href="services.html#corporate-hire" class="hover:text-primary transition-colors duration-300">Corporate Hire</a></li>
+          <li><a href="services.html#wedding-transport" class="hover:text-primary transition-colors duration-300">Wedding Transport</a></li>
+          <li><a href="services.html#school-trips" class="hover:text-primary transition-colors duration-300">School Trips</a></li>
         </ul>
       </div>
       <div>
@@ -1190,11 +1193,11 @@ document.addEventListener('DOMContentLoaded', function() {
           </li>
           <li class="flex items-start">
             <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
-            <span>02476266666</span>
+            <a href="tel:02476266666" class="hover:text-primary transition-colors duration-300">02476266666</a>
           </li>
           <li class="flex items-start">
             <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
-            <span>info@nawabtravel.co.uk</span>
+            <a href="mailto:info@nawabtravel.co.uk" class="hover:text-primary transition-colors duration-300">info@nawabtravel.co.uk</a>
           </li>
           <li class="flex items-start">
             <i class="fas fa-clock text-primary mt-1 mr-3"></i>
@@ -1208,7 +1211,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </footer>
-
   <!-- Simple JavaScript for smooth scrolling and mobile menu -->
   <script>
     // Smooth scrolling
