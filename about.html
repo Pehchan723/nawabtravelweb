@@ -230,25 +230,27 @@
 <header id="main-header" class="text-light fixed top-0 w-full z-50 header-transparent">
   
   <!-- Main navigation -->
-  <div class="max-w-6xl mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6">
-    <!-- Logo Section -->
-    <div class="flex items-center logo-container">
-      <!-- Company Logo -->
-      <div class="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center mr-2 sm:mr-3 logo-hover transition-all duration-300 shadow-lg">
-        <i class="fas fa-bus-alt text-white text-sm xs:text-base sm:text-xl"></i>
-      </div>
-      <div class="flex flex-col">
-        <h1 class="text-sm xs:text-base sm:text-2xl font-bold logo-text">
-          NAWAB <span class="text-primary">TRAVEL</span>
-        </h1>
-        <p class="text-xs text-gray-300 hidden sm:block">Your Journey, Our Priority</p>
-      </div>
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-2 px-3 sm:px-6 relative">
+  
+     <div class="flex items-center">
+        <!-- Company Logo -->
+        <div class="w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 logo-hover transition-all duration-300">
+            <img src="asset/logo.png" alt="Nawab Travel Logo" class="w-full h-full object-contain">
+        </div>
     </div>
-
     <!-- Desktop Navigation -->
-    <nav id="desktop-menu" class="hidden lg:flex items-center space-x-6">
+    <nav id="desktop-menu" class="hidden lg:flex items-center space-x-6 z-10">
       <a href="index.html" class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 relative">Home</a>
       
+    <!-- Mobile Navigation Toggle and Book Now -->
+    <div class="lg:hidden flex items-center space-x-3 z-10">
+      <a href="booking.html" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-red-700 transition-all duration-300 text-sm font-medium">Book Now</a>
+      <button id="mobile-toggle" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>      
       <!-- Services Dropdown -->
       <div class="relative group">
         <button class="nav-link px-3 py-2 hover:text-primary transition-all duration-300 flex items-center">
