@@ -576,1372 +576,832 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 </html>
     <style>
-        :root {
-            --primary: #E50914;
-            --secondary: #1A1A1A;
-            --lightgray: #f8fafc;
-            --darkgray: #1A1A1A;
-        }
-        
-        .bg-primary { background-color: var(--primary); }
-        .text-primary { color: var(--primary); }
-        .bg-secondary { background-color: var(--secondary); }
-        .bg-lightgray { background-color: var(--lightgray); }
-        .text-darkgray { color: var(--darkgray); }
-        
-        .step-indicator {
-            transition: all 0.3s ease;
-        }
-        
-        .step-indicator.active {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .step-indicator.completed {
-            background-color: #16a34a;
-            color: white;
-        }
-        
-        .form-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .input-group {
-            position: relative;
-        }
-        
-        .input-group input, .input-group select, .input-group textarea {
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 12px 16px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-        
-        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-            outline: none;
-        }
-        
-        .address-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        
-        .address-option {
-            padding: 12px 16px;
-            cursor: pointer;
-            border-bottom: 1px solid #f1f5f9;
-            transition: background-color 0.2s ease;
-        }
-        
-        .address-option:hover {
-            background-color: #f8fafc;
-        }
-        
-        .address-option:last-child {
-            border-bottom: none;
-        }
-        
-        .form-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            overflow: hidden;
-        }
-        
-        .step-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #b91c1c 100%);
-            color: white;
-            padding: 24px;
-            text-align: center;
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Main Content -->
-    <section class="py-16 bg-lightgray min-h-screen">
-        <div class="max-w-4xl mx-auto px-15">
-            <!-- Progress Indicator -->
-            <div class="mb-8">
-                <div class="flex justify-center items-center space-x-8">
-                    <div class="flex items-center">
-                        <div id="step-indicator-1" class="step-indicator active w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm bg-gray-300">1</div>
-                        <span class="ml-2 text-sm font-medium">Your Details</span>
-                    </div>
-                    <div class="w-16 h-1 bg-gray-300 rounded"></div>
-                    <div class="flex items-center">
-                        <div id="step-indicator-2" class="step-indicator w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm bg-gray-300">2</div>
-                        <span class="ml-2 text-sm font-medium">Journey Details</span>
-                    </div>
-                    <div class="w-16 h-1 bg-gray-300 rounded"></div>
-                    <div class="flex items-center">
-                        <div id="step-indicator-3" class="step-indicator w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm bg-gray-300">3</div>
-                        <span class="ml-2 text-sm font-medium">Review & Submit</span>
-                    </div>
-                </div>
-            </div>
-
-         <!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Booking Form</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Get a Quote - Travel Booking</title>
     <style>
-        :root {
-            --primary: #dc2626;
-            --darkgray: #374151;
-            --lightgray: #f3f4f6;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #dc3545;
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .form-card {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
-        
-        .form-section {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+
+        .form-card:hover {
+            transform: translateY(-2px);
         }
-        
-        .step-header {
-            background: linear-gradient(135deg, var(--primary), #b91c1c);
+
+        .card-header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 16px 16px 0 0;
+            padding: 20px 30px;
+            font-size: 1.3em;
+            font-weight: 600;
         }
-        
-        input, select, textarea {
-            border: 2px solid #e5e7eb;
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Layout for journey type and datetime */
+        .journey-type-section {
+            margin-bottom: 30px;
+        }
+
+        .journey-type-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 0.95em;
+        }
+
+        .journey-type-buttons {
+            display: flex;
+            gap: 15px;
+            max-width: 400px;
+        }
+
+        .journey-controls {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: end;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
             border-radius: 8px;
-            padding: 0.75rem;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+            height: 50px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #dc3545;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+        }
+
+        /* Enhanced date and time input styling */
+        input[type="date"],
+        input[type="time"] {
+            position: relative;
+            background: #fafbfc;
+            padding-right: 45px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        input[type="date"]:focus,
+        input[type="time"]:focus {
+            background: white;
+        }
+
+        /* Modern date/time picker styling */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>') no-repeat center;
+            background-size: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>') no-repeat center;
+            background-size: 20px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        input[type="date"]:hover::-webkit-calendar-picker-indicator,
+        input[type="time"]:hover::-webkit-calendar-picker-indicator {
+            opacity: 1;
+        }
+
+        input[type="date"]:focus::-webkit-calendar-picker-indicator,
+        input[type="time"]:focus::-webkit-calendar-picker-indicator {
+            opacity: 1;
+        }
+
+        /* Firefox date/time styling */
+        input[type="date"]::-moz-focus-inner,
+        input[type="time"]::-moz-focus-inner {
+            border: 0;
+        }
+
+        /* Improved radio button styling */
+        .radio-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+            height: 50px;
+            flex: 1;
+            min-width: 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .radio-option:hover {
+            border-color: #dc3545;
+            background: white;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #dc3545;
+            margin: 0;
+        }
+
+        .radio-option.selected {
+            border-color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+
+        .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            color: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            height: auto;
+        }
+
+        .location-group {
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: #fafbfc;
+            position: relative;
             transition: all 0.3s ease;
         }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+
+        .location-group:hover {
+            border-color: #dc3545;
+            background: white;
         }
-        
-        .address-dropdown {
+
+        .location-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .location-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+        }
+
+        .remove-btn:hover {
+            background: #c82333;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+        }
+
+        .add-location-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
+            margin-top: 10px;
+        }
+
+        .add-location-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Location suggestions styling */
+        .location-suggestions {
             position: absolute;
             top: 100%;
             left: 0;
             right: 0;
             background: white;
-            border: 2px solid #e5e7eb;
+            border: 2px solid #e1e5e9;
             border-top: none;
             border-radius: 0 0 8px 8px;
             max-height: 200px;
             overflow-y: auto;
             z-index: 1000;
+            display: none;
         }
-        
-        .address-option {
-            padding: 0.75rem;
+
+        .location-suggestions.show {
+            display: block;
+        }
+
+        .location-suggestion {
+            padding: 12px 15px;
             cursor: pointer;
-            border-bottom: 1px solid #f3f4f6;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
         }
-        
-        .address-option:hover {
-            background: #f3f4f6;
+
+        .location-suggestion:hover {
+            background-color: #f8f9fa;
         }
-        
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
+
+        .location-suggestion:last-child {
+            border-bottom: none;
         }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .location-item {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
+
+        .location-input-wrapper {
             position: relative;
         }
-        
-        .remove-location {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: #ef4444;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 0.875rem;
+
+        @media (max-width: 1024px) {
+            .journey-controls {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .journey-type-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
-        
-        .add-location {
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Improved date/time layout */
-        .datetime-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            max-width: 500px;
-        }
-        
-        input[type="date"], input[type="time"] {
-            width: 100%;
-        }
-        
-        @media (max-width: 640px) {
-            .datetime-container {
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .card-body {
+                padding: 20px;
+            }
+            
+            .journey-controls {
                 grid-template-columns: 1fr;
-                max-width: 100%;
+                gap: 15px;
+            }
+            
+            .journey-type-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .grid-4 {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .location-group {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .journey-controls,
+            .grid-2,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .journey-type-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .radio-option {
+                height: 45px;
+            }
+        }
+
+        /* Animation for new location groups */
+        .location-group.new {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
             }
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <section class="py-12 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Booking Form -->
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><strong>Get a Quote</strong></h1>
+            <p class="subtitle">Fill out the form below with details of your journey, and we'll be in touch soon with more information.</p>
+        </div>
+
+        <form action="https://formsubmit.co/intellex6@gmail.com" method="POST">
+            <!-- Hidden fields for FormSubmit -->
+            <input type="hidden" name="_subject" value="New Travel Booking Request">
+            <input type="hidden" name="_next" value="https://your-website.com/thank-you">
+            <input type="hidden" name="_captcha" value="false">
+
             <div class="form-card">
-                <div id="booking-form">
-                    <!-- Step 1: Your Details -->
-                    <div id="step-1" class="fade-in">
-                        <div class="step-header">
-                            <h2 class="text-3xl font-bold mb-2">Tell Us About Yourself</h2>
-                            <p class="opacity-90">We need your details to process your booking</p>
-                        </div>
-                        <div class="p-8">
-                            <form id="personal-details-form" class="space-y-6">
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-user mr-2 text-red-600"></i>Personal Information
-                                    </h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="input-group">
-                                            <label for="first-name" class="block text-sm font-medium mb-2 text-gray-700">First Name*</label>
-                                            <input type="text" id="first-name" name="first-name" required class="w-full" placeholder="Enter your first name" />
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter your first name</p>
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="last-name" class="block text-sm font-medium mb-2 text-gray-700">Last Name*</label>
-                                            <input type="text" id="last-name" name="last-name" required class="w-full" placeholder="Enter your last name" />
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter your last name</p>
-                                        </div>
+                <div class="card-header">Travel Dates</div>
+                <div class="card-body">
+                    <div id="locations-container">
+                        <div class="location-group">
+                            <div class="location-header">
+                                <span class="location-title">Main Journey</span>
+                            </div>
+                            <div class="form-grid grid-2">
+                                <div class="form-group">
+                                    <label for="pickup_location_1">Pickup Location</label>
+                                    <div class="location-input-wrapper">
+                                        <input type="text" id="pickup_location_1" name="pickup_location_1" placeholder="Enter a town/city/postcode" required>
+                                        <div class="location-suggestions" id="pickup_suggestions_1"></div>
                                     </div>
                                 </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-envelope mr-2 text-red-600"></i>Contact Information
-                                    </h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="input-group">
-                                            <label for="email" class="block text-sm font-medium mb-2 text-gray-700">Email Address*</label>
-                                            <input type="email" id="email" name="email" required class="w-full" placeholder="your@email.com" />
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter a valid email address</p>
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="phone" class="block text-sm font-medium mb-2 text-gray-700">Phone Number*</label>
-                                            <input type="tel" id="phone" name="phone" required class="w-full" placeholder="07123 456789" />
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter a valid UK phone number</p>
-                                        </div>
+                                <div class="form-group">
+                                    <label for="destination_1">Destination</label>
+                                    <div class="location-input-wrapper">
+                                        <input type="text" id="destination_1" name="destination_1" placeholder="Enter a town/city/postcode" required>
+                                        <div class="location-suggestions" id="destination_suggestions_1"></div>
                                     </div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-map-marker-alt mr-2 text-red-600"></i>Address Information <span class="text-sm font-normal text-gray-500">(Optional)</span>
-                                    </h3>
-                                    <div class="input-group mb-4">
-                                        <label for="address" class="block text-sm font-medium mb-2 text-gray-700">Street Address</label>
-                                        <input type="text" id="address" name="address" class="w-full" placeholder="Enter your address" />
-                                    </div>
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div class="input-group">
-                                            <label for="city" class="block text-sm font-medium mb-2 text-gray-700">City/Town</label>
-                                            <input type="text" id="city" name="city" class="w-full" placeholder="City/Town" />
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="county" class="block text-sm font-medium mb-2 text-gray-700">County</label>
-                                            <input type="text" id="county" name="county" class="w-full" placeholder="County" />
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="postcode" class="block text-sm font-medium mb-2 text-gray-700">Postcode</label>
-                                            <input type="text" id="postcode" name="postcode" class="w-full" placeholder="Postcode" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pt-6 flex justify-end">
-                                    <button type="button" id="next-step-1" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                        Continue <i class="fas fa-arrow-right ml-2"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Journey Details -->
-                    <div id="step-2" class="hidden">
-                        <div class="step-header">
-                            <h2 class="text-3xl font-bold mb-2">Plan Your Journey</h2>
-                            <p class="opacity-90">Tell us where you want to go and when</p>
-                        </div>
-                        <div class="p-8">
-                            <form id="journey-details-form" class="space-y-6">
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-route mr-2 text-red-600"></i>Journey Type & Passengers
-                                    </h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                        <div class="input-group">
-                                            <label for="journey-type" class="block text-sm font-medium mb-2 text-gray-700">Journey Type*</label>
-                                            <select id="journey-type" name="journey-type" required class="w-full">
-                                                <option value="" disabled selected>Select journey type</option>
-                                                <option value="one-way">One Way</option>
-                                                <option value="return">Return</option>
-                                                <option value="hourly">Hourly Hire</option>
-                                                <option value="daily">Daily Hire</option>
-                                            </select>
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select journey type</p>
-                                        </div>
-                                        <div class="input-group">
-                                            <label for="passengers" class="block text-sm font-medium mb-2 text-gray-700">Number of Passengers*</label>
-                                            <select id="passengers" name="passengers" required class="w-full">
-                                                <option value="" disabled selected>Select number</option>
-                                                <option value="1-4">1-4 passengers</option>
-                                                <option value="5-8">5-8 passengers</option>
-                                                <option value="9-12">9-12 passengers</option>
-                                                <option value="16+">16+ passengers</option> 
-                                            </select>
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select number of passengers</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-map-marked-alt mr-2 text-red-600"></i>Pickup Locations
-                                    </h3>
-                                    <div id="pickup-locations">
-                                        <div class="location-item" data-location-type="pickup" data-location-index="0">
-                                            <div class="space-y-4">
-                                                <div class="input-group relative">
-                                                    <label class="block text-sm font-medium mb-2 text-gray-700">Pickup Location 1*</label>
-                                                    <input type="text" name="pickup-0" required class="w-full pickup-input" placeholder="Start typing address..." />
-                                                    <div class="address-dropdown hidden"></div>
-                                                    <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter pickup location</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" id="add-pickup" class="add-location">
-                                        <i class="fas fa-plus mr-1"></i> Add Another Pickup Location
-                                    </button>
-                                </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-map-marked-alt mr-2 text-red-600"></i>Dropoff Locations
-                                    </h3>
-                                    <div id="dropoff-locations">
-                                        <div class="location-item" data-location-type="dropoff" data-location-index="0">
-                                            <div class="space-y-4">
-                                                <div class="input-group relative">
-                                                    <label class="block text-sm font-medium mb-2 text-gray-700">Dropoff Location 1*</label>
-                                                    <input type="text" name="dropoff-0" required class="w-full dropoff-input" placeholder="Start typing address..." />
-                                                    <div class="address-dropdown hidden"></div>
-                                                    <p class="error-message text-red-600 text-xs mt-1 hidden">Please enter dropoff location</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="button" id="add-dropoff" class="add-location">
-                                        <i class="fas fa-plus mr-1"></i> Add Another Dropoff Location
-                                    </button>
-                                </div>
-
-                               <div class="form-section"> 
-  <h3 class="text-lg font-semibold mb-4 text-gray-800"> 
-    <i class="fas fa-calendar-alt mr-2 text-red-600"></i>Date & Time 
-  </h3> 
-  <div class="datetime-container flex gap-4"> 
-    <div class="input-group flex-1 border border-gray-300 rounded-lg p-4"> 
-      <label for="pickup-date" class="block text-sm font-medium mb-2 text-gray-700">Pickup Date*</label> 
-      <input type="date" id="pickup-date" name="pickup-date" required class="w-full border-0 outline-none text-gray-800" /> 
-      <p class="error-message text-red-600 text-xs mt-1 hidden">Please select pickup date</p> 
-    </div> 
-    <div class="input-group flex-1 border border-gray-300 rounded-lg p-4"> 
-      <label for="pickup-time" class="block text-sm font-medium mb-2 text-gray-700">Pickup Time*</label> 
-      <input type="time" id="pickup-time" name="pickup-time" required class="w-full border-0 outline-none text-gray-800" /> 
-      <p class="error-message text-red-600 text-xs mt-1 hidden">Please select pickup time</p> 
-    </div> 
-  </div> 
-</div>
-
-                                <!-- Return journey fields -->
-                                <div id="return-journey" class="hidden">
-                                    <div class="form-section bg-blue-50 border-blue-200">
-                                        <h3 class="text-lg font-semibold mb-4 text-blue-800">
-                                            <i class="fas fa-undo mr-2 text-blue-600"></i>Return Journey Details
-                                        </h3>
-                                        <div class="datetime-container">
-                                            <div class="input-group">
-                                                <label for="return-date" class="block text-sm font-medium mb-2 text-gray-700">Return Date*</label>
-                                                <input type="date" id="return-date" name="return-date" />
-                                                <p class="error-message text-red-600 text-xs mt-1 hidden">Please select return date</p>
-                                            </div>
-                                            <div class="input-group">
-                                                <label for="return-time" class="block text-sm font-medium mb-2 text-gray-700">Return Time*</label>
-                                                <input type="time" id="return-time" name="return-time" />
-                                                <p class="error-message text-red-600 text-xs mt-1 hidden">Please select return time</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Hourly hire fields -->
-                                <div id="hourly-hire" class="hidden">
-                                    <div class="form-section bg-green-50 border-green-200">
-                                        <h3 class="text-lg font-semibold mb-4 text-green-800">
-                                            <i class="fas fa-clock mr-2 text-green-600"></i>Hourly Hire Details
-                                        </h3>
-                                        <div class="input-group">
-                                            <label for="hours" class="block text-sm font-medium mb-2 text-gray-700">Number of Hours*</label>
-                                            <select id="hours" name="hours" class="w-full">
-                                                <option value="" disabled selected>Select hours</option>
-                                                <option value="1">1 hour</option>
-                                                <option value="2">2 hours</option>
-                                                <option value="3">3 hours</option>
-                                                <option value="4">4 hours</option>
-                                                <option value="5">5 hours</option>
-                                                <option value="6">6 hours</option>
-                                                <option value="7">7 hours</option>
-                                                <option value="8">8 hours</option>
-                                                <option value="9">9+ hours (We'll contact you)</option>
-                                            </select>
-                                            <p class="error-message text-red-600 text-xs mt-1 hidden">Please select number of hours</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-comment mr-2 text-red-600"></i>Additional Information
-                                    </h3>
-                                    <div class="input-group">
-                                        <label for="special-requirements" class="block text-sm font-medium mb-2 text-gray-700">Special Requirements (Optional)</label>
-                                        <textarea id="special-requirements" name="special-requirements" class="w-full h-24" placeholder="Any special requirements or additional information..."></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="pt-6 flex justify-between">
-                                    <button type="button" id="prev-step-2" class="border-2 border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
-                                        <i class="fas fa-arrow-left mr-2"></i> Back
-                                    </button>
-                                    <button type="button" id="next-step-2" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                        Continue <i class="fas fa-arrow-right ml-2"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Review & Submit -->
-                    <div id="step-3" class="hidden">
-                        <div class="step-header">
-                            <h2 class="text-3xl font-bold mb-2">Review Your Booking</h2>
-                            <p class="opacity-90">Please check all details before submitting</p>
-                        </div>
-                        <div class="p-8">
-                            <div class="space-y-6">
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-user-check mr-2 text-red-600"></i>Personal Details
-                                    </h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600">Full Name</p>
-                                            <p id="review-name" class="font-medium text-gray-800">John Smith</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Email Address</p>
-                                            <p id="review-email" class="font-medium text-gray-800">john@example.com</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Phone Number</p>
-                                            <p id="review-phone" class="font-medium text-gray-800">07123 456789</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-section">
-                                    <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                                        <i class="fas fa-route mr-2 text-red-600"></i>Journey Details
-                                    </h3>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600">Journey Type</p>
-                                            <p id="review-journey-type" class="font-medium text-gray-800">One Way</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Number of Passengers</p>
-                                            <p id="review-passengers" class="font-medium text-gray-800">5-8 passengers</p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4">
-                                        <div class="mb-4">
-                                            <p class="text-sm text-gray-600">Pickup Locations</p>
-                                            <div id="review-pickup-locations" class="font-medium text-gray-800"></div>
-                                        </div>
-                                        <div class="mb-4">
-                                            <p class="text-sm text-gray-600">Dropoff Locations</p>
-                                            <div id="review-dropoff-locations" class="font-medium text-gray-800"></div>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600">Pickup Date & Time</p>
-                                            <p id="review-pickup-datetime" class="font-medium text-gray-800">21/05/2025 at 14:30</p>
-                                        </div>
-                                        <div id="review-return-container" class="hidden">
-                                            <p class="text-sm text-gray-600">Return Date & Time</p>
-                                            <p id="review-return-datetime" class="font-medium text-gray-800">24/05/2025 at 16:30</p>
-                                        </div>
-                                        <div id="review-hours-container" class="hidden">
-                                            <p class="text-sm text-gray-600">Duration</p>
-                                            <p id="review-hours" class="font-medium text-gray-800">4 hours</p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4">
-                                        <p class="text-sm text-gray-600">Special Requirements</p>
-                                        <p id="review-requirements" class="font-medium text-gray-800 italic">No special requirements provided.</p>
-                                    </div>
-                                </div>
-
-                                <div class="form-section border-2 border-yellow-200 bg-yellow-50">
-                                    <h3 class="text-lg font-semibold mb-4 text-yellow-800">
-                                        <i class="fas fa-info-circle mr-2 text-yellow-600"></i>Booking Information
-                                    </h3>
-                                    <p class="text-sm mb-4 text-gray-700">
-                                        Once you submit your booking request, our team will review the details and send you a quote in working day.
-                                        After you approve the quote, we'll process your payment and confirm your booking.
-                                    </p>
-                                    <div class="flex items-start mb-4">
-                                        <input type="checkbox" id="terms" name="terms" class="mt-1 w-4 h-4 text-red-600" required>
-                                        <label for="terms" class="ml-3 text-sm text-gray-700">
-                                            I agree to the <a href="#" class="text-red-600 hover:underline font-medium">terms and conditions</a> and consent to the processing of my personal data for the purpose of this booking.
-                                        </label>
-                                    </div>
-                                    <p id="terms-error" class="error-message text-red-600 text-xs mb-4 hidden">Please agree to the terms and conditions</p>
-                                </div>
-
-                                <div class="pt-6 flex justify-between">
-                                    <button type="button" id="prev-step-3" class="border-2 border-gray-300 bg-white text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 flex items-center">
-                                        <i class="fas fa-arrow-left mr-2"></i> Back
-                                    </button>
-                                    <button type="submit" id="submit-booking" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                                        <i class="fas fa-paper-plane mr-2"></i> Submit Booking
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Success Message -->
-                    <div id="booking-success" class="hidden">
-                        <div class="text-center py-16 px-8">
-                            <div class="inline-block bg-green-100 p-8 rounded-full mb-8">
-                                <i class="fas fa-check-circle text-green-600 text-7xl"></i>
+                    <button type="button" class="add-location-btn" onclick="addLocation()">+ Add Additional Stop</button>
+
+                    <div class="journey-type-section">
+                        <div class="journey-type-label">Journey Type</div>
+                        <div class="journey-type-buttons">
+                            <div class="radio-option" onclick="selectRadio(this, 'one_way')">
+                                <input type="radio" id="one_way" name="journey_type" value="One Way" required>
+                                <label for="one_way">One Way</label>
                             </div>
-                            <h2 class="text-4xl font-bold mb-6 text-gray-800">Booking Request Submitted!</h2>
-                            <p class="text-xl mb-8 text-gray-600">Thank you for choosing Nawab Travel. Your booking request has been successfully submitted.</p>
-                            
-                            <div class="bg-gray-100 p-8 rounded-lg max-w-md mx-auto mb-8">
-                                <h3 class="font-semibold text-lg mb-6 text-gray-800">What happens next?</h3>
-                                <ul class="text-left space-y-4">
-                                    <li class="flex items-start">
-                                        <i class="fas fa-envelope text-red-600 mt-1 mr-3 text-lg"></i>
-                                        <span class="text-gray-700">You will receive a confirmation email shortly</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-clipboard-check text-red-600 mt-1 mr-3 text-lg"></i>
-                                        <span class="text-gray-700">Our team will review your request and send you a quote in working day</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <i class="fas fa-credit-card text-red-600 mt-1 mr-3 text-lg"></i>
-                                        <span class="text-gray-700">Once you approve the quote, we'll process your payment and confirm your booking</span>
-                                    </li>
-                                </ul>
+                            <div class="radio-option" onclick="selectRadio(this, 'return')">
+                                <input type="radio" id="return" name="journey_type" value="Return Journey" required>
+                                <label for="return">Return Journey</label>
                             </div>
-                            
-                            <div class="mb-8 p-6 bg-white rounded-lg border-2 border-red-600">
-                                <p class="font-medium mb-2 text-gray-600">Booking Reference</p>
-                                <p class="text-2xl font-bold text-red-600" id="booking-reference">NWT-2025-001234</p>
-                            </div><div class="flex justify-center space-x-4">
-                <button type="button" class="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all duration-300 flex items-center shadow-lg">
-                    <i class="fas fa-home mr-2"></i> Back to Home
-                </button>
-                <button type="button" class="border-2 border-red-600 text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-all duration-300 flex items-center">
-                    <i class="fas fa-plus mr-2"></i> Book Another Journey
-                </button>
+                        </div>
+                    </div>
+
+                    <div class="journey-controls">
+                        <div class="form-group">
+                            <label for="pickup_date">Pickup Date</label>
+                            <input type="date" id="pickup_date" name="pickup_date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pickup_time">Pickup Time</label>
+                            <input type="time" id="pickup_time" name="pickup_time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="return_date">Return Date</label>
+                            <input type="date" id="return_date" name="return_date">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="return_time">Return Time</label>
+                            <input type="time" id="return_time" name="return_time">
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="form-card">
+                <div class="card-header">Journey Details</div>
+                <div class="card-body">
+                    <div class="form-grid grid-2">
+                        <div class="form-group">
+                            <label for="passengers">How many travelling?</label>
+                            <input type="number" id="passengers" name="passengers" min="1" max="20" placeholder="Number of Passengers" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vehicle_type">Vehicle Type</label>
+                            <select id="vehicle_type" name="vehicle_type" required>
+                                <option value="">Please Select</option>
+                                <option value="2 Seater">2 Seater</option>
+                                <option value="4 Seater">4 Seater</option>
+                                <option value="6 Seater">6 Seater</option>
+                                <option value="8 Seater">8 Seater</option>
+                                <option value="10 Seater">10 Seater</option>
+                                <option value="12 Seater">12 Seater</option>
+                                <option value="14 Seater">14 Seater</option>
+                                <option value="16 Seater">16 Seater</option>
+                                <option value="16+ Seater">16+ Seater</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid grid-2">
+                        <div class="form-group">
+                            <label for="luggage">Luggage Requirements</label>
+                            <select id="luggage" name="luggage">
+                                <option value="">Choose your luggage requirements</option>
+                                <option value="Light (1-2 bags)">Light (1-2 bags)</option>
+                                <option value="Medium (3-4 bags)">Medium (3-4 bags)</option>
+                                <option value="Heavy (5+ bags)">Heavy (5+ bags)</option>
+                                <option value="Wheelchair accessible">Wheelchair accessible</option>
+                                <option value="Child seats required">Child seats required</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="special_requirements">Questions or Special Requirements</label>
+                            <textarea id="special_requirements" name="special_requirements" placeholder="Please provide any additional information about your journey here"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="card-header">Contact Details</div>
+                <div class="card-body">
+                    <div class="form-grid grid-2">
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" placeholder="Enter your surname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid grid-2">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact_number">Contact Number</label>
+                            <input type="tel" id="contact_number" name="contact_number" placeholder="Provide a contact number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid grid-2">
+                        <div class="form-group">
+                            <label for="company_name">Company Name</label>
+                            <input type="text" id="company_name" name="company_name" placeholder="Provide your company name (optional)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn"><strong>Get Quote</strong></button>
+        </form>
     </div>
-</div>
-</section>
 
-<script>
-// Global variables
-let pickupLocationCount = 1;
-let dropoffLocationCount = 1;
-let currentStep = 1;
+    <script>
+        let locationCounter = 1;
 
-// Sample addresses for autocomplete
-const sampleAddresses = [
-    "123 Main Street, London, UK",
-    "456 High Street, Manchester, UK",
-    "789 Victoria Road, Birmingham, UK",
-    "321 Park Lane, Liverpool, UK",
-    "654 Oxford Street, London, UK",
-    "987 King Street, Bristol, UK",
-    "147 Church Lane, Leeds, UK",
-    "258 Market Square, Sheffield, UK",
-    "369 Castle Road, Nottingham, UK",
-    "741 Station Road, Newcastle, UK"
-];
+        // Comprehensive Coventry locations database
+        const coventryLocations = [
+            // City Centre
+            "Coventry City Centre", "Broadgate", "Cathedral Quarter", "Coventry Cross", "Hertford Street", "Trinity Street", "Upper Precinct", "Lower Precinct",
+            
+            // Transport Hubs
+            "Coventry Railway Station", "Coventry Bus Station", "Pool Meadow Bus Station",
+            
+            // Shopping Areas
+            "West Orchards Shopping Centre", "Cathedral Lanes Shopping Centre", "Coventry Market", "Fargo Village", "SkyDome",
+            
+            // Districts & Areas
+            "Allesley", "Allesley Green", "Allesley Park", "Ansty", "Arbury", "Baginton", "Ball Hill", "Barkers Butts", "Beechwood", "Bell Green", "Binley", "Binley Woods", "Blackdown", "Brownshill Green", "Bulkington", "Burbage", "Canley", "Chapelfields", "Cheylesmore", "Corley", "Corley Ash", "Coundon", "Coventry Airport", "Dunchurch", "Earlsdon", "Exhall", "Finham", "Foleshill", "Gibbet Hill", "Green Lane", "Henley Green", "Hillfields", "Holbrooks", "Keresley", "Keresley Green", "Longford", "Manor Park", "Meriden", "Middle Stoke", "Monks Kirby", "Nauls Mill", "New Bilton", "Northfields", "Pickford", "Potters Green", "Radford", "Rugby", "Spon End", "Stivichall", "Stretton-on-Dunsmore", "Tile Hill", "Tollbar End", "Walsgrave", "Warwick", "Westwood", "Whitley", "Willenhall", "Wolvey", "Wood End", "Wyken",
+            
+            // Educational Institutions
+            "University of Warwick", "Coventry University", "Warwick Medical School", "Warwick Business School", "Coventry University Technology Park",
+            
+            // Hospitals & Healthcare
+            "University Hospital Coventry", "Walsgrave Hospital", "Nuffield Health Warwick Hospital", "Coventry & Warwickshire Hospital",
+            
+            // Business Parks
+            "Ansty Business Park", "Coventry Business Park", "Siskin Drive Business Park", "Torque Business Park", "Warwick Technology Park",
+            
+            // Hotels
+            "Doubletree by Hilton Coventry", "Holiday Inn Coventry", "Premier Inn Coventry", "Travelodge Coventry", "Ramada Coventry",
+            
+            // Leisure & Entertainment
+            "Ricoh Arena", "Coventry Building Society Arena", "War Memorial Park", "Coombe Abbey Country Park", "Coventry Transport Museum", "Herbert Art Gallery", "Belgrade Theatre", "Coventry Cathedral", "St. Michael's Cathedral",
+            
+            // Postcodes
+            "CV1", "CV2", "CV3", "CV4", "CV5", "CV6", "CV7", "CV8", "CV9", "CV10", "CV11", "CV12", "CV13", "CV21", "CV22", "CV23", "CV31", "CV32", "CV33", "CV34", "CV35", "CV36", "CV37", "CV47",
+            
+            // Nearby Areas
+            "Warwick", "Leamington Spa", "Kenilworth", "Rugby", "Nuneaton", "Bedworth", "Solihull", "Birmingham", "Stratford-upon-Avon"
+        ];
 
-// Initialize the form
-document.addEventListener('DOMContentLoaded', function() {
-    initializeForm();
-    setupEventListeners();
-    setMinDate();
-});
+        function setupLocationAutocomplete(inputId, suggestionsId) {
+            const input = document.getElementById(inputId);
+            const suggestions = document.getElementById(suggestionsId);
+            
+            if (!input || !suggestions) return;
 
-function initializeForm() {
-    // Set booking reference
-    document.getElementById('booking-reference').textContent = 'NWT-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 900000 + 100000);
-    
-    // Initialize address autocomplete for existing inputs
-    setupAddressAutocomplete();
-    
-    // Set up journey type change handler
-    setupJourneyTypeHandler();
-}
+            input.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                if (query.length < 1) {
+                    suggestions.classList.remove('show');
+                    return;
+                }
 
-function setupEventListeners() {
-    // Step navigation
-    document.getElementById('next-step-1').addEventListener('click', () => nextStep(1));
-    document.getElementById('next-step-2').addEventListener('click', () => nextStep(2));
-    document.getElementById('prev-step-2').addEventListener('click', () => prevStep(2));
-    document.getElementById('prev-step-3').addEventListener('click', () => prevStep(3));
-    
-    // Add location buttons
-    document.getElementById('add-pickup').addEventListener('click', () => addLocation('pickup'));
-    document.getElementById('add-dropoff').addEventListener('click', () => addLocation('dropoff'));
-    
-    // Form submission
-    document.getElementById('submit-booking').addEventListener('click', submitBooking);
-    
-    // Real-time validation
-    setupRealTimeValidation();
-}
+                const filtered = coventryLocations.filter(location => 
+                    location.toLowerCase().includes(query)
+                ).slice(0, 8); // Limit to 8 suggestions
 
-function setMinDate() {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    
-    const minDate = tomorrow.toISOString().split('T')[0];
-    document.getElementById('pickup-date').min = minDate;
-    document.getElementById('return-date').min = minDate;
-}
-
-function setupAddressAutocomplete() {
-    const addressInputs = document.querySelectorAll('.pickup-input, .dropoff-input');
-    addressInputs.forEach(input => {
-        setupSingleAddressAutocomplete(input);
-    });
-}
-
-function setupSingleAddressAutocomplete(input) {
-    const dropdown = input.parentElement.querySelector('.address-dropdown');
-    
-    input.addEventListener('input', function() {
-        const query = this.value.toLowerCase();
-        if (query.length < 2) {
-            dropdown.classList.add('hidden');
-            return;
-        }
-        
-        const filteredAddresses = sampleAddresses.filter(addr => 
-            addr.toLowerCase().includes(query)
-        );
-        
-        if (filteredAddresses.length > 0) {
-            dropdown.innerHTML = '';
-            filteredAddresses.forEach(addr => {
-                const option = document.createElement('div');
-                option.className = 'address-option';
-                option.textContent = addr;
-                option.addEventListener('click', () => {
-                    input.value = addr;
-                    dropdown.classList.add('hidden');
-                    clearError(input);
-                });
-                dropdown.appendChild(option);
+                if (filtered.length > 0) {
+                    suggestions.innerHTML = filtered.map(location => 
+                        `<div class="location-suggestion" onclick="selectLocation('${inputId}', '${location}')">${location}</div>`
+                    ).join('');
+                    suggestions.classList.add('show');
+                } else {
+                    suggestions.classList.remove('show');
+                }
             });
-            dropdown.classList.remove('hidden');
-        } else {
-            dropdown.classList.add('hidden');
+
+            input.addEventListener('blur', function() {
+                setTimeout(() => {
+                    suggestions.classList.remove('show');
+                }, 200);
+            });
+
+            input.addEventListener('focus', function() {
+                if (this.value.length >= 1) {
+                    const event = new Event('input');
+                    this.dispatchEvent(event);
+                }
+            });
         }
-    });
-    
-    input.addEventListener('blur', function() {
-        setTimeout(() => {
-            dropdown.classList.add('hidden');
-        }, 200);
-    });
-}
 
-function setupJourneyTypeHandler() {
-    const journeyTypeSelect = document.getElementById('journey-type');
-    const returnSection = document.getElementById('return-journey');
-    const hourlySection = document.getElementById('hourly-hire');
-    
-    journeyTypeSelect.addEventListener('change', function() {
-        const selectedType = this.value;
-        
-        // Hide all conditional sections
-        returnSection.classList.add('hidden');
-        hourlySection.classList.add('hidden');
-        
-        // Show relevant section
-        if (selectedType === 'return') {
-            returnSection.classList.remove('hidden');
-            document.getElementById('return-date').required = true;
-            document.getElementById('return-time').required = true;
-            document.getElementById('hours').required = false;
-        } else if (selectedType === 'hourly' || selectedType === 'daily') {
-            hourlySection.classList.remove('hidden');
-            document.getElementById('hours').required = true;
-            document.getElementById('return-date').required = false;
-            document.getElementById('return-time').required = false;
-        } else {
-            document.getElementById('return-date').required = false;
-            document.getElementById('return-time').required = false;
-            document.getElementById('hours').required = false;
+        function selectLocation(inputId, location) {
+            document.getElementById(inputId).value = location;
+            document.getElementById(inputId.replace('pickup_location_', 'pickup_suggestions_').replace('destination_', 'destination_suggestions_')).classList.remove('show');
         }
-    });
-}
 
-function addLocation(type) {
-    const container = document.getElementById(`${type}-locations`);
-    const count = type === 'pickup' ? ++pickupLocationCount : ++dropoffLocationCount;
-    
-    const locationItem = document.createElement('div');
-    locationItem.className = 'location-item fade-in';
-    locationItem.setAttribute('data-location-type', type);
-    locationItem.setAttribute('data-location-index', count - 1);
-    locationItem.innerHTML = `
-    <div class="space-y-4" style="transition: all 0.3s ease; margin-bottom: 20px;">
-        <div class="input-group relative" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); padding: 20px; border-radius: 12px; border: 2px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='#007bff'; this.style.boxShadow='0 4px 16px rgba(0,123,255,0.2)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
-            <label class="block text-sm font-medium mb-2 text-gray-700" style="font-weight: 600; color: #495057; display: flex; align-items: center;">
-                <span style="width: 8px; height: 8px; background: linear-gradient(45deg, #007bff, #6610f2); border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
-                ${type.charAt(0).toUpperCase() + type.slice(1)} Location ${count}*
-            </label>
-            <div class="relative" style="position: relative;">
-                <input type="text" name="${type}-${count - 1}" required 
-                       class="w-full ${type}-input" 
-                       style="width: 100%; padding: 12px 50px 12px 16px; border: 2px solid #ced4da; border-radius: 8px; font-size: 14px; transition: all 0.3s ease; background: white;" 
-                       placeholder="🏠 Start typing address..." 
-                       onfocus="this.style.borderColor='#007bff'; this.style.boxShadow='0 0 0 3px rgba(0,123,255,0.1)'" 
-                       onblur="this.style.borderColor='#ced4da'; this.style.boxShadow='none'" />
-                <button type="button" class="remove-location" 
-                        style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: linear-gradient(135deg, #dc3545, #c82333); color: white; border: none; border-radius: 50%; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(220,53,69,0.3); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;"
-                        onmouseover="this.style.background='linear-gradient(135deg, #c82333, #bd2130)'; this.style.transform='translateY(-50%) scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(220,53,69,0.4)'"
-                        onmouseout="this.style.background='linear-gradient(135deg, #dc3545, #c82333)'; this.style.transform='translateY(-50%) scale(1)'; this.style.boxShadow='0 2px 8px rgba(220,53,69,0.3)'"
-                        onmousedown="this.style.transform='translateY(-50%) scale(0.95)'"
-                        onmouseup="this.style.transform='translateY(-50%) scale(1.1)'">
-                    ×
-                </button>
-            </div>
-            <div class="address-dropdown hidden" style="position: absolute; z-index: 1000; width: 100%; background: white; border: 2px solid #e9ecef; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); margin-top: 4px; max-height: 200px; overflow-y: auto;"></div>
-            <p class="error-message text-red-600 text-xs mt-1 hidden" style="color: #dc3545; font-size: 12px; margin-top: 8px; display: none;">
-                Please enter ${type} location
-            </p>
-        </div>
-    </div>
-    
-    <style>
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        function addLocation() {
+            locationCounter++;
+            const container = document.getElementById('locations-container');
+            
+            const newLocationGroup = document.createElement('div');
+            newLocationGroup.className = 'location-group new';
+            newLocationGroup.innerHTML = `
+                <div class="location-header">
+                    <span class="location-title">Additional Stop ${locationCounter - 1}</span>
+                    <button type="button" class="remove-btn" onclick="removeLocation(this)">Remove</button>
+                </div>
+                <div class="form-grid grid-2">
+                    <div class="form-group">
+                        <label for="pickup_location_${locationCounter}">Pickup Location</label>
+                        <div class="location-input-wrapper">
+                            <input type="text" id="pickup_location_${locationCounter}" name="pickup_location_${locationCounter}" placeholder="Enter a town/city/postcode">
+                            <div class="location-suggestions" id="pickup_suggestions_${locationCounter}"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="destination_${locationCounter}">Destination</label>
+                        <div class="location-input-wrapper">
+                            <input type="text" id="destination_${locationCounter}" name="destination_${locationCounter}" placeholder="Enter a town/city/postcode">
+                            <div class="location-suggestions" id="destination_suggestions_${locationCounter}"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(newLocationGroup);
+            
+            // Setup autocomplete for new inputs
+            setupLocationAutocomplete(`pickup_location_${locationCounter}`, `pickup_suggestions_${locationCounter}`);
+            setupLocationAutocomplete(`destination_${locationCounter}`, `destination_suggestions_${locationCounter}`);
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                newLocationGroup.classList.remove('new');
+            }, 500);
         }
-    </style>
-`;
-    
-    container.appendChild(locationItem);
-    const removeButton = locationItem.querySelector('.remove-location');
-if (removeButton) {
-    removeButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        removeLocation(this);
-    });
-}
-    
-    // Setup autocomplete for the new input
-    const newInput = locationItem.querySelector(`.${type}-input`);
-    setupSingleAddressAutocomplete(newInput);
-    
-    // Focus on the new input
-    newInput.focus();
-    
-    // Add animation
-    setTimeout(() => {
-        locationItem.style.transform = 'translateY(0)';
-        locationItem.style.opacity = '1';
-    }, 10);
-}
 
-function removeLocation(button) {
-    const locationItem = button.closest('.location-item');
-    const container = locationItem.parentElement;
-    const type = locationItem.getAttribute('data-location-type');
-    
-    // Don't allow removal if it's the only location
-    const remainingItems = container.querySelectorAll('.location-item');
-    if (remainingItems.length <= 1) {
-        showNotification('You must have at least one ' + type + ' location', 'warning');
-        return;
-    }
-    
-    // Add fade out animation
-    locationItem.style.transform = 'translateY(-20px)';
-    locationItem.style.opacity = '0';
-    
-    setTimeout(() => {
-        locationItem.remove();
-        updateLocationNumbers(type);
-    }, 300);
-}
+        function removeLocation(button) {
+            const locationGroup = button.closest('.location-group');
+            locationGroup.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => {
+                locationGroup.remove();
+            }, 300);
+        }
 
-function updateLocationNumbers(type) {
-    const container = document.getElementById(`${type}-locations`);
-    const items = container.querySelectorAll('.location-item');
-    
-    items.forEach((item, index) => {
-        const label = item.querySelector('label');
-        const input = item.querySelector('input');
-        
-        label.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Location ${index + 1}*`;
-        input.name = `${type}-${index}`;
-        item.setAttribute('data-location-index', index);
-    });
-    
-    if (type === 'pickup') {
-        pickupLocationCount = items.length;
-    } else {
-        dropoffLocationCount = items.length;
-    }
-}
+        function selectRadio(element, radioId) {
+            // Remove selected class from all radio options
+            document.querySelectorAll('.radio-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Select the radio button
+            document.getElementById(radioId).checked = true;
+            
+            // Toggle return date/time requirements
+            const returnDate = document.getElementById('return_date');
+            const returnTime = document.getElementById('return_time');
+            
+            if (radioId === 'return') {
+                returnDate.required = true;
+                returnTime.required = true;
+            } else {
+                returnDate.required = false;
+                returnTime.required = false;
+            }
+        }
 
-function setupRealTimeValidation() {
-    const inputs = document.querySelectorAll('input[required], select[required]');
-    
-    inputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            validateField(this);
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('pickup_date').min = today;
+        document.getElementById('return_date').min = today;
+
+        // Auto-set return date when pickup date is selected
+        document.getElementById('pickup_date').addEventListener('change', function() {
+            const pickupDate = new Date(this.value);
+            const returnDateInput = document.getElementById('return_date');
+            if (!returnDateInput.value) {
+                returnDateInput.value = this.value;
+            }
+            returnDateInput.min = this.value;
         });
-        
-        input.addEventListener('input', function() {
-            if (this.classList.contains('error')) {
-                clearError(this);
+
+        // Initialize autocomplete for initial inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            setupLocationAutocomplete('pickup_location_1', 'pickup_suggestions_1');
+            setupLocationAutocomplete('destination_1', 'destination_suggestions_1');
+        });
+
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.location-input-wrapper')) {
+                document.querySelectorAll('.location-suggestions').forEach(suggestions => {
+                    suggestions.classList.remove('show');
+                });
             }
         });
-    });
-    
-    // Email validation
-    document.getElementById('email').addEventListener('blur', function() {
-        validateEmail(this);
-    });
-    
-    // Phone validation
-    document.getElementById('phone').addEventListener('blur', function() {
-        validatePhone(this);
-    });
-    
-    // Date validation
-    document.getElementById('pickup-date').addEventListener('change', function() {
-        validateDate(this);
-        updateReturnDateMin();
-    });
-    
-    document.getElementById('return-date').addEventListener('change', function() {
-        validateReturnDate(this);
-    });
-}
-
-function validateField(field) {
-    if (!field.value.trim()) {
-        showError(field, field.getAttribute('data-error') || 'This field is required');
-        return false;
-    }
-    clearError(field);
-    return true;
-}
-
-function validateEmail(field) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(field.value)) {
-        showError(field, 'Please enter a valid email address');
-        return false;
-    }
-    clearError(field);
-    return true;
-}
-
-function validatePhone(field) {
-    const phoneRegex = /^(?:(?:\+44)|(?:0))(?:\d{10}|\d{11})$/;
-    if (!phoneRegex.test(field.value.replace(/\s/g, ''))) {
-        showError(field, 'Please enter a valid UK phone number');
-        return false;
-    }
-    clearError(field);
-    return true;
-}
-
-function validateDate(field) {
-    const selectedDate = new Date(field.value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    if (selectedDate <= today) {
-        showError(field, 'Please select a future date');
-        return false;
-    }
-    clearError(field);
-    return true;
-}
-
-function validateReturnDate(field) {
-    const returnDate = new Date(field.value);
-    const pickupDate = new Date(document.getElementById('pickup-date').value);
-    
-    if (returnDate <= pickupDate) {
-        showError(field, 'Return date must be after pickup date');
-        return false;
-    }
-    clearError(field);
-    return true;
-}
-
-function updateReturnDateMin() {
-    const pickupDate = document.getElementById('pickup-date').value;
-    if (pickupDate) {
-        const minReturnDate = new Date(pickupDate);
-        minReturnDate.setDate(minReturnDate.getDate() + 1);
-        document.getElementById('return-date').min = minReturnDate.toISOString().split('T')[0];
-    }
-}
-
-function showError(field, message) {
-    field.classList.add('error', 'border-red-500');
-    const errorElement = field.parentElement.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.textContent = message;
-        errorElement.classList.remove('hidden');
-    }
-}
-
-function clearError(field) {
-    field.classList.remove('error', 'border-red-500');
-    const errorElement = field.parentElement.querySelector('.error-message');
-    if (errorElement) {
-        errorElement.classList.add('hidden');
-    }
-}
-
-function nextStep(step) {
-    if (step === 1) {
-        if (validateStep1()) {
-            showStep(2);
-        }
-    } else if (step === 2) {
-        if (validateStep2()) {
-            populateReview();
-            showStep(3);
-        }
-    }
-}
-
-function prevStep(step) {
-    showStep(step - 1);
-}
-
-function showStep(stepNumber) {
-    // Hide all steps
-    for (let i = 1; i <= 3; i++) {
-        document.getElementById(`step-${i}`).classList.add('hidden');
-    }
-    
-    // Show current step with animation
-    const currentStepElement = document.getElementById(`step-${stepNumber}`);
-    currentStepElement.classList.remove('hidden');
-    currentStepElement.classList.add('fade-in');
-    
-    currentStep = stepNumber;
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function validateStep1() {
-    const requiredFields = [
-        'first-name',
-        'last-name',
-        'email',
-        'phone'
-    ];
-    
-    let isValid = true;
-    
-    requiredFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (!validateField(field)) {
-            isValid = false;
-        }
-    });
-    
-    // Special validation for email and phone
-    const emailField = document.getElementById('email');
-    const phoneField = document.getElementById('phone');
-    
-    if (emailField.value && !validateEmail(emailField)) {
-        isValid = false;
-    }
-    
-    if (phoneField.value && !validatePhone(phoneField)) {
-        isValid = false;
-    }
-    
-    if (!isValid) {
-        showNotification('Please fill in all required fields correctly', 'error');
-    }
-    
-    return isValid;
-}
-
-function validateStep2() {
-    const requiredFields = [
-        'journey-type',
-        'passengers',
-        'pickup-date',
-        'pickup-time'
-    ];
-    
-    let isValid = true;
-    
-    requiredFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (!validateField(field)) {
-            isValid = false;
-        }
-    });
-    
-    // Validate location inputs
-    const pickupInputs = document.querySelectorAll('.pickup-input');
-    const dropoffInputs = document.querySelectorAll('.dropoff-input');
-    
-    pickupInputs.forEach(input => {
-        if (!validateField(input)) {
-            isValid = false;
-        }
-    });
-    
-    dropoffInputs.forEach(input => {
-        if (!validateField(input)) {
-            isValid = false;
-        }
-    });
-    
-    // Validate conditional fields
-    const journeyType = document.getElementById('journey-type').value;
-    if (journeyType === 'return') {
-        if (!validateField(document.getElementById('return-date')) || 
-            !validateField(document.getElementById('return-time'))) {
-            isValid = false;
-        }
-    } else if (journeyType === 'hourly' || journeyType === 'daily') {
-        if (!validateField(document.getElementById('hours'))) {
-            isValid = false;
-        }
-    }
-    
-    // Date validation
-    if (!validateDate(document.getElementById('pickup-date'))) {
-        isValid = false;
-    }
-    
-    if (journeyType === 'return' && document.getElementById('return-date').value) {
-        if (!validateReturnDate(document.getElementById('return-date'))) {
-            isValid = false;
-        }
-    }
-    
-    if (!isValid) {
-        showNotification('Please fill in all required fields correctly', 'error');
-    }
-    
-    return isValid;
-}
-
-function populateReview() {
-    // Personal details
-    document.getElementById('review-name').textContent = `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
-    document.getElementById('review-email').textContent = document.getElementById('email').value;
-    document.getElementById('review-phone').textContent = document.getElementById('phone').value;
-    
-    // Journey details
-    document.getElementById('review-journey-type').textContent = document.getElementById('journey-type').selectedOptions[0].text;
-    document.getElementById('review-passengers').textContent = document.getElementById('passengers').selectedOptions[0].text;
-    
-    // Locations
-    const pickupLocations = Array.from(document.querySelectorAll('.pickup-input')).map(input => input.value);
-    const dropoffLocations = Array.from(document.querySelectorAll('.dropoff-input')).map(input => input.value);
-    
-    document.getElementById('review-pickup-locations').innerHTML = pickupLocations.map((loc, index) => 
-        `<p class="mb-1">${index + 1}. ${loc}</p>`
-    ).join('');
-    
-    document.getElementById('review-dropoff-locations').innerHTML = dropoffLocations.map((loc, index) => 
-        `<p class="mb-1">${index + 1}. ${loc}</p>`
-    ).join('');
-    
-    // Date and time
-    const pickupDate = new Date(document.getElementById('pickup-date').value);
-    const pickupTime = document.getElementById('pickup-time').value;
-    document.getElementById('review-pickup-datetime').textContent = 
-        `${pickupDate.toLocaleDateString('en-GB')} at ${pickupTime}`;
-    
-    // Conditional fields
-    const journeyType = document.getElementById('journey-type').value;
-    const returnContainer = document.getElementById('review-return-container');
-    const hoursContainer = document.getElementById('review-hours-container');
-    
-    returnContainer.classList.add('hidden');
-    hoursContainer.classList.add('hidden');
-    
-    if (journeyType === 'return') {
-        const returnDate = new Date(document.getElementById('return-date').value);
-        const returnTime = document.getElementById('return-time').value;
-        document.getElementById('review-return-datetime').textContent = 
-            `${returnDate.toLocaleDateString('en-GB')} at ${returnTime}`;
-        returnContainer.classList.remove('hidden');
-    } else if (journeyType === 'hourly' || journeyType === 'daily') {
-        document.getElementById('review-hours').textContent = document.getElementById('hours').selectedOptions[0].text;
-        hoursContainer.classList.remove('hidden');
-    }
-    
-    // Special requirements
-    const requirements = document.getElementById('special-requirements').value;
-    document.getElementById('review-requirements').textContent = 
-        requirements || 'No special requirements provided.';
-}
-
-function submitBooking() {
-    const termsCheckbox = document.getElementById('terms');
-    const termsError = document.getElementById('terms-error');
-    
-    if (!termsCheckbox.checked) {
-        termsError.classList.remove('hidden');
-        termsCheckbox.focus();
-        return;
-    }
-    
-    termsError.classList.add('hidden');
-    
-    // Show loading state
-    const submitButton = document.getElementById('submit-booking');
-    const originalText = submitButton.innerHTML;
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
-    submitButton.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-        // Hide form and show success message
-        document.getElementById('step-3').classList.add('hidden');
-        document.getElementById('booking-success').classList.remove('hidden');
-        document.getElementById('booking-success').classList.add('fade-in');
-        
-        // Reset button
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-        
-        // Show success notification
-        showNotification('Booking submitted successfully!', 'success');
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 2000);
-}
-
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `fixed top-4 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 ${
-        type === 'success' ? 'bg-green-500 text-white' :
-        type === 'error' ? 'bg-red-500 text-white' :
-        type === 'warning' ? 'bg-yellow-500 text-white' :
-        'bg-blue-500 text-white'
-    }`;
-    
-    notification.innerHTML = `
-        <div class="flex items-center">
-            <i class="fas ${
-                type === 'success' ? 'fa-check-circle' :
-                type === 'error' ? 'fa-exclamation-circle' :
-                type === 'warning' ? 'fa-exclamation-triangle' :
-                'fa-info-circle'
-            } mr-2"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Show notification
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Hide notification after 5 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-
-// Add some CSS for better animations and interactions
-const additionalStyles = `
-    <style>
-        .error {
-            animation: shake 0.5s ease-in-out;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-        
-        .location-item {
-            transition: all 0.3s ease;
-        }
-        
-        .location-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .remove-location:hover {
-            background: #dc2626;
-            transform: scale(1.1);
-        }
-        
-        .add-location:hover {
-            background: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-section {
-            transition: all 0.3s ease;
-        }
-        
-        .form-section:hover {
-            border-color: #d1d5db;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            transform: translateY(-2px);
-        }
-        
-        .step-header {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .step-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .step-header:hover::before {
-            left: 100%;
-        }
-    </style>
-    
-`;
-
-document.head.insertAdjacentHTML('beforeend', additionalStyles);
-</script>
-</div>
-</section>
+    </script>
+</body>
+</html>
   <!-- Additional Information -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-6">
