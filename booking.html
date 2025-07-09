@@ -576,7 +576,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 </html>
     <style>
-        <!DOCTYPE html>
+       <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1055,41 +1055,12 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="subtitle">Fill out the form below with details of your journey, and we'll be in touch soon with more information.</p>
         </div>
 
-       <form action="https://formsubmit.co/intellex6@gmail.com" method="POST" onsubmit="showNotification(event)">
-    <!-- Hidden fields for FormSubmit -->
-    <input type="hidden" name="_subject" value="New Travel Booking Request">
-    <input type="hidden" name="_next" value="https://pehchan723.github.io/nawabtravelweb/">
-    <input type="hidden" name="_captcha" value="false">
-         </form>
+        <form action="https://formsubmit.co/intellex6@gmail.com" method="POST">
+            <!-- Hidden fields for FormSubmit -->
+            <input type="hidden" name="_subject" value="New Travel Booking Request">
+            <input type="hidden" name="_next" value="https://your-website.com/thank-you">
+            <input type="hidden" name="_captcha" value="false">
 
-<script>
-function showNotification(event) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background-color: #28a745;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        z-index: 1000;
-        font-family: Arial, sans-serif;
-    `;
-    notification.textContent = 'Form submitted successfully!';
-    
-    // Add notification to page
-    document.body.appendChild(notification);
-    
-    // Remove notification after 3 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-        }
-    }, 3000);
-}</script>
             <div class="form-card">
                 <div class="card-header">Travel Dates</div>
                 <div class="card-body">
@@ -1431,7 +1402,7 @@ function showNotification(event) {
     </script>
 </body>
 </html>
-  <!-- Additional Information -->
+<!-- Additional Information -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
