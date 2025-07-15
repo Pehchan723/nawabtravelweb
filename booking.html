@@ -1155,15 +1155,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     <div class="form-grid grid-2">
                         <div class="form-group">
+                            <div class="form-grid grid-2">
+                        <div class="form-group">
                             <label for="luggage">Luggage Requirements</label>
-                            <select id="luggage" name="luggage">
-                                <option value="">Choose your luggage requirements</option>
-                                <option value="Light (1-2 bags)">Light (1-2 bags)</option>
-                                <option value="Medium (3-4 bags)">Medium (3-4 bags)</option>
-                                <option value="Heavy (5+ bags)">Heavy (5+ bags)</option>
-                                <option value="Wheelchair accessible">Wheelchair accessible</option>
-                                <option value="Child seats required">Child seats required</option>
-                            </select>
+                            <input type="text" id="luggage" name="luggage" placeholder="Describe your luggage requirements (e.g., 2 suitcases, wheelchair accessible, child seats needed)">
+                        </div>
+                    </div>
                         </div>
                         <div class="form-group">
                             <label for="special_requirements">Questions or Special Requirements</label>
