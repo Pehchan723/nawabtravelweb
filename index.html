@@ -968,7 +968,12 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
           <div class="md:w-2/3 p-6">
-            <form action="https://formspree.io/f/mqaqwwrn" method="POST" class="space-y-6">
+            <form action="https://formsubmit.co/intellex6@gmail.com" method="POST" class="space-y-6">
+              <input type="hidden" name="_next" value="https://pehchan723.github.io/nawabtravelweb">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_autoresponse" value="Thank you for choosing Nawab Travel! We have received your booking request and will contact you within business hours with a confirmation and price quote. For urgent assistance, please call us at 02476266666. We look forward to serving you!">
+              <input type="hidden" name="_subject" value="New Booking Request from Nawab Travel">
+              <input type="hidden" name="_captcha" value="false">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium mb-2">Full Name*</label>
@@ -1027,6 +1032,21 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </section>
+
+  <script>
+    function showSuccessMessage() {
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.remove('hidden');
+      
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+      
+      // Optional: Add a slight delay before form submission for better UX
+      setTimeout(() => {
+        // Form will submit normally after showing the message
+      }, 1000);
+    }
+  </script>
 
   <!-- Testimonials Section -->
   <section class="py-20 bg-secondary text-white">
